@@ -59,6 +59,8 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
     position:relative;
+    word-break:keep-all;
+    overflow-wrap:break-word;
   }
   header,main,footer{zoom:var(--fs-scale);}
   @media (prefers-reduced-motion: reduce){
@@ -288,20 +290,20 @@
   .gradient-border .thread-panel,.gradient-border .price-card{position:relative;z-index:1;border:none;border-radius:calc(var(--radius) - 1.5px);}
 
   .thread-panel{
-    background:rgba(255,253,248,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    background:rgba(255,253,248,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
     border-radius:var(--radius);border:1px solid var(--border);
     padding:38px 34px;box-shadow:var(--shadow);position:relative;
   }
-  .thread-panel h3{font-size:17px;margin-bottom:22px;}
-  .thread-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--border);}
+  .thread-panel h3{font-size:19px;margin-bottom:22px;color:var(--ink);}
+  .thread-item{display:flex;gap:16px;padding:18px 0;border-bottom:1px dashed var(--border);}
   .thread-item:last-child{border-bottom:none;}
   .thread-item .node{
     width:36px;height:36px;border-radius:50%;background:var(--primary-tint);color:var(--accent-deep);
     display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;
-    font-weight:600;font-size:13px;flex:none;border:1px solid var(--border);
+    font-weight:700;font-size:13px;flex:none;border:1px solid var(--border);
   }
-  .thread-item p{font-size:14px;color:var(--ink-soft);font-weight:300;}
-  .thread-item strong{display:block;font-family:'Shippori Mincho',serif;font-weight:600;font-size:15px;color:var(--ink);margin-bottom:3px;}
+  .thread-item p{font-size:16px;color:var(--ink);font-weight:400;line-height:1.7;}
+  .thread-item strong{display:block;font-family:'Shippori Mincho',serif;font-weight:600;font-size:16.5px;color:var(--ink);margin-bottom:5px;}
 
   /* ===== Connecting thread SVG divider ===== */
   .thread-divider{width:100%;height:64px;display:block;margin:-10px 0 -10px;opacity:.6;}
@@ -387,12 +389,16 @@
   .service-feat li::before{content:"◦";color:var(--accent-deep);font-weight:700;flex:none;margin-top:1px;}
 
   /* ===== Portfolio ===== */
+  .works-sub-title{font-size:19px;margin-bottom:14px;}
+  .works-sub-desc{color:var(--ink-soft);font-size:14px;font-weight:300;margin-bottom:26px;max-width:640px;}
   .portfolio-note{
     background:var(--primary-tint);border:1px dashed var(--accent);border-radius:var(--radius-sm);
     padding:15px 22px;font-size:13.5px;color:var(--accent-deep);margin-bottom:38px;display:inline-flex;gap:10px;font-weight:500;
   }
-  .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-  @media (max-width:900px){.portfolio-grid{grid-template-columns:1fr;}}
+  .coming-soon-card{opacity:.75;}
+  .coming-soon-card .portfolio-thumb{background:linear-gradient(135deg,var(--border),var(--bg-warm));color:var(--ink-soft);}
+  .portfolio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+  @media (max-width:640px){.portfolio-grid{grid-template-columns:1fr;}}
   .portfolio-card{background:var(--card);border-radius:var(--radius-sm);border:1px solid var(--border);overflow:hidden;transition:transform .5s var(--ease), box-shadow .35s ease;}
   .portfolio-card:hover{box-shadow:var(--shadow);}
   .portfolio-thumb{
@@ -414,19 +420,6 @@
   .portfolio-card:hover .cat::after{color:var(--accent-deep);transform:translateX(4px);}
   .portfolio-card h4{font-size:15.5px;margin-bottom:9px;}
   .portfolio-card p{font-size:13px;color:var(--ink-soft);font-weight:300;}
-
-  /* ===== Voice ===== */
-  .voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-  @media (max-width:900px){.voice-grid{grid-template-columns:1fr;}}
-  .voice-card{background:var(--card);border-radius:var(--radius-sm);border:1px solid var(--border);padding:30px 26px;transition:transform .5s var(--ease), box-shadow .35s ease;}
-  .voice-card:hover{box-shadow:var(--shadow);}
-  .voice-card .star-row{color:var(--accent);font-size:13px;letter-spacing:3px;margin-bottom:12px;}
-  .voice-card .quote-mark{font-family:'JetBrains Mono',monospace;font-size:34px;color:var(--accent-soft);line-height:1;margin-bottom:8px;}
-  .voice-card p{font-size:14px;color:var(--ink-soft);margin-bottom:20px;font-weight:300;}
-  .voice-who{display:flex;align-items:center;gap:11px;}
-  .voice-who .avatar{width:38px;height:38px;border-radius:50%;background:var(--primary-tint);flex:none;border:1px solid var(--border);}
-  .voice-who strong{font-size:13.5px;display:block;font-weight:600;}
-  .voice-who span{font-size:12px;color:var(--ink-soft);}
 
   /* ===== Area ===== */
   .area-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px;align-items:center;}
@@ -580,7 +573,6 @@
     <a href="#top" class="logo"><span class="mark"></span>connect<span class="blink">_</span><small>相模原市 LINE・ホームページ制作</small></a>
     <nav>
       <ul>
-        <li><a href="#worries">お悩み</a></li>
         <li><a href="#service">サービス</a></li>
         <li><a href="#works">実績</a></li>
         <li><a href="#price">料金</a></li>
@@ -595,7 +587,7 @@
         <button type="button" data-size="xl" aria-label="文字サイズ 特大">A++</button>
       </div>
       <a href="#contact" class="btn btn-outline">電話で相談</a>
-      <a href="#contact" class="btn btn-line">LINEで相談</a>
+      <a href="https://lin.ee/9giaB55" target="_blank" rel="noopener noreferrer" class="btn btn-line">LINEで相談</a>
       <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -603,7 +595,6 @@
 
 <div class="mobile-nav" id="mobileNav">
   <ul>
-    <li><a href="#worries">お悩み</a></li>
     <li><a href="#service">サービス</a></li>
     <li><a href="#works">実績</a></li>
     <li><a href="#price">料金</a></li>
@@ -611,7 +602,7 @@
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#about">connectについて</a></li>
   </ul>
-  <a href="#contact" class="btn btn-line">LINEで相談する</a>
+  <a href="https://lin.ee/9giaB55" target="_blank" rel="noopener noreferrer" class="btn btn-line">LINEで相談する</a>
 </div>
 
 <main id="top">
@@ -685,7 +676,7 @@
         <h1 id="heroTitle"><span class="line"><span>お店と、お客様の</span></span><span class="line"><span><span class="accent-word">つながり</span>を</span></span><span class="line"><span>ひとつずつ、結びます。</span></span></h1>
         <p class="lead">公式LINEアカウントの立ち上げと、伝わるホームページづくり。相模原市の小さなお店・事業者さまのそばで、集客の悩みに一人二役で伴走する制作屋、connectです。</p>
         <div class="hero-ctas">
-          <a href="#contact" class="btn btn-line">
+          <a href="https://lin.ee/9giaB55" target="_blank" rel="noopener noreferrer" class="btn btn-line">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 3.1 2.02 5.8 5.06 7.34-.22.82-.8 2.96-.92 3.42-.14.55.2.55.42.4.18-.12 2.86-1.94 4.02-2.72.46.06.94.1 1.42.1 5.52 0 10-3.94 10-8.8S17.52 2 12 2z" fill="white"/></svg>
             LINEで無料相談
           </a>
@@ -743,68 +734,7 @@
     </div>
   </div>
 
-  <!-- BENTO STATS -->
-  <section class="bento-stats">
-    <div class="wrap">
-      <div class="bento-grid">
-        <div class="bento-tile tilt-card reveal">
-          <div class="bento-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h4a2 2 0 1 1 0 4H9h4a2 2 0 1 1 0 4H9"/><path d="M9 8v8"/></svg></div>
-          <div class="bento-num">¥0</div>
-          <div class="bento-label">ご相談・お見積り</div>
-        </div>
-        <div class="bento-tile tilt-card reveal">
-          <div class="bento-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
-          <div class="bento-num" data-target="1">0</div>
-          <div class="bento-label">窓口も担当も、常に一人</div>
-        </div>
-        <div class="bento-tile tilt-card reveal">
-          <div class="bento-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11A6.5 6.5 0 0 1 12 3.5 6.5 6.5 0 0 1 18.5 10c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.2"/></svg></div>
-          <div class="bento-num" data-target="3" data-suffix="区">0区</div>
-          <div class="bento-label">相模原市 対応区 ＋近隣4市</div>
-        </div>
-        <div class="bento-tile tilt-card reveal">
-          <div class="bento-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg></div>
-          <div class="bento-num" data-target="100" data-suffix="%">0%</div>
-          <div class="bento-label">スマホ最優先の設計</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <svg class="thread-divider" viewBox="0 0 1200 64" preserveAspectRatio="none"><path d="M0 32 Q150 0 300 32 T600 32 T900 32 T1200 32" stroke="#B4903F" stroke-width="1" fill="none"/></svg>
-
-  <!-- WORRIES -->
-  <section class="section" id="worries">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>よくあるお悩み</p>
-        <h2>こんなこと、感じていませんか。</h2>
-        <p>ホームページやLINEは大切だとわかっていても、日々の営業をしながら手を付けるのは簡単ではありません。connectがよくお伺いするお悩みです。</p>
-      </div>
-      <div class="pain-grid">
-        <div class="pain-card tilt-card reveal">
-          <span class="mark">CASE 01</span>
-          <h4>ホームページを作ったが反応がない</h4>
-          <p>作って終わりになっていて、更新も問い合わせも増えないまま放置してしまっている。</p>
-        </div>
-        <div class="pain-card tilt-card reveal">
-          <span class="mark">CASE 02</span>
-          <h4>LINEの友だちが増えない</h4>
-          <p>公式LINEは開設したものの、登録の呼びかけ方や配信のやり方がわからない。</p>
-        </div>
-        <div class="pain-card tilt-card reveal">
-          <span class="mark">CASE 03</span>
-          <h4>集客の窓口がバラバラ</h4>
-          <p>SNS・チラシ・紹介と手段は色々あるが、どこにお客様を案内すればよいか整理できていない。</p>
-        </div>
-        <div class="pain-card tilt-card reveal">
-          <span class="mark">CASE 04</span>
-          <h4>相談できる相手がいない</h4>
-          <p>制作会社は敷居が高く感じる。専門用語で説明されてもよくわからず、結局そのままにしている。</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- STRENGTHS -->
   <section class="section section-alt">
@@ -889,64 +819,51 @@
     <div class="wrap">
       <div class="section-head reveal">
         <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>制作実績</p>
-        <h2>これまでの取り組み</h2>
+        <h2>これまでの実績・作成例</h2>
+        <p>ご依頼いただいた実績と、connectが業種別に作成したデモサイトの、2つに分けてご紹介します。</p>
       </div>
-      <div class="portfolio-note reveal">準備中：現在、実績ページは掲載準備中です。公開までは案件イメージとして構成のみ表示しています。</div>
-      <div class="portfolio-grid">
-        <div class="portfolio-card tilt-card reveal">
-          <div class="portfolio-thumb">SAMPLE 01</div>
-          <div class="body">
-            <span class="cat">美容室・サロン</span>
-            <h4>予約導線を整理したサロンサイト</h4>
-            <p>メニュー・スタイル写真・予約ボタンを整理し、スマホからの予約率改善を目指した構成例。</p>
-          </div>
-        </div>
-        <div class="portfolio-card tilt-card reveal">
-          <div class="portfolio-thumb">SAMPLE 02</div>
-          <div class="body">
-            <span class="cat">飲食店</span>
-            <h4>公式LINEでのクーポン運用</h4>
-            <p>来店後の再来店を目的に、LINEクーポンと定期配信を組み合わせた運用イメージ。</p>
-          </div>
-        </div>
-        <div class="portfolio-card tilt-card reveal">
-          <div class="portfolio-thumb">SAMPLE 03</div>
-          <div class="body">
-            <span class="cat">士業・専門サービス</span>
-            <h4>信頼感を伝える会社紹介サイト</h4>
-            <p>実績・プロフィール・お問い合わせを軸にした、シンプルで読みやすい構成例。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- VOICE -->
-  <section class="section" id="voice">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>お客様の声</p>
-        <h2>掲載準備中です</h2>
-        <p>ご依頼いただいたお客様の声は、今後こちらに掲載してまいります。以下は掲載イメージです。</p>
+      <div class="works-sub reveal">
+        <h3 class="works-sub-title">これまでの実績</h3>
+        <div class="portfolio-note">準備中：現在、ご依頼実績は掲載準備中です。公開までもうしばらくお待ちください。</div>
       </div>
-      <div class="voice-grid">
-        <div class="voice-card tilt-card reveal">
-          <div class="star-row" aria-hidden="true">★★★★★</div>
-          <div class="quote-mark">“</div>
-          <p>専門用語を使わずに説明してもらえたので、初めてでも安心して進められました。</p>
-          <div class="voice-who"><div class="avatar"></div><div><strong>相模原市 / 飲食店様</strong><span>掲載イメージ</span></div></div>
-        </div>
-        <div class="voice-card tilt-card reveal">
-          <div class="star-row" aria-hidden="true">★★★★★</div>
-          <div class="quote-mark">“</div>
-          <p>LINEとホームページを一緒に考えてもらえて、案内がシンプルになりました。</p>
-          <div class="voice-who"><div class="avatar"></div><div><strong>相模原市 / サロン様</strong><span>掲載イメージ</span></div></div>
-        </div>
-        <div class="voice-card tilt-card reveal">
-          <div class="star-row" aria-hidden="true">★★★★★</div>
-          <div class="quote-mark">“</div>
-          <p>相談してから完成まで、いつも同じ人が対応してくれるので話がスムーズでした。</p>
-          <div class="voice-who"><div class="avatar"></div><div><strong>相模原市 / 士業様</strong><span>掲載イメージ</span></div></div>
+
+      <div class="works-sub reveal" style="margin-top:56px;">
+        <h3 class="works-sub-title">作成例（デモサイト）</h3>
+        <p class="works-sub-desc">業種ごとの構成イメージを持っていただくため、connectが作成したデモサイトです。飲食店・美容系など、今後も業種を増やして順次公開していきます。</p>
+        <div class="portfolio-grid">
+          <div class="portfolio-card tilt-card reveal">
+            <div class="portfolio-thumb">DEMO 01</div>
+            <div class="body">
+              <span class="cat">美容室・サロン</span>
+              <h4>予約導線を整理したサロンサイト</h4>
+              <p>メニュー・スタイル写真・予約ボタンを整理し、スマホからの予約率改善を目指した構成例。</p>
+            </div>
+          </div>
+          <div class="portfolio-card tilt-card reveal">
+            <div class="portfolio-thumb">DEMO 02</div>
+            <div class="body">
+              <span class="cat">飲食店</span>
+              <h4>公式LINEでのクーポン運用</h4>
+              <p>来店後の再来店を目的に、LINEクーポンと定期配信を組み合わせた運用イメージ。</p>
+            </div>
+          </div>
+          <div class="portfolio-card tilt-card reveal">
+            <div class="portfolio-thumb">DEMO 03</div>
+            <div class="body">
+              <span class="cat">士業・専門サービス</span>
+              <h4>信頼感を伝える会社紹介サイト</h4>
+              <p>実績・プロフィール・お問い合わせを軸にした、シンプルで読みやすい構成例。</p>
+            </div>
+          </div>
+          <div class="portfolio-card tilt-card reveal coming-soon-card">
+            <div class="portfolio-thumb">COMING SOON</div>
+            <div class="body">
+              <span class="cat">準備中</span>
+              <h4>業種別デモは順次追加予定</h4>
+              <p>飲食店・美容系をはじめ、今後さまざまな業種のデモサイトをこちらに追加していきます。</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1127,14 +1044,18 @@
         <h2>まずは、LINEかお電話でお聞かせください。</h2>
         <p>「これくらい聞いてもいいのかな」ということほど、まずはお気軽にご相談ください。相模原市のお店・事業者さまのお話を、一つずつ丁寧にお伺いします。</p>
         <div class="final-ctas">
-          <a href="#" class="btn btn-line">
+          <a href="https://lin.ee/9giaB55" target="_blank" rel="noopener noreferrer" class="btn btn-line">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 3.1 2.02 5.8 5.06 7.34-.22.82-.8 2.96-.92 3.42-.14.55.2.55.42.4.18-.12 2.86-1.94 4.02-2.72.46.06.94.1 1.42.1 5.52 0 10-3.94 10-8.8S17.52 2 12 2z" fill="white"/></svg>
             公式LINEで相談する
           </a>
-          <a href="tel:0000000000" class="btn btn-accent">電話で相談する（000-0000-0000）</a>
+          <a href="tel:0804085427" class="btn btn-accent">電話で相談する（080-408-5427）</a>
         </div>
         <div class="contact-inline">
           <span>受付時間：平日 9:00〜18:00（土日・不定休対応可）</span>
+        </div>
+        <div class="line-qr-block" style="margin-top:28px;display:flex;flex-direction:column;align-items:center;gap:10px;position:relative;">
+          <img src="https://qr-official.line.me/gs/M_597ymgmn_GW.png?oat_content=qr" alt="公式LINE友だち追加QRコード" width="120" height="120" style="border-radius:12px;background:#fff;padding:8px;">
+          <span style="font-size:12.5px;color:rgba(255,255,255,.75);">QRコードを読み取って友だち追加</span>
         </div>
       </div>
     </div>
@@ -1152,7 +1073,6 @@
       <div class="footer-cols">
         <div class="footer-col">
           <h5>MENU</h5>
-          <a href="#worries">お悩み</a>
           <a href="#service">サービス</a>
           <a href="#works">実績</a>
           <a href="#price">料金</a>
@@ -1165,8 +1085,8 @@
         </div>
         <div class="footer-col">
           <h5>CONTACT</h5>
-          <span>電話：000-0000-0000</span>
-          <a href="#">公式LINEはこちら</a>
+          <span>電話：080-408-5427</span>
+          <a href="https://lin.ee/9giaB55" target="_blank" rel="noopener noreferrer">公式LINEはこちら</a>
         </div>
       </div>
     </div>
