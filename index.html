@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>connect｜相模原市の公式LINE作成代行・ホームページ制作</title>
+<meta name="description" content="相模原市を拠点に、公式LINEアカウントの開設・運用代行とホームページ制作を行う個人事業主connect。地域のお店・事業者さまに寄り添い、お客様との"つながり"をつくるお手伝いをします。">
+<meta name="theme-color" content="#0F2B3D">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230F2B3D'/%3E%3Crect x='13.5' y='13.5' width='5' height='5' fill='%23B4903F' transform='rotate(45 16 16)'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFFFF;
+    --bg-warm:#F1F4F7;
+    --card:#FFFFFF;
+    --ink:#132430;
+    --ink-soft:#59707F;
+    --primary:#0F2B3D;
+    --primary-deep:#081720;
+    --primary-tint:#E7EDF1;
+    --accent:#B4903F;
+    --accent-soft:#DCC48D;
+    --accent-deep:#8C6C2A;
+    --on-dark:#F4F7F9;
+    --on-dark-soft:rgba(244,247,249,.72);
+    --line-green:#06C755;
+    --line-green-dark:#059347;
+    --border:#DCE4E9;
+    --max:1140px;
+    --radius:14px;
+    --radius-sm:6px;
+    --shadow:0 34px 64px -32px rgba(8,20,28,0.35);
+    --ease:cubic-bezier(.16,1,.3,1);
+    --fs-scale:1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--accent-soft) transparent;scroll-padding-top:88px;}
+  html[data-fontsize="lg"]{--fs-scale:1.12;}
+  html[data-fontsize="xl"]{--fs-scale:1.24;}
+  section[id]{scroll-margin-top:88px;}
+  ::-webkit-scrollbar{width:8px;height:8px;}
+  ::-webkit-scrollbar-track{background:transparent;}
+  ::-webkit-scrollbar-thumb{background:var(--accent-soft);border-radius:10px;}
+  ::-webkit-scrollbar-thumb:hover{background:var(--accent);}
+  ::selection{background:var(--accent-soft);color:var(--primary-deep);}
+  body{
+    background-color:var(--bg);
+    background-image:
+      radial-gradient(ellipse 1000px 620px at 82% -8%, rgba(15,43,61,0.05), transparent 60%),
+      radial-gradient(ellipse 800px 500px at -5% 30%, rgba(180,144,63,0.06), transparent 55%);
+    color:var(--ink);
+    font-family:'Noto Sans JP',sans-serif;
+    font-weight:300;
+    line-height:1.95;
+    font-size:16px;
+    letter-spacing:.01em;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+  }
+  header,main,footer{zoom:var(--fs-scale);}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+    html{scroll-behavior:auto;}
+    .area-marquee-track{flex-wrap:wrap;transform:none !important;width:auto;}
+    .area-marquee{overflow:visible;-webkit-mask-image:none;mask-image:none;}
+    .area-marquee-track > span:nth-child(n+8){display:none;}
+    .tagline-track{flex-wrap:wrap;transform:none !important;width:auto;}
+    .tagline-band{overflow:visible;}
+    .tagline-track > *:nth-child(n+11){display:none;}
+  }
+  .skip-link{
+    position:fixed;top:-60px;left:16px;z-index:1000;background:var(--primary-deep);color:#fff;
+    padding:12px 22px;border-radius:8px;font-size:13.5px;font-weight:600;letter-spacing:.03em;
+    transition:top .3s var(--ease);
+  }
+  .skip-link:focus{top:16px;}
+  .a11y-toggle{
+    display:flex;align-items:center;gap:2px;border:1px solid var(--border);border-radius:100px;
+    padding:3px;background:rgba(255,253,248,.6);
+  }
+  .a11y-toggle button{
+    border:none;background:none;cursor:pointer;color:var(--ink-soft);font-family:'Noto Sans JP',sans-serif;
+    font-weight:600;border-radius:100px;padding:6px 11px;font-size:11px;letter-spacing:.02em;
+    transition:background .25s var(--ease), color .25s var(--ease);
+  }
+  .a11y-toggle button:hover{color:var(--primary);}
+  .a11y-toggle button.active{background:var(--primary);color:#fff;}
+  @media (max-width:900px){.a11y-toggle{display:none;}}
+  h1,h2,h3,h4{font-family:'Noto Sans JP',sans-serif;font-weight:800;color:var(--ink);line-height:1.45;letter-spacing:0;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-family:'Noto Sans JP',sans-serif;
+    font-size:12.5px;
+    letter-spacing:.28em;
+    color:var(--accent-deep);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+    font-weight:600;
+  }
+  .eyebrow .thread{width:30px;height:9px;flex:none;color:var(--accent);}
+  .eyebrow .thread circle{animation:pulseDot 2.4s ease-in-out infinite;transform-origin:center;}
+  @keyframes pulseDot{0%,100%{opacity:1;}50%{opacity:.3;}}
+  .section{padding:120px 0;}
+  .section-head{max-width:640px;margin-bottom:64px;}
+  .section-head h2{font-size:clamp(27px,3.4vw,38px);}
+  .section-head p{color:var(--ink-soft);margin-top:16px;font-size:15.5px;font-weight:300;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    padding:16px 32px;border-radius:100px;font-weight:600;font-size:14.5px;
+    font-family:'Noto Sans JP',sans-serif;letter-spacing:.06em;
+    cursor:pointer;border:none;transition:transform .45s var(--ease), box-shadow .35s var(--ease), background .35s ease, color .35s ease;
+    white-space:nowrap;will-change:transform;
+  }
+  .btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+  .btn-line{background:var(--line-green);color:#fff;box-shadow:0 14px 26px -12px rgba(6,199,85,.5);}
+  .btn-line:hover{background:var(--line-green-dark);}
+  .btn-outline{background:transparent;color:var(--primary);border:1.5px solid var(--primary);}
+  .btn-outline:hover{background:var(--primary);color:#fff;}
+  .hero .btn-outline{color:var(--on-dark);border-color:rgba(244,247,249,.55);}
+  .hero .btn-outline:hover{background:var(--on-dark);color:var(--primary-deep);border-color:var(--on-dark);}
+  .btn-accent{background:linear-gradient(135deg,var(--accent-soft),var(--accent));color:var(--primary-deep);box-shadow:0 14px 26px -12px rgba(140,108,42,.5);}
+  .btn-accent:hover{background:linear-gradient(135deg,var(--accent),var(--accent-deep));}
+
+  /* ===== Futuristic chrome: cursor / progress / noise ===== */
+  .noise-overlay{
+    position:fixed;inset:0;pointer-events:none;z-index:40;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .scroll-progress{position:fixed;top:0;left:0;height:3px;width:0%;background:linear-gradient(90deg,var(--accent-soft),var(--accent));z-index:300;transition:width .05s linear;}
+  #cursorDot,#cursorRing{display:none;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;opacity:0;}
+  html.custom-cursor #cursorDot,html.custom-cursor #cursorRing{display:block;}
+  html.custom-cursor,html.custom-cursor a,html.custom-cursor button,html.custom-cursor .btn{cursor:none;}
+  #cursorDot{width:6px;height:6px;border-radius:50%;background:var(--accent);transition:opacity .3s ease;}
+  #cursorRing{width:34px;height:34px;border-radius:50%;border:1px solid var(--accent);transition:opacity .3s ease,width .3s ease,height .3s ease,background .3s ease;}
+  #cursorRing.hover{width:58px;height:58px;background:rgba(180,144,63,.12);}
+
+  /* ===== Header ===== */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid transparent;
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  header.scrolled{border-color:rgba(15,43,61,.12);box-shadow:0 4px 26px -18px rgba(8,20,28,.25);}
+  .nav-inner{max-width:var(--max);margin:0 auto;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:21px;color:var(--primary);display:flex;align-items:center;gap:10px;letter-spacing:0;}
+  .logo .mark{width:7px;height:7px;background:var(--accent);transform:rotate(45deg);flex:none;}
+  .logo .blink{color:var(--accent);animation:blink 1.1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  .logo small{font-family:'Noto Sans JP',sans-serif;font-weight:500;font-size:10.5px;color:var(--ink-soft);letter-spacing:.08em;display:block;}
+  nav ul{list-style:none;display:flex;gap:6px;}
+  nav a{font-size:14px;font-weight:500;color:var(--ink-soft);position:relative;padding:9px 14px;letter-spacing:.03em;border-radius:100px;transition:color .3s var(--ease);isolation:isolate;}
+  nav a::before{content:"";position:absolute;inset:0;border-radius:100px;background:var(--primary-tint);z-index:-1;opacity:0;transform:scale(.85);transition:opacity .3s var(--ease), transform .3s var(--ease);}
+  nav a::after{content:"";position:absolute;left:14px;right:14px;bottom:3px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease);}
+  nav a:hover{color:var(--primary);}
+  nav a:hover::before{opacity:1;transform:scale(1);}
+  nav a:hover::after{transform:scaleX(1);transform-origin:left;}
+  .nav-cta{display:flex;align-items:center;gap:12px;}
+  .nav-cta .btn{padding:12px 24px;font-size:13px;}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:6px;}
+  .menu-toggle span{width:24px;height:1.5px;background:var(--ink);}
+  @media (max-width:900px){
+    nav{display:none;}
+    .nav-cta .btn-outline{display:none;}
+    .menu-toggle{display:flex;}
+    .logo small{display:none;}
+    .nav-cta .btn{padding:10px 18px;font-size:12.5px;}
+  }
+  @media (max-width:400px){
+    .nav-inner{padding:14px 16px;}
+    .logo{font-size:17px;gap:7px;}
+    .nav-cta{gap:8px;}
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:172px 0 104px;
+    position:relative;
+    overflow:hidden;
+    background:radial-gradient(ellipse 1200px 760px at 22% -12%, #163a4f, transparent 60%), var(--primary-deep);
+  }
+  .hero h1{color:var(--on-dark);}
+  .hero .eyebrow{color:var(--accent-soft);}
+  .hero .eyebrow .thread{color:var(--accent-soft);}
+  .hero h1 .accent-word{color:var(--accent-soft) !important;}
+  .hero h1 .accent-word::after{opacity:.5;}
+  .hero p.lead{color:var(--on-dark-soft) !important;}
+  .trust-row span{color:var(--on-dark-soft) !important;}
+  .trust-row span::before{background:var(--accent-soft);}
+  .hero-canvas{
+    position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;
+    -webkit-mask-image:radial-gradient(ellipse 128% 112% at 50% 36%, black 60%, transparent 100%);
+    mask-image:radial-gradient(ellipse 128% 112% at 50% 36%, black 60%, transparent 100%);
+    opacity:.92;
+    transition:transform .1s linear;
+  }
+  .hero-spotlight{
+    position:absolute;inset:0;pointer-events:none;z-index:0;opacity:0;
+    background:radial-gradient(560px circle at var(--sx,50%) var(--sy,30%), rgba(180,144,63,.16), transparent 60%);
+    transition:opacity .6s var(--ease);
+  }
+  .hero-spotlight.on{opacity:1;}
+  .hero-aurora{position:absolute;inset:-10% -10% auto -10%;height:140%;pointer-events:none;z-index:0;will-change:transform;}
+  .hero-aurora span{position:absolute;border-radius:50%;filter:blur(60px);}
+  .hero-aurora span:nth-child(1){width:560px;height:560px;top:-170px;right:-140px;opacity:.3;background:radial-gradient(circle at 30% 30%, var(--accent-soft), transparent 70%);animation:drift1 22s ease-in-out infinite alternate;}
+  .hero-aurora span:nth-child(2){width:380px;height:380px;top:60px;left:-150px;opacity:.16;background:radial-gradient(circle at 40% 40%, var(--accent), transparent 70%);animation:drift2 26s ease-in-out infinite alternate;}
+  .hero-aurora span:nth-child(3){width:300px;height:300px;bottom:-130px;right:220px;opacity:.22;background:radial-gradient(circle at 50% 50%, #2E5A78, transparent 70%);animation:drift3 30s ease-in-out infinite alternate;}
+  @keyframes drift1{from{transform:translate(0,0) scale(1);}to{transform:translate(-40px,30px) scale(1.08);}}
+  @keyframes drift2{from{transform:translate(0,0);}to{transform:translate(30px,-20px);}}
+  @keyframes drift3{from{transform:translate(0,0);}to{transform:translate(-20px,-30px);}}
+
+  /* ===== Hero office-work illustration (実写動画の代わりのブランドイラスト "動画") ===== */
+  .hero-illustration-side,.hero-illustration-base{display:none;position:absolute;z-index:0;pointer-events:none;}
+  .hero-illustration-side{
+    top:0;right:0;bottom:0;width:min(190px,15%);
+    -webkit-mask-image:linear-gradient(90deg, transparent, black 30%);
+    mask-image:linear-gradient(90deg, transparent, black 30%);
+    opacity:.9;
+  }
+  .hero-illustration-base{
+    right:0;bottom:0;width:min(760px,58%);aspect-ratio:900/190;
+    -webkit-mask-image:linear-gradient(90deg, transparent, black 14%);
+    mask-image:linear-gradient(90deg, transparent, black 14%);
+    opacity:.95;
+  }
+  @media (min-width:901px){ .hero-illustration-side,.hero-illustration-base{ display:block; } }
+  @media (min-width:901px) and (max-width:1180px){
+    .hero-illustration-side{ width:min(150px,13%); }
+    .hero-illustration-base{ width:min(620px,54%); opacity:.85; }
+  }
+  .hero-illustration-side svg,.hero-illustration-base svg{width:100%;height:100%;display:block;overflow:visible;}
+  .scene-line{stroke:var(--on-dark);fill:none;stroke-linecap:round;stroke-linejoin:round;}
+  .scene-wash{fill:var(--accent-soft);}
+  .scene-thread{stroke:var(--accent);fill:none;stroke-linecap:round;stroke-dasharray:3 11;opacity:.4;animation:threadFlow 5s linear infinite;}
+  .scene-ray{stroke:var(--accent-soft);fill:none;stroke-linecap:round;animation:rayDrift 6s ease-in-out infinite;}
+  .scene-screen{fill:url(#screenGrad);animation:screenPulse 3.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center;}
+  .scene-dot{fill:var(--line-green);animation:dotPulse 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center;}
+  .scene-hand-l{transform-box:fill-box;transform-origin:center;animation:typeHandL 1.1s ease-in-out infinite;}
+  .scene-hand-r{transform-box:fill-box;transform-origin:center;animation:typeHandR 1.1s ease-in-out infinite .35s;}
+  @keyframes threadFlow{to{stroke-dashoffset:-140;}}
+  @keyframes rayDrift{0%,100%{opacity:.16;}50%{opacity:.34;}}
+  @keyframes screenPulse{0%,100%{opacity:.55;}50%{opacity:.9;}}
+  @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(1.5);}}
+  @keyframes typeHandL{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+  @keyframes typeHandR{0%,100%{transform:translateY(-2px);}50%{transform:translateY(2px);}}
+
+  .hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center;position:relative;z-index:1;}
+  @media (max-width:900px){.hero-inner{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(33px,4.6vw,54px);letter-spacing:.03em;margin-bottom:26px;font-weight:700;overflow:hidden;}
+  .hero h1 .line{display:block;overflow:hidden;}
+  .hero h1 .line > span{display:block;animation:heroLine .95s var(--ease) both;}
+  .hero h1 .line:nth-child(1) > span{animation-delay:.05s;}
+  .hero h1 .line:nth-child(2) > span{animation-delay:.16s;}
+  .hero h1 .line:nth-child(3) > span{animation-delay:.27s;}
+  @keyframes heroLine{from{opacity:0;transform:translateY(100%);}to{opacity:1;transform:translateY(0);}}
+  .hero h1 .accent-word{color:var(--accent-deep);position:relative;white-space:nowrap;}
+  .hero h1 .accent-word::after{content:"";position:absolute;left:2px;right:2px;bottom:2px;height:6px;background:linear-gradient(90deg,var(--accent-soft),var(--accent));opacity:.35;z-index:-1;}
+  .hero h1 .line > span.title-fill-line{
+    background-repeat:no-repeat;
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+  }
+  .hero .eyebrow{animation:heroUp .7s var(--ease) both;}
+  .hero p.lead{font-size:16.5px;color:var(--ink-soft);max-width:480px;margin-bottom:36px;font-weight:300;animation:heroUp .9s .38s var(--ease) both;}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px;animation:heroUp .9s .48s var(--ease) both;}
+  .trust-row{display:flex;gap:24px;flex-wrap:wrap;animation:heroUp .9s .58s var(--ease) both;}
+  @keyframes heroUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+  .trust-row span{font-size:13px;color:var(--ink-soft);display:flex;align-items:center;gap:8px;font-weight:500;}
+  .trust-row span::before{content:"";width:5px;height:5px;transform:rotate(45deg);background:var(--accent);flex:none;}
+
+  /* gradient rotating border frame */
+  .gradient-border{position:relative;border-radius:var(--radius);padding:1.5px;overflow:hidden;isolation:isolate;animation:heroUp 1s .7s var(--ease) both;}
+  .gradient-border::before{
+    content:"";position:absolute;inset:-60%;z-index:0;
+    background:conic-gradient(from 0deg, var(--accent-soft), var(--accent) 30%, var(--accent-deep) 55%, var(--accent) 80%, var(--accent-soft));
+    animation:spinBorder 7s linear infinite;
+  }
+  @keyframes spinBorder{to{transform:rotate(360deg);}}
+  .gradient-border .thread-panel,.gradient-border .price-card{position:relative;z-index:1;border:none;border-radius:calc(var(--radius) - 1.5px);}
+
+  .thread-panel{
+    background:rgba(255,253,248,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-radius:var(--radius);border:1px solid var(--border);
+    padding:38px 34px;box-shadow:var(--shadow);position:relative;
+  }
+  .thread-panel h3{font-size:17px;margin-bottom:22px;}
+  .thread-item{display:flex;gap:16px;padding:16px 0;border-bottom:1px dashed var(--border);}
+  .thread-item:last-child{border-bottom:none;}
+  .thread-item .node{
+    width:36px;height:36px;border-radius:50%;background:var(--primary-tint);color:var(--accent-deep);
+    display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;
+    font-weight:600;font-size:13px;flex:none;border:1px solid var(--border);
+  }
+  .thread-item p{font-size:14px;color:var(--ink-soft);font-weight:300;}
+  .thread-item strong{display:block;font-family:'Shippori Mincho',serif;font-weight:600;font-size:15px;color:var(--ink);margin-bottom:3px;}
+
+  /* ===== Connecting thread SVG divider ===== */
+  .thread-divider{width:100%;height:64px;display:block;margin:-10px 0 -10px;opacity:.6;}
+
+  /* ===== Tagline marquee band (yuasisu-style repeating ticker) ===== */
+  .tagline-band{background:var(--primary-deep);overflow:hidden;padding:18px 0;border-top:1px solid rgba(220,196,141,.18);border-bottom:1px solid rgba(220,196,141,.18);position:relative;z-index:1;}
+  .tagline-track{display:flex;align-items:center;gap:16px;width:max-content;white-space:nowrap;animation:marqueeScroll 32s linear infinite;}
+  .tagline-track span{font-family:'JetBrains Mono',monospace;font-size:13.5px;letter-spacing:.1em;font-weight:600;color:var(--accent-soft);}
+  .tagline-track span.dot{color:var(--accent-deep);font-size:11px;}
+
+  /* ===== Bento stats strip ===== */
+  .bento-stats{padding:64px 0;position:relative;z-index:1;background:var(--bg-warm);}
+  .bento-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+  @media (max-width:900px){.bento-grid{grid-template-columns:repeat(2,1fr);}}
+  .bento-tile{
+    background:var(--card);
+    border:none;border-radius:0;padding:36px 28px;
+  }
+  .bento-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--primary-tint),var(--bg-warm));display:flex;align-items:center;justify-content:center;color:var(--accent-deep);margin-bottom:18px;}
+  .bento-num{font-family:'JetBrains Mono',monospace;font-size:30px;font-weight:600;color:var(--primary);margin-bottom:6px;letter-spacing:-.01em;}
+  .bento-label{font-size:12.5px;color:var(--ink-soft);font-weight:400;letter-spacing:.02em;}
+
+  /* ===== Tilt / spotlight interaction (applied via JS to .tilt-card) ===== */
+  .tilt-card{position:relative;transition:transform .5s var(--ease);}
+  .tilt-card::after{
+    content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;opacity:0;
+    background:radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(180,144,63,.22), transparent 55%);
+    transition:opacity .4s ease;
+  }
+  .tilt-card:hover::after{opacity:1;}
+
+  /* ===== Pain points ===== */
+  .pain-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  @media (max-width:980px){.pain-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.pain-grid{grid-template-columns:1fr;}}
+  .pain-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);
+    padding:30px 24px;overflow:hidden;transition:transform .5s var(--ease), box-shadow .35s ease, border-color .35s ease;
+  }
+  .pain-card:hover{box-shadow:var(--shadow);border-color:rgba(180,144,63,.4);}
+  .pain-card .mark{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--accent-deep);font-weight:600;margin-bottom:16px;display:block;letter-spacing:.04em;}
+  .pain-card h4{font-size:15.5px;margin-bottom:11px;}
+  .pain-card p{font-size:13.5px;color:var(--ink-soft);font-weight:300;}
+
+  .section-alt{background:var(--bg-warm);}
+
+  /* ===== Strengths ===== */
+  .strength-list{display:flex;flex-direction:column;gap:0;}
+  .strength-row{
+    display:grid;grid-template-columns:64px 1fr;gap:30px;padding:38px 0;border-bottom:1px solid var(--border);
+    align-items:flex-start;
+  }
+  .strength-row:first-child{padding-top:0;}
+  .strength-row:last-child{border-bottom:none;}
+  .strength-num{font-family:'JetBrains Mono',monospace;font-size:36px;font-weight:600;-webkit-text-stroke:1.3px var(--accent-deep);color:transparent;}
+  .strength-row h3{font-size:19.5px;margin-bottom:11px;}
+  .strength-row p{color:var(--ink-soft);font-size:14.5px;max-width:640px;font-weight:300;}
+
+  /* ===== Services ===== */
+  .service-cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  @media (max-width:840px){.service-cards{grid-template-columns:1fr;}}
+  .service-card{
+    background:var(--card);border-radius:var(--radius);border:1px solid var(--border);
+    padding:40px 34px;position:relative;overflow:hidden;transition:transform .5s var(--ease), box-shadow .35s ease;
+  }
+  .service-card:hover{box-shadow:var(--shadow);}
+  .service-card.is-line::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--line-green);z-index:1;}
+  .service-card.is-web::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent-soft),var(--accent));z-index:1;}
+  .service-num{
+    position:absolute;top:28px;right:34px;font-family:'JetBrains Mono',monospace;font-size:44px;font-weight:700;
+    color:transparent;-webkit-text-stroke:1.3px var(--border);letter-spacing:0;
+  }
+  .service-tag{
+    display:inline-block;font-size:11px;font-weight:700;letter-spacing:.1em;
+    padding:6px 14px;border-radius:100px;margin-bottom:20px;font-family:'Noto Sans JP',sans-serif;
+  }
+  .is-line .service-tag{background:rgba(6,199,85,.12);color:var(--line-green-dark);}
+  .is-web .service-tag{background:rgba(180,144,63,.14);color:var(--accent-deep);}
+  .service-card h3{font-size:22px;margin-bottom:14px;}
+  .service-card > p{color:var(--ink-soft);font-size:14.5px;margin-bottom:24px;font-weight:300;}
+  .service-feat{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+  .service-feat li{font-size:14px;color:var(--ink);display:flex;gap:11px;align-items:flex-start;font-weight:300;}
+  .service-feat li::before{content:"◦";color:var(--accent-deep);font-weight:700;flex:none;margin-top:1px;}
+
+  /* ===== Portfolio ===== */
+  .portfolio-note{
+    background:var(--primary-tint);border:1px dashed var(--accent);border-radius:var(--radius-sm);
+    padding:15px 22px;font-size:13.5px;color:var(--accent-deep);margin-bottom:38px;display:inline-flex;gap:10px;font-weight:500;
+  }
+  .portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  @media (max-width:900px){.portfolio-grid{grid-template-columns:1fr;}}
+  .portfolio-card{background:var(--card);border-radius:var(--radius-sm);border:1px solid var(--border);overflow:hidden;transition:transform .5s var(--ease), box-shadow .35s ease;}
+  .portfolio-card:hover{box-shadow:var(--shadow);}
+  .portfolio-thumb{
+    height:154px;background:linear-gradient(135deg,var(--primary-deep),#163a4f);
+    display:flex;align-items:center;justify-content:center;color:var(--accent-soft);
+    font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.12em;position:relative;overflow:hidden;
+    transition:transform .6s var(--ease);
+  }
+  .portfolio-card:hover .portfolio-thumb{transform:scale(1.06);}
+  .portfolio-thumb::after{
+    content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;
+    background:linear-gradient(90deg,transparent,rgba(220,196,141,.22),transparent);
+    transform:skewX(-18deg);transition:left .7s ease;
+  }
+  .portfolio-card:hover .portfolio-thumb::after{left:120%;}
+  .portfolio-card .body{padding:22px 24px;}
+  .portfolio-card .cat{font-size:11.5px;color:var(--accent-deep);font-weight:700;letter-spacing:.06em;margin-bottom:9px;font-family:'Noto Sans JP',sans-serif;display:flex;align-items:center;justify-content:space-between;}
+  .portfolio-card .cat::after{content:"→";color:var(--border);transition:transform .35s var(--ease), color .35s ease;}
+  .portfolio-card:hover .cat::after{color:var(--accent-deep);transform:translateX(4px);}
+  .portfolio-card h4{font-size:15.5px;margin-bottom:9px;}
+  .portfolio-card p{font-size:13px;color:var(--ink-soft);font-weight:300;}
+
+  /* ===== Voice ===== */
+  .voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  @media (max-width:900px){.voice-grid{grid-template-columns:1fr;}}
+  .voice-card{background:var(--card);border-radius:var(--radius-sm);border:1px solid var(--border);padding:30px 26px;transition:transform .5s var(--ease), box-shadow .35s ease;}
+  .voice-card:hover{box-shadow:var(--shadow);}
+  .voice-card .star-row{color:var(--accent);font-size:13px;letter-spacing:3px;margin-bottom:12px;}
+  .voice-card .quote-mark{font-family:'JetBrains Mono',monospace;font-size:34px;color:var(--accent-soft);line-height:1;margin-bottom:8px;}
+  .voice-card p{font-size:14px;color:var(--ink-soft);margin-bottom:20px;font-weight:300;}
+  .voice-who{display:flex;align-items:center;gap:11px;}
+  .voice-who .avatar{width:38px;height:38px;border-radius:50%;background:var(--primary-tint);flex:none;border:1px solid var(--border);}
+  .voice-who strong{font-size:13.5px;display:block;font-weight:600;}
+  .voice-who span{font-size:12px;color:var(--ink-soft);}
+
+  /* ===== Area ===== */
+  .area-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:52px;align-items:center;}
+  @media (max-width:860px){.area-wrap{grid-template-columns:minmax(0,1fr);}}
+  .area-marquee{overflow:hidden;margin-top:24px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
+  .area-marquee-track{display:flex;gap:11px;width:max-content;animation:marqueeScroll 22s linear infinite;}
+  .area-marquee:hover .area-marquee-track{animation-play-state:paused;}
+  @keyframes marqueeScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .area-marquee-track span{
+    background:var(--card);border:1px solid var(--border);padding:10px 20px;border-radius:100px;
+    font-size:13.5px;color:var(--ink);font-weight:400;white-space:nowrap;flex:none;
+  }
+  .area-marquee-track span.main{background:var(--primary);color:#fff;border-color:var(--primary);font-weight:600;}
+  .area-visual{
+    background:var(--primary-deep);border-radius:var(--radius);padding:48px;color:#fff;position:relative;overflow:hidden;
+    min-height:270px;display:flex;flex-direction:column;justify-content:center;border:1px solid rgba(180,144,63,.3);
+  }
+  .area-visual::after{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 80% 20%, rgba(196,158,90,.2), transparent 55%);
+  }
+  .area-visual h3{color:#fff;font-size:25px;margin-bottom:14px;position:relative;}
+  .area-visual p{color:rgba(255,255,255,.78);font-size:14px;position:relative;font-weight:300;}
+
+  /* ===== Pricing ===== */
+  .price-note{color:var(--ink-soft);font-size:13px;margin-bottom:32px;font-weight:300;}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;align-items:start;}
+  @media (max-width:900px){.price-grid{grid-template-columns:1fr;}}
+  .price-card{
+    background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+    padding:34px 28px;display:flex;flex-direction:column;transition:transform .5s var(--ease), box-shadow .35s ease;
+  }
+  .price-card:hover{box-shadow:var(--shadow);}
+  .price-card.featured{position:relative;}
+  .price-card.featured .badge{
+    position:absolute;top:-14px;left:28px;background:var(--accent);color:var(--primary-deep);font-size:11.5px;
+    padding:6px 16px;border-radius:100px;font-weight:700;letter-spacing:.04em;z-index:2;
+  }
+  .price-card h4{font-size:16.5px;margin-bottom:7px;}
+  .price-card .price-sub{font-size:12.5px;color:var(--ink-soft);margin-bottom:20px;font-weight:300;}
+  .price-card .price-num{font-family:'JetBrains Mono',monospace;font-size:34px;font-weight:600;color:var(--primary);margin-bottom:4px;}
+  .price-card .price-num span{font-size:13px;font-family:'Noto Sans JP',sans-serif;color:var(--ink-soft);font-weight:300;}
+  .price-list{list-style:none;display:flex;flex-direction:column;gap:11px;margin:24px 0 28px;flex:1;}
+  .price-list li{font-size:13.5px;color:var(--ink);display:flex;gap:9px;font-weight:300;}
+  .price-list li::before{content:"✓";color:var(--accent-deep);font-weight:700;}
+
+  /* ===== Flow ===== */
+  .flow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;}
+  @media (max-width:980px){.flow-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.flow-grid{grid-template-columns:1fr;}}
+  .flow-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:26px 22px;position:relative;transition:transform .5s var(--ease), box-shadow .35s ease;}
+  .flow-card:hover{box-shadow:var(--shadow);}
+  .flow-step{font-family:'JetBrains Mono',monospace;color:var(--accent-deep);font-weight:600;font-size:13px;margin-bottom:13px;letter-spacing:.04em;}
+  .flow-card h4{font-size:14.5px;margin-bottom:9px;}
+  .flow-card p{font-size:12.5px;color:var(--ink-soft);font-weight:300;}
+
+  /* ===== About owner ===== */
+  .about-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:52px;align-items:center;}
+  @media (max-width:860px){.about-wrap{grid-template-columns:1fr;}}
+  .about-photo{
+    aspect-ratio:1/1;border-radius:var(--radius);background:linear-gradient(160deg,var(--primary-deep),#163a4f);
+    display:flex;align-items:center;justify-content:center;color:var(--accent-soft);font-family:'JetBrains Mono',monospace;
+    font-size:13px;letter-spacing:.1em;border:1px solid var(--border);
+  }
+  .about-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:38px;}
+  .about-card h3{font-size:20.5px;margin-bottom:5px;}
+  .about-role{font-size:13px;color:var(--accent-deep);font-weight:600;margin-bottom:20px;letter-spacing:.03em;}
+  .about-card p{color:var(--ink-soft);font-size:14.5px;margin-bottom:16px;font-weight:300;}
+
+  /* ===== FAQ ===== */
+  .faq-item{border-bottom:1px solid var(--border);}
+  .faq-item:first-child{border-top:1px solid var(--border);}
+  .faq-q{
+    width:100%;text-align:left;background:none;border:none;padding:24px 4px;
+    display:flex;justify-content:space-between;align-items:center;cursor:pointer;
+    font-family:'Shippori Mincho',serif;font-weight:600;font-size:15.5px;color:var(--ink);gap:20px;
+  }
+  .faq-q:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .faq-q .plus{font-family:'JetBrains Mono',monospace;font-size:20px;color:var(--accent-deep);transition:transform .4s var(--ease);flex:none;}
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease);}
+  .faq-q{transition:background .3s var(--ease);}
+  .faq-q:hover{background:rgba(180,144,63,.06);}
+  .faq-a p{padding:0 4px 24px;font-size:14px;color:var(--ink-soft);max-width:700px;font-weight:300;}
+
+  /* ===== Final CTA ===== */
+  .final-cta{
+    background:var(--primary-deep);border-radius:var(--radius);padding:68px 50px;text-align:center;
+    position:relative;overflow:hidden;color:#fff;border:1px solid rgba(180,144,63,.3);
+  }
+  .final-cta::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 15% 15%, rgba(196,158,90,.18), transparent 50%),
+               radial-gradient(circle at 85% 85%, rgba(196,158,90,.14), transparent 50%);
+  }
+  .final-cta h2{color:#fff;font-size:clamp(25px,3.2vw,33px);margin-bottom:16px;position:relative;}
+  .final-cta p{color:rgba(255,255,255,.8);max-width:520px;margin:0 auto 32px;position:relative;font-size:15px;font-weight:300;}
+  .final-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;}
+  .contact-inline{display:flex;gap:26px;justify-content:center;margin-top:30px;flex-wrap:wrap;position:relative;}
+  .contact-inline a,.contact-inline span{color:rgba(255,255,255,.85);font-size:14px;display:flex;align-items:center;gap:8px;font-weight:300;}
+  .contact-inline a:hover{color:#fff;text-decoration:underline;}
+
+  /* ===== Footer ===== */
+  footer{padding:60px 0 34px;background:var(--primary-deep);}
+  .footer-inner{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:24px;}
+  .footer-logo{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:19px;color:var(--on-dark);margin-bottom:9px;letter-spacing:0;}
+  .footer-desc{font-size:13px;color:var(--on-dark-soft);max-width:320px;font-weight:300;}
+  .footer-cols{display:flex;gap:58px;flex-wrap:wrap;}
+  .footer-col h5{font-size:12px;letter-spacing:.1em;color:var(--accent-soft);margin-bottom:15px;font-family:'Noto Sans JP',sans-serif;font-weight:600;}
+  .footer-col a,.footer-col span{display:block;font-size:13.5px;color:var(--on-dark-soft);margin-bottom:11px;font-weight:400;transition:color .25s ease;}
+  .footer-col a:hover{color:var(--on-dark);}
+  .footer-bottom{margin-top:42px;padding-top:26px;border-top:1px solid rgba(220,196,141,.2);font-size:12px;color:var(--on-dark-soft);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+
+  /* Reveal animation */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* Back to top */
+  .back-to-top{
+    position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;
+    background:var(--primary-deep);color:var(--accent-soft);border:1px solid rgba(180,144,63,.35);
+    display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:90;
+    opacity:0;pointer-events:none;transform:translateY(14px);
+    transition:opacity .4s var(--ease), transform .4s var(--ease), background .3s ease;
+    box-shadow:0 14px 30px -14px rgba(18,16,15,.5);
+  }
+  .back-to-top.show{opacity:1;pointer-events:auto;transform:translateY(0);}
+  .back-to-top:hover{background:var(--accent-deep);color:#fff;}
+
+  /* Mobile nav drawer */
+  .mobile-nav{
+    position:fixed;inset:0;background:var(--bg);z-index:99;display:flex;flex-direction:column;
+    padding:100px 32px 40px;transform:translateX(100%);transition:transform .35s ease;
+  }
+  .mobile-nav.open{transform:translateX(0);}
+  .mobile-nav ul{list-style:none;display:flex;flex-direction:column;gap:26px;margin-bottom:36px;}
+  .mobile-nav a{font-family:'Shippori Mincho',serif;font-weight:600;font-size:21px;color:var(--ink);}
+  .mobile-nav .btn{width:100%;}
+</style>
+</head>
+<body>
+
+<a href="#top" class="skip-link">メインコンテンツへスキップ</a>
+<div class="noise-overlay" aria-hidden="true"></div>
+<div class="scroll-progress" id="scrollProgress"></div>
+<div id="cursorRing" aria-hidden="true"></div>
+<div id="cursorDot" aria-hidden="true"></div>
+
+<header id="siteHeader">
+  <div class="nav-inner">
+    <a href="#top" class="logo"><span class="mark"></span>connect<span class="blink">_</span><small>相模原市 LINE・ホームページ制作</small></a>
+    <nav>
+      <ul>
+        <li><a href="#worries">お悩み</a></li>
+        <li><a href="#service">サービス</a></li>
+        <li><a href="#works">実績</a></li>
+        <li><a href="#price">料金</a></li>
+        <li><a href="#flow">流れ</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <div class="a11y-toggle" role="group" aria-label="文字サイズを調整">
+        <button type="button" data-size="base" class="active" aria-label="文字サイズ 標準">A</button>
+        <button type="button" data-size="lg" aria-label="文字サイズ 大">A+</button>
+        <button type="button" data-size="xl" aria-label="文字サイズ 特大">A++</button>
+      </div>
+      <a href="#contact" class="btn btn-outline">電話で相談</a>
+      <a href="#contact" class="btn btn-line">LINEで相談</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="#worries">お悩み</a></li>
+    <li><a href="#service">サービス</a></li>
+    <li><a href="#works">実績</a></li>
+    <li><a href="#price">料金</a></li>
+    <li><a href="#flow">流れ</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#about">connectについて</a></li>
+  </ul>
+  <a href="#contact" class="btn btn-line">LINEで相談する</a>
+</div>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-aurora" id="heroAurora" aria-hidden="true"><span></span><span></span><span></span></div>
+    <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-spotlight" id="heroSpotlight" aria-hidden="true"></div>
+    <!-- office-work scene, split to hug the free space around the gradient card rather than sit under it -->
+    <div class="hero-illustration-side" aria-hidden="true">
+      <svg viewBox="0 0 200 900" preserveAspectRatio="xMidYMin meet">
+        <rect class="scene-line" x="25" y="50" width="150" height="110" rx="8" stroke-width="2" opacity=".5"/>
+        <line class="scene-line" x1="100" y1="50" x2="100" y2="160" stroke-width="1.5" opacity=".38"/>
+        <line class="scene-line" x1="25" y1="105" x2="175" y2="105" stroke-width="1.5" opacity=".38"/>
+        <path class="scene-ray" d="M62,160 L14,360" stroke-width="1.5"/>
+        <path class="scene-ray" d="M100,160 L64,400" stroke-width="1.5" style="animation-delay:.7s"/>
+        <path class="scene-ray" d="M138,160 L112,430" stroke-width="1.5" style="animation-delay:1.4s"/>
+        <path class="scene-thread" d="M100,450 C68,520 132,600 92,676 C58,742 124,796 88,868"/>
+        <circle cx="100" cy="450" r="4" fill="var(--accent)" opacity=".45"/>
+        <circle cx="92" cy="676" r="3.5" fill="var(--accent)" opacity=".4"/>
+      </svg>
+    </div>
+    <div class="hero-illustration-base" aria-hidden="true">
+      <svg viewBox="0 0 900 190" preserveAspectRatio="xMaxYMax meet">
+        <defs>
+          <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#DCC48D"/>
+            <stop offset="1" stop-color="#B4903F"/>
+          </linearGradient>
+        </defs>
+
+        <!-- desk -->
+        <line class="scene-line" x1="15" y1="150" x2="885" y2="150" stroke-width="2.5" opacity=".78"/>
+
+        <!-- chair + person, seated and typing -->
+        <path class="scene-line" d="M96,150 C90,122 93,94 112,76" stroke-width="2" opacity=".42"/>
+        <path class="scene-wash" d="M110,150 L110,120 C110,100 123,86 140,86 C158,86 172,102 172,122 L172,150 Z" opacity=".38"/>
+        <path class="scene-line" d="M110,120 C110,100 123,86 140,86 C158,86 172,102 172,122" stroke-width="2" opacity=".62"/>
+        <circle class="scene-wash" cx="140" cy="68" r="20" opacity=".4"/>
+        <circle class="scene-line" cx="140" cy="68" r="20" stroke-width="2" opacity=".62"/>
+
+        <!-- arms + typing hands -->
+        <path class="scene-line" d="M120,122 C160,130 205,140 250,148" stroke-width="3.5" opacity=".55"/>
+        <ellipse class="scene-wash scene-hand-l" cx="252" cy="150" rx="8" ry="5.5" opacity=".55"/>
+        <path class="scene-line" d="M150,122 C190,128 230,136 270,146" stroke-width="3.5" opacity=".55"/>
+        <ellipse class="scene-wash scene-hand-r" cx="272" cy="148" rx="8" ry="5.5" opacity=".55"/>
+
+        <!-- laptop -->
+        <path class="scene-line" d="M280,150 L430,150 L446,168 L264,168 Z" stroke-width="2" opacity=".65"/>
+        <rect class="scene-line" x="286" y="78" width="150" height="72" rx="6" stroke-width="2" opacity=".7"/>
+        <rect class="scene-screen" x="292" y="84" width="138" height="60" rx="3"/>
+
+        <!-- phone with a LINE-style notification, near the person -->
+        <rect class="scene-line" x="20" y="96" width="38" height="58" rx="8" stroke-width="1.5" opacity=".55"/>
+        <circle class="scene-dot" cx="39" cy="106" r="4.5"/>
+        <path class="scene-thread" d="M58,112 C130,124 190,136 264,146"/>
+
+        <!-- mug + plant, right edge -->
+        <rect class="scene-line" x="700" y="126" width="22" height="20" rx="4" stroke-width="1.5" opacity=".55"/>
+        <path class="scene-line" d="M722,131 q10,0 10,7 q0,7 -10,7" stroke-width="1.5" opacity=".55"/>
+        <line class="scene-line" x1="800" y1="150" x2="800" y2="112" stroke-width="2" opacity=".55"/>
+        <path class="scene-wash" d="M800,118 C788,110 784,98 790,86 C802,96 804,108 800,118 Z" opacity=".5"/>
+        <path class="scene-wash" d="M800,118 C812,112 818,100 812,88 C800,96 797,108 800,118 Z" opacity=".5"/>
+        <path class="scene-wash" d="M800,114 C800,104 804,96 800,88 C796,96 800,104 800,114 Z" opacity=".45"/>
+      </svg>
+    </div>
+    <div class="wrap hero-inner">
+      <div>
+        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>相模原市 地域密着 / 個人事業主</p>
+        <h1 id="heroTitle"><span class="line"><span>お店と、お客様の</span></span><span class="line"><span><span class="accent-word">つながり</span>を</span></span><span class="line"><span>ひとつずつ、結びます。</span></span></h1>
+        <p class="lead">公式LINEアカウントの立ち上げと、伝わるホームページづくり。相模原市の小さなお店・事業者さまのそばで、集客の悩みに一人二役で伴走する制作屋、connectです。</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-line">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 3.1 2.02 5.8 5.06 7.34-.22.82-.8 2.96-.92 3.42-.14.55.2.55.42.4.18-.12 2.86-1.94 4.02-2.72.46.06.94.1 1.42.1 5.52 0 10-3.94 10-8.8S17.52 2 12 2z" fill="white"/></svg>
+            LINEで無料相談
+          </a>
+          <a href="#service" class="btn btn-outline">サービスを見る</a>
+        </div>
+        <div class="trust-row">
+          <span>相談無料</span>
+          <span>強引な営業なし</span>
+          <span>相模原市エリア対応</span>
+        </div>
+      </div>
+
+      <div class="gradient-border">
+        <div class="thread-panel">
+          <h3>connectが結ぶ、3つの糸</h3>
+          <div class="thread-item">
+            <div class="node">01</div>
+            <div>
+              <strong>集客の入口づくり</strong>
+              <p>ホームページで「見つけてもらう」きっかけを整えます</p>
+            </div>
+          </div>
+          <div class="thread-item">
+            <div class="node">02</div>
+            <div>
+              <strong>関係を続ける仕組み</strong>
+              <p>公式LINEで、一度きりでない「また来たい」をつくります</p>
+            </div>
+          </div>
+          <div class="thread-item">
+            <div class="node">03</div>
+            <div>
+              <strong>相談できる相手</strong>
+              <p>丸投げでも、一緒に考えるでも。担当は最初から最後まで私一人です</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAGLINE MARQUEE -->
+  <div class="tagline-band" aria-hidden="true">
+    <div class="tagline-track">
+      <span>相模原市 地域密着</span><span class="dot">◆</span>
+      <span>個人事業主</span><span class="dot">◆</span>
+      <span>ホームページ制作 × 公式LINE運用代行</span><span class="dot">◆</span>
+      <span>相談無料</span><span class="dot">◆</span>
+      <span>強引な営業なし</span><span class="dot">◆</span>
+      <span>相模原市 地域密着</span><span class="dot">◆</span>
+      <span>個人事業主</span><span class="dot">◆</span>
+      <span>ホームページ制作 × 公式LINE運用代行</span><span class="dot">◆</span>
+      <span>相談無料</span><span class="dot">◆</span>
+      <span>強引な営業なし</span><span class="dot">◆</span>
+    </div>
+  </div>
+
+  <!-- BENTO STATS -->
+  <section class="bento-stats">
+    <div class="wrap">
+      <div class="bento-grid">
+        <div class="bento-tile tilt-card reveal">
+          <div class="bento-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8h4a2 2 0 1 1 0 4H9h4a2 2 0 1 1 0 4H9"/><path d="M9 8v8"/></svg></div>
+          <div class="bento-num">¥0</div>
+          <div class="bento-label">ご相談・お見積り</div>
+        </div>
+        <div class="bento-tile tilt-card reveal">
+          <div class="bento-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-3.9 3.1-6.5 7-6.5s7 2.6 7 6.5"/></svg></div>
+          <div class="bento-num" data-target="1">0</div>
+          <div class="bento-label">窓口も担当も、常に一人</div>
+        </div>
+        <div class="bento-tile tilt-card reveal">
+          <div class="bento-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6.5-5.6-6.5-11A6.5 6.5 0 0 1 12 3.5 6.5 6.5 0 0 1 18.5 10c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.2"/></svg></div>
+          <div class="bento-num" data-target="3" data-suffix="区">0区</div>
+          <div class="bento-label">相模原市 対応区 ＋近隣4市</div>
+        </div>
+        <div class="bento-tile tilt-card reveal">
+          <div class="bento-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.5h2"/></svg></div>
+          <div class="bento-num" data-target="100" data-suffix="%">0%</div>
+          <div class="bento-label">スマホ最優先の設計</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="thread-divider" viewBox="0 0 1200 64" preserveAspectRatio="none"><path d="M0 32 Q150 0 300 32 T600 32 T900 32 T1200 32" stroke="#B4903F" stroke-width="1" fill="none"/></svg>
+
+  <!-- WORRIES -->
+  <section class="section" id="worries">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>よくあるお悩み</p>
+        <h2>こんなこと、感じていませんか。</h2>
+        <p>ホームページやLINEは大切だとわかっていても、日々の営業をしながら手を付けるのは簡単ではありません。connectがよくお伺いするお悩みです。</p>
+      </div>
+      <div class="pain-grid">
+        <div class="pain-card tilt-card reveal">
+          <span class="mark">CASE 01</span>
+          <h4>ホームページを作ったが反応がない</h4>
+          <p>作って終わりになっていて、更新も問い合わせも増えないまま放置してしまっている。</p>
+        </div>
+        <div class="pain-card tilt-card reveal">
+          <span class="mark">CASE 02</span>
+          <h4>LINEの友だちが増えない</h4>
+          <p>公式LINEは開設したものの、登録の呼びかけ方や配信のやり方がわからない。</p>
+        </div>
+        <div class="pain-card tilt-card reveal">
+          <span class="mark">CASE 03</span>
+          <h4>集客の窓口がバラバラ</h4>
+          <p>SNS・チラシ・紹介と手段は色々あるが、どこにお客様を案内すればよいか整理できていない。</p>
+        </div>
+        <div class="pain-card tilt-card reveal">
+          <span class="mark">CASE 04</span>
+          <h4>相談できる相手がいない</h4>
+          <p>制作会社は敷居が高く感じる。専門用語で説明されてもよくわからず、結局そのままにしている。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRENGTHS -->
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>connectの約束</p>
+        <h2>だからこそ、個人にお任せください。</h2>
+        <p>会社ではなく、一人の担当者だからできることがあります。</p>
+      </div>
+      <div class="strength-list">
+        <div class="strength-row reveal">
+          <div class="strength-num">01</div>
+          <div>
+            <h3>窓口も担当も、最初から最後まで私です</h3>
+            <p>お問い合わせから公開後のご相談まで、間に何人も挟まりません。伝えたいことがそのまま伝わり、返答も早くなります。</p>
+          </div>
+        </div>
+        <div class="strength-row reveal">
+          <div class="strength-num">02</div>
+          <div>
+            <h3>ホームページとLINEを、切り離さずに考えます</h3>
+            <p>「作って終わり」ではなく、お客様と長く付き合っていく仕組みとして、2つを一緒に設計します。</p>
+          </div>
+        </div>
+        <div class="strength-row reveal">
+          <div class="strength-num">03</div>
+          <div>
+            <h3>相模原市の店舗事情にあわせたご提案</h3>
+            <p>地域のお客様の動き方、近隣の同業種の傾向を踏まえて、必要以上に大きくない、身の丈にあった内容をご提案します。</p>
+          </div>
+        </div>
+        <div class="strength-row reveal">
+          <div class="strength-num">04</div>
+          <div>
+            <h3>専門用語を使わない打ち合わせ</h3>
+            <p>「レスポンシブ」「セグメント配信」といった言葉より先に、今困っていることをそのまま聞かせてください。説明はかみくだいてお伝えします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE -->
+  <section class="section" id="service">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>サービス内容</p>
+        <h2>2つの窓口を、1人で整えます。</h2>
+        <p>「見つけてもらう」ホームページと、「関係を続ける」公式LINE。どちらか一方のご相談も歓迎です。</p>
+      </div>
+      <div class="service-cards">
+        <div class="service-card is-web tilt-card reveal">
+          <span class="service-num">01</span>
+          <span class="service-tag">WEBSITE</span>
+          <h3>ホームページ制作</h3>
+          <p>店舗・サロン・士業・工務店など、地域で営むお店の「顔」となるサイトをつくります。スマホでの見やすさを最優先に設計します。</p>
+          <ul class="service-feat">
+            <li>ヒアリングをもとにした構成・デザイン提案</li>
+            <li>スマートフォン優先のレスポンシブ対応</li>
+            <li>Googleマップ・アクセス・予約導線の設置</li>
+            <li>公開後の文章・写真差し替えサポート</li>
+          </ul>
+        </div>
+        <div class="service-card is-line tilt-card reveal">
+          <span class="service-num">02</span>
+          <span class="service-tag">LINE公式アカウント</span>
+          <h3>公式LINE開設・運用代行</h3>
+          <p>アカウント開設の初期設定から、友だち追加の仕組みづくり、配信文面の作成までをまるごとお任せいただけます。</p>
+          <ul class="service-feat">
+            <li>アカウント開設・基本設定の代行</li>
+            <li>友だち追加用の店頭POP・QRコード作成</li>
+            <li>クーポン・ショップカードの設計</li>
+            <li>配信文面の作成、または配信そのものの代行</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKS -->
+  <section class="section section-alt" id="works">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>制作実績</p>
+        <h2>これまでの取り組み</h2>
+      </div>
+      <div class="portfolio-note reveal">準備中：現在、実績ページは掲載準備中です。公開までは案件イメージとして構成のみ表示しています。</div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card tilt-card reveal">
+          <div class="portfolio-thumb">SAMPLE 01</div>
+          <div class="body">
+            <span class="cat">美容室・サロン</span>
+            <h4>予約導線を整理したサロンサイト</h4>
+            <p>メニュー・スタイル写真・予約ボタンを整理し、スマホからの予約率改善を目指した構成例。</p>
+          </div>
+        </div>
+        <div class="portfolio-card tilt-card reveal">
+          <div class="portfolio-thumb">SAMPLE 02</div>
+          <div class="body">
+            <span class="cat">飲食店</span>
+            <h4>公式LINEでのクーポン運用</h4>
+            <p>来店後の再来店を目的に、LINEクーポンと定期配信を組み合わせた運用イメージ。</p>
+          </div>
+        </div>
+        <div class="portfolio-card tilt-card reveal">
+          <div class="portfolio-thumb">SAMPLE 03</div>
+          <div class="body">
+            <span class="cat">士業・専門サービス</span>
+            <h4>信頼感を伝える会社紹介サイト</h4>
+            <p>実績・プロフィール・お問い合わせを軸にした、シンプルで読みやすい構成例。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOICE -->
+  <section class="section" id="voice">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>お客様の声</p>
+        <h2>掲載準備中です</h2>
+        <p>ご依頼いただいたお客様の声は、今後こちらに掲載してまいります。以下は掲載イメージです。</p>
+      </div>
+      <div class="voice-grid">
+        <div class="voice-card tilt-card reveal">
+          <div class="star-row" aria-hidden="true">★★★★★</div>
+          <div class="quote-mark">“</div>
+          <p>専門用語を使わずに説明してもらえたので、初めてでも安心して進められました。</p>
+          <div class="voice-who"><div class="avatar"></div><div><strong>相模原市 / 飲食店様</strong><span>掲載イメージ</span></div></div>
+        </div>
+        <div class="voice-card tilt-card reveal">
+          <div class="star-row" aria-hidden="true">★★★★★</div>
+          <div class="quote-mark">“</div>
+          <p>LINEとホームページを一緒に考えてもらえて、案内がシンプルになりました。</p>
+          <div class="voice-who"><div class="avatar"></div><div><strong>相模原市 / サロン様</strong><span>掲載イメージ</span></div></div>
+        </div>
+        <div class="voice-card tilt-card reveal">
+          <div class="star-row" aria-hidden="true">★★★★★</div>
+          <div class="quote-mark">“</div>
+          <p>相談してから完成まで、いつも同じ人が対応してくれるので話がスムーズでした。</p>
+          <div class="voice-who"><div class="avatar"></div><div><strong>相模原市 / 士業様</strong><span>掲載イメージ</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREA -->
+  <section class="section section-alt">
+    <div class="wrap area-wrap">
+      <div class="reveal">
+        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>対応エリア</p>
+        <h2 style="margin-bottom:14px;">相模原市を中心に、近隣エリアも伺います。</h2>
+        <p style="color:var(--ink-soft);font-size:14.5px;font-weight:300;">基本の対応エリアは相模原市内ですが、近隣市についてもご相談いただけます。まずはお気軽にお問い合わせください。</p>
+        <div class="area-marquee">
+          <div class="area-marquee-track">
+            <span class="main">相模原市 中央区</span>
+            <span class="main">相模原市 緑区</span>
+            <span class="main">相模原市 南区</span>
+            <span>町田市</span>
+            <span>八王子市</span>
+            <span>厚木市</span>
+            <span>座間市</span>
+            <span class="main">相模原市 中央区</span>
+            <span class="main">相模原市 緑区</span>
+            <span class="main">相模原市 南区</span>
+            <span>町田市</span>
+            <span>八王子市</span>
+            <span>厚木市</span>
+            <span>座間市</span>
+          </div>
+        </div>
+      </div>
+      <div class="area-visual reveal">
+        <h3>オンライン相談も対応しています</h3>
+        <p>遠方の方や、日中お時間の取りづらい方は、LINE通話・お電話でのご相談も承っております。まずは現状のお悩みだけでも、お気軽にお聞かせください。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section class="section" id="price">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>料金プラン</p>
+        <h2>まずは目安として、ご覧ください。</h2>
+        <p class="price-note">※表示は仮の金額です。内容・ページ数・ご要望によって変動しますので、正式な金額はお見積りにてご案内します。</p>
+      </div>
+      <div class="price-grid">
+        <div class="price-card tilt-card reveal">
+          <h4>LINEスタートプラン</h4>
+          <p class="price-sub">まずは公式LINEを整えたい方に</p>
+          <div class="price-num">¥33,000<span>〜（税込）</span></div>
+          <ul class="price-list">
+            <li>アカウント開設・基本設定</li>
+            <li>あいさつメッセージ作成</li>
+            <li>友だち追加QRコード作成</li>
+            <li>簡単な操作レクチャー</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">このプランで相談</a>
+        </div>
+        <div class="gradient-border">
+          <div class="price-card featured tilt-card reveal">
+            <span class="badge">人気</span>
+            <h4>おまかせセットプラン</h4>
+            <p class="price-sub">ホームページ＋LINEをまとめて</p>
+            <div class="price-num">¥165,000<span>〜（税込）</span></div>
+            <ul class="price-list">
+              <li>ホームページ制作（5ページ想定）</li>
+              <li>公式LINE開設・初期設定</li>
+              <li>友だち追加導線の設計</li>
+              <li>公開後1ヶ月の調整サポート</li>
+            </ul>
+            <a href="#contact" class="btn btn-accent">このプランで相談</a>
+          </div>
+        </div>
+        <div class="price-card tilt-card reveal">
+          <h4>ホームページ制作プラン</h4>
+          <p class="price-sub">サイトのみをしっかり作りたい方に</p>
+          <div class="price-num">¥110,000<span>〜（税込）</span></div>
+          <ul class="price-list">
+            <li>5ページ程度の構成</li>
+            <li>スマホ対応デザイン</li>
+            <li>お問い合わせフォーム設置</li>
+            <li>公開後の軽微な修正1回込み</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline">このプランで相談</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOW -->
+  <section class="section section-alt" id="flow">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>ご依頼の流れ</p>
+        <h2>お問い合わせから公開まで</h2>
+      </div>
+      <div class="flow-grid">
+        <div class="flow-card tilt-card reveal">
+          <div class="flow-step">STEP 01</div>
+          <h4>お問い合わせ</h4>
+          <p>LINEまたはお電話にて、現在のお悩みをお聞かせください。</p>
+        </div>
+        <div class="flow-card tilt-card reveal">
+          <div class="flow-step">STEP 02</div>
+          <h4>ヒアリング</h4>
+          <p>ご希望や現状の課題を丁寧にお伺いします。オンライン・対面どちらも可能です。</p>
+        </div>
+        <div class="flow-card tilt-card reveal">
+          <div class="flow-step">STEP 03</div>
+          <h4>ご提案・お見積り</h4>
+          <p>内容にあわせたプランと金額をご提示します。ご不明点はここで解消してください。</p>
+        </div>
+        <div class="flow-card tilt-card reveal">
+          <div class="flow-step">STEP 04</div>
+          <h4>制作・設定</h4>
+          <p>ご契約後、制作を進めます。進行中も適宜ご確認いただきます。</p>
+        </div>
+        <div class="flow-card tilt-card reveal">
+          <div class="flow-step">STEP 05</div>
+          <h4>公開・運用サポート</h4>
+          <p>公開後も、操作方法のご質問など引き続きサポートします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="wrap about-wrap">
+      <div class="about-photo reveal">PROFILE PHOTO</div>
+      <div class="about-card reveal">
+        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>connectについて</p>
+        <h3>相模原市を拠点に活動する、個人事業主です。</h3>
+        <p class="about-role">運営者：connect</p>
+        <p>地域のお店や事業者さまが抱える「集客の悩み」に、会社としてではなく一人の担当者として向き合っています。大きな会社にお願いするほどではないけれど、自分たちだけで進めるのも難しい——そんな規模感のご相談を、特に得意としています。</p>
+        <p>ホームページとLINE、どちらも中途半端にせず、かつ費用や運用の負担をかけすぎない形でご提案することを大切にしています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow"><svg class="thread" viewBox="0 0 32 8"><line x1="0" y1="4" x2="23" y2="4" stroke="currentColor" stroke-width="1.4"/><circle cx="28" cy="4" r="2.4" fill="currentColor"/></svg>よくあるご質問</p>
+        <h2>ご相談前に、気になること</h2>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item open">
+          <button class="faq-q"><span>ホームページとLINE、どちらか一方だけでも相談できますか？</span><span class="plus">＋</span></button>
+          <div class="faq-a"><p>もちろん可能です。どちらか一方のみのご依頼も歓迎しております。まずは現在お困りの内容をお聞かせください。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>相模原市以外でも対応してもらえますか？</span><span class="plus">＋</span></button>
+          <div class="faq-a"><p>町田市・八王子市・厚木市・座間市など近隣エリアであれば訪問対応が可能です。それ以外の地域はオンラインでのご相談となります。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>パソコンやLINEの操作に詳しくなくても大丈夫ですか？</span><span class="plus">＋</span></button>
+          <div class="faq-a"><p>問題ございません。専門用語を使わず、実際の画面を見ながら一つずつご説明します。操作が不安な方には基本操作のレクチャーも行っています。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>公開後の更新や修正もお願いできますか？</span><span class="plus">＋</span></button>
+          <div class="faq-a"><p>可能です。都度のご依頼、または月額でのサポートプランもご用意できますので、ご希望をお聞かせください。</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q"><span>見積りだけでもお願いできますか？</span><span class="plus">＋</span></button>
+          <div class="faq-a"><p>はい、お見積りとご提案までは無料で対応しております。内容にご納得いただいてからのご契約となりますので、お気軽にお問い合わせください。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="final-cta reveal">
+        <h2>まずは、LINEかお電話でお聞かせください。</h2>
+        <p>「これくらい聞いてもいいのかな」ということほど、まずはお気軽にご相談ください。相模原市のお店・事業者さまのお話を、一つずつ丁寧にお伺いします。</p>
+        <div class="final-ctas">
+          <a href="#" class="btn btn-line">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 3.1 2.02 5.8 5.06 7.34-.22.82-.8 2.96-.92 3.42-.14.55.2.55.42.4.18-.12 2.86-1.94 4.02-2.72.46.06.94.1 1.42.1 5.52 0 10-3.94 10-8.8S17.52 2 12 2z" fill="white"/></svg>
+            公式LINEで相談する
+          </a>
+          <a href="tel:0000000000" class="btn btn-accent">電話で相談する（000-0000-0000）</a>
+        </div>
+        <div class="contact-inline">
+          <span>受付時間：平日 9:00〜18:00（土日・不定休対応可）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">connect</div>
+        <p class="footer-desc">相模原市を拠点に、公式LINE作成代行と<br>ホームページ制作を行う個人事業主です。</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>MENU</h5>
+          <a href="#worries">お悩み</a>
+          <a href="#service">サービス</a>
+          <a href="#works">実績</a>
+          <a href="#price">料金</a>
+        </div>
+        <div class="footer-col">
+          <h5>SUPPORT</h5>
+          <a href="#flow">ご依頼の流れ</a>
+          <a href="#faq">よくある質問</a>
+          <a href="#about">connectについて</a>
+        </div>
+        <div class="footer-col">
+          <h5>CONTACT</h5>
+          <span>電話：000-0000-0000</span>
+          <a href="#">公式LINEはこちら</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© connect（相模原市 / 個人事業主）</span>
+      <span>対応エリア：相模原市 中央区・緑区・南区 ほか近隣市</span>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="ページの先頭へ戻る">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+  const motionOK = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const enhancedUX = motionOK && finePointer;
+
+  // header scroll state
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 8);
+  });
+
+  // scroll progress bar
+  const progress = document.getElementById('scrollProgress');
+  function updateProgress(){
+    const el = document.documentElement;
+    const scrollable = el.scrollHeight - el.clientHeight;
+    const pct = scrollable > 0 ? (el.scrollTop / scrollable) * 100 : 0;
+    progress.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  // mobile nav
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  menuToggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+  // reveal on scroll (staggered by position within its own grid/row)
+  const revealGroups = new Map();
+  document.querySelectorAll('.reveal').forEach(el => {
+    const group = el.parentElement;
+    if (!revealGroups.has(group)) revealGroups.set(group, []);
+    revealGroups.get(group).push(el);
+  });
+  revealGroups.forEach(list => {
+    list.forEach((el, i) => {
+      el.style.transitionDelay = (Math.min(i, 5) * 0.08) + 's';
+    });
+  });
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // accessibility: font-size toggle (inspired by "読みやすさ調整")
+  const a11yButtons = document.querySelectorAll('.a11y-toggle button');
+  a11yButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.documentElement.setAttribute('data-fontsize', btn.dataset.size === 'base' ? '' : btn.dataset.size);
+      a11yButtons.forEach(b => b.classList.toggle('active', b === btn));
+      // zoom changes the hero/title box size, so re-sync the canvas layers after layout settles
+      setTimeout(() => window.dispatchEvent(new Event('resize')), 380);
+    });
+  });
+
+  // back to top
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('show', window.scrollY > 640);
+  }, { passive: true });
+  backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: motionOK ? 'smooth' : 'auto' });
+  });
+
+  // hero: mouse-follow spotlight + gentle scroll parallax on aurora blobs
+  const heroEl = document.querySelector('.hero');
+  const heroSpotlight = document.getElementById('heroSpotlight');
+  const heroAurora = document.getElementById('heroAurora');
+  if (heroEl && enhancedUX) {
+    heroEl.addEventListener('mousemove', (e) => {
+      const r = heroEl.getBoundingClientRect();
+      heroSpotlight.style.setProperty('--sx', ((e.clientX - r.left) / r.width) * 100 + '%');
+      heroSpotlight.style.setProperty('--sy', ((e.clientY - r.top) / r.height) * 100 + '%');
+      heroSpotlight.classList.add('on');
+    });
+    heroEl.addEventListener('mouseleave', () => heroSpotlight.classList.remove('on'));
+  }
+  if (heroAurora && motionOK) {
+    window.addEventListener('scroll', () => {
+      const y = Math.min(window.scrollY, 900);
+      heroAurora.style.transform = `translateY(${y * 0.18}px)`;
+    }, { passive: true });
+  }
+
+  // hero background "video": full-bleed cinematic connecting-nodes animation (糸/つながりモチーフ)
+  // Layers: drifting far/near nodes with thread-links, a slow diagonal light sweep,
+  // and periodic "message" pulses that travel along threads (echoes LINE messages
+  // passing between connected nodes) — designed to read as a looping video, not a static bg.
+  (function heroNetworkAnimation(){
+    const canvas = document.getElementById('heroCanvas');
+    if (!canvas || !heroEl) return;
+    const ctx = canvas.getContext('2d');
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    let w = 0, h = 0, nodes = [], raf = null, running = false, visible = true;
+    let pulses = [], activeEdges = [], nextPulseAt = 0;
+    const MAX_PULSES = 5;
+
+    const NODE_COLOR = '230,212,168';
+    const LINE_COLOR = '180,144,63';
+    const SHEEN_COLOR = '230,196,128';
+    const PULSE_GOLD = '196,158,74';
+    const PULSE_LINE = '6,199,85'; // occasional nod to the LINE product itself
+
+    function buildNodes(){
+      const area = w * h;
+      const count = Math.max(26, Math.min(110, Math.round(area / 13000)));
+      nodes = Array.from({ length: count }, () => {
+        const far = Math.random() < 0.5; // depth: far (small/dim/slow) vs near (bigger/brighter/faster)
+        return {
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * (far ? 0.16 : 0.32),
+          vy: (Math.random() - 0.5) * (far ? 0.16 : 0.32),
+          r: far ? Math.random() * 1.1 + 0.7 : Math.random() * 1.9 + 1.3,
+          a: far ? 0.22 : 0.42,
+          far
+        };
+      });
+      pulses = [];
+      nextPulseAt = 0;
+    }
+
+    function resize(){
+      const rect = heroEl.getBoundingClientRect();
+      w = rect.width; h = rect.height;
+      canvas.width = w * DPR;
+      canvas.height = h * DPR;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      buildNodes();
+    }
+
+    function drawSheen(t){
+      // slow diagonal light sweep drifting across the whole hero, so motion reads
+      // even where nodes happen to be sparse — the "camera light" of the video
+      const sx = (Math.sin(t * 0.14) * 0.5 + 0.5) * w * 1.5 - w * 0.25;
+      const sy = h * 0.32 + Math.sin(t * 0.09) * h * 0.16;
+      const sheen = ctx.createRadialGradient(sx, sy, 0, sx, sy, Math.max(w, h) * 0.55);
+      sheen.addColorStop(0, `rgba(${SHEEN_COLOR},0.09)`);
+      sheen.addColorStop(0.55, `rgba(${LINE_COLOR},0.035)`);
+      sheen.addColorStop(1, `rgba(${LINE_COLOR},0)`);
+      ctx.fillStyle = sheen;
+      ctx.fillRect(0, 0, w, h);
+    }
+
+    function maybeSpawnPulse(ts){
+      if (ts < nextPulseAt) return;
+      if (!activeEdges.length || pulses.length >= MAX_PULSES){
+        nextPulseAt = ts + 260;
+        return;
+      }
+      const [a, b] = activeEdges[Math.floor(Math.random() * activeEdges.length)];
+      const reverse = Math.random() < 0.5;
+      const color = Math.random() < 0.2 ? PULSE_LINE : PULSE_GOLD;
+      pulses.push({
+        from: reverse ? b : a,
+        to: reverse ? a : b,
+        start: ts,
+        dur: 850 + Math.random() * 650,
+        color
+      });
+      nextPulseAt = ts + 480 + Math.random() * 520;
+    }
+
+    function drawPulses(ts){
+      for (let k = pulses.length - 1; k >= 0; k--){
+        const p = pulses[k];
+        const prog = (ts - p.start) / p.dur;
+        if (prog >= 1){ pulses.splice(k, 1); continue; }
+        const x = p.from.x + (p.to.x - p.from.x) * prog;
+        const y = p.from.y + (p.to.y - p.from.y) * prog;
+        const fade = Math.sin(Math.min(Math.max(prog, 0), 1) * Math.PI);
+        ctx.beginPath();
+        ctx.arc(x, y, 2.4, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.color},${0.85 * fade})`;
+        ctx.shadowColor = `rgba(${p.color},${0.9 * fade})`;
+        ctx.shadowBlur = 9;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    function step(ts){
+      if (!running) return;
+      ctx.clearRect(0, 0, w, h);
+      drawSheen((ts || 0) / 1000);
+      const linkDist = Math.min(150, w * 0.14);
+      activeEdges.length = 0;
+
+      for (const n of nodes){
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > w) n.vx *= -1;
+        if (n.y < 0 || n.y > h) n.vy *= -1;
+        n.x = Math.max(0, Math.min(w, n.x));
+        n.y = Math.max(0, Math.min(h, n.y));
+      }
+      for (let i = 0; i < nodes.length; i++){
+        for (let j = i + 1; j < nodes.length; j++){
+          const a = nodes[i], b = nodes[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < linkDist){
+            const depthFade = (a.far && b.far) ? 0.55 : 1;
+            ctx.strokeStyle = `rgba(${LINE_COLOR},${(1 - dist / linkDist) * 0.32 * depthFade})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+            activeEdges.push([a, b]);
+          }
+        }
+      }
+      for (const n of nodes){
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${NODE_COLOR},${n.a})`;
+        ctx.fill();
+      }
+      maybeSpawnPulse(ts || 0);
+      drawPulses(ts || 0);
+      raf = requestAnimationFrame(step);
+    }
+
+    function start(){
+      if (running) return;
+      running = true;
+      raf = requestAnimationFrame(step);
+    }
+    function stop(){
+      running = false;
+      if (raf) cancelAnimationFrame(raf);
+    }
+    function drawStaticFrame(){
+      ctx.clearRect(0, 0, w, h);
+      for (const n of nodes){
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${NODE_COLOR},${n.a * 0.85})`;
+        ctx.fill();
+      }
+    }
+
+    resize();
+    if (motionOK){
+      const io2 = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          visible = entry.isIntersecting;
+          if (visible && !document.hidden) start(); else stop();
+        });
+      }, { threshold: 0 });
+      io2.observe(heroEl);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) stop(); else if (visible) start();
+      });
+      // gentle parallax dolly on scroll, reinforcing the "moving footage" feel
+      window.addEventListener('scroll', () => {
+        const y = Math.min(window.scrollY, 900);
+        canvas.style.transform = `translateY(${y * 0.05}px) scale(1.02)`;
+      }, { passive: true });
+    } else {
+      drawStaticFrame();
+    }
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        resize();
+        if (!motionOK) drawStaticFrame();
+      }, 200);
+    });
+  })();
+
+  // hero title: reflect the same connecting-nodes animation inside the headline glyphs
+  (function heroTitleFillAnimation(){
+    const title = document.getElementById('heroTitle');
+    if (!title || !motionOK) return;
+
+    const off = document.createElement('canvas');
+    const octx = off.getContext('2d');
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    let w = 0, h = 0, nodes = [], raf = null, running = false, visible = true, lastPaint = 0;
+    let lineEls = [];
+
+    function buildNodes(){
+      const area = w * h;
+      const count = Math.max(20, Math.min(60, Math.round(area / 2200)));
+      nodes = Array.from({ length: count }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        r: Math.random() * 1.4 + 0.9
+      }));
+    }
+
+    function measure(){
+      const r = title.getBoundingClientRect();
+      w = Math.max(1, Math.round(r.width));
+      h = Math.max(1, Math.round(r.height));
+      off.width = w * DPR;
+      off.height = h * DPR;
+      octx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      buildNodes();
+    }
+
+    function measureLineOffsets(){
+      const r = title.getBoundingClientRect();
+      lineEls = Array.from(title.querySelectorAll('.line > span')).map(span => {
+        const sr = span.getBoundingClientRect();
+        return { span, ox: Math.round(sr.left - r.left), oy: Math.round(sr.top - r.top) };
+      });
+    }
+
+    function paint(){
+      measureLineOffsets();
+      octx.clearRect(0, 0, w, h);
+      const g = octx.createLinearGradient(0, 0, w, h);
+      g.addColorStop(0, '#F4F7F9');
+      g.addColorStop(1, '#DCC48D');
+      octx.fillStyle = g;
+      octx.fillRect(0, 0, w, h);
+
+      // slow diagonal light sweep so the motion reads clearly across the whole headline,
+      // not just wherever a node happens to sit
+      const t = performance.now() / 1000;
+      const sx = ((Math.sin(t * 0.22) * 0.5 + 0.5)) * w * 1.5 - w * 0.25;
+      const sheen = octx.createRadialGradient(sx, h * 0.45, 0, sx, h * 0.45, w * 0.4);
+      sheen.addColorStop(0, 'rgba(230,196,128,0.45)');
+      sheen.addColorStop(0.6, 'rgba(180,144,63,0.14)');
+      sheen.addColorStop(1, 'rgba(180,144,63,0)');
+      octx.fillStyle = sheen;
+      octx.fillRect(0, 0, w, h);
+
+      const linkDist = Math.min(90, w * 0.16);
+      for (const n of nodes){
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > w) n.vx *= -1;
+        if (n.y < 0 || n.y > h) n.vy *= -1;
+        n.x = Math.max(0, Math.min(w, n.x));
+        n.y = Math.max(0, Math.min(h, n.y));
+      }
+      for (let i = 0; i < nodes.length; i++){
+        for (let j = i + 1; j < nodes.length; j++){
+          const a = nodes[i], b = nodes[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < linkDist){
+            octx.strokeStyle = `rgba(220,196,141,${(1 - dist / linkDist) * 0.55})`;
+            octx.lineWidth = 1;
+            octx.beginPath();
+            octx.moveTo(a.x, a.y);
+            octx.lineTo(b.x, b.y);
+            octx.stroke();
+          }
+        }
+      }
+      for (const n of nodes){
+        octx.beginPath();
+        octx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        octx.fillStyle = 'rgba(220,196,141,0.85)';
+        octx.fill();
+      }
+
+      const dataUrl = `url(${off.toDataURL('image/png')})`;
+      lineEls.forEach(({ span, ox, oy }) => {
+        span.style.backgroundImage = dataUrl;
+        span.style.backgroundSize = `${w}px ${h}px`;
+        span.style.backgroundPosition = `-${ox}px -${oy}px`;
+        if (!span.classList.contains('title-fill-line')) span.classList.add('title-fill-line');
+      });
+    }
+
+    function step(ts){
+      if (!running) return;
+      if (ts - lastPaint > 90){
+        paint();
+        lastPaint = ts;
+      }
+      raf = requestAnimationFrame(step);
+    }
+    function start(){ if (!running){ running = true; raf = requestAnimationFrame(step); } }
+    function stop(){ running = false; if (raf) cancelAnimationFrame(raf); }
+
+    function init(){
+      // wait for the headline's slide-in entrance animation to finish so we don't
+      // measure line positions mid-transform (max delay .27s + duration .95s)
+      setTimeout(() => {
+        measure();
+        paint();
+        const io3 = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            visible = entry.isIntersecting;
+            if (visible && !document.hidden) start(); else stop();
+          });
+        }, { threshold: 0 });
+        io3.observe(title);
+        document.addEventListener('visibilitychange', () => {
+          if (document.hidden) stop(); else if (visible) start();
+        });
+        let resizeTimer2;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer2);
+          resizeTimer2 = setTimeout(() => { measure(); paint(); }, 200);
+        });
+      }, 1300);
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(init).catch(init);
+    } else {
+      init();
+    }
+  })();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-q');
+    const ans = item.querySelector('.faq-a');
+    if (item.classList.contains('open')) {
+      ans.style.maxHeight = ans.scrollHeight + 'px';
+    }
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        if (openItem !== item) {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-a').style.maxHeight = null;
+        }
+      });
+      item.classList.toggle('open', !isOpen);
+      ans.style.maxHeight = !isOpen ? ans.scrollHeight + 'px' : null;
+    });
+  });
+
+  // count-up numbers in bento stats
+  function initCountUp(){
+    const els = document.querySelectorAll('.bento-num[data-target]');
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseFloat(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        if (!motionOK) {
+          el.textContent = target + suffix;
+          cio.unobserve(el);
+          return;
+        }
+        const start = performance.now();
+        const dur = 1100;
+        function tick(now){
+          const p = Math.min((now - start) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased) + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+          else el.textContent = target + suffix;
+        }
+        requestAnimationFrame(tick);
+        cio.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+    els.forEach(el => cio.observe(el));
+  }
+  initCountUp();
+
+  // desktop-only enhancements: custom cursor, magnetic buttons, tilt cards
+  if (enhancedUX) {
+    document.documentElement.classList.add('custom-cursor');
+
+    const cursorDot = document.getElementById('cursorDot');
+    const cursorRing = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX; mouseY = e.clientY;
+      cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%,-50%)`;
+      cursorDot.style.opacity = 1;
+      cursorRing.style.opacity = 1;
+    });
+    (function loop(){
+      ringX += (mouseX - ringX) * 0.16;
+      ringY += (mouseY - ringY) * 0.16;
+      cursorRing.style.transform = `translate3d(${ringX}px, ${ringY}px, 0) translate(-50%,-50%)`;
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll('a,button,.btn').forEach(el => {
+      el.addEventListener('mouseenter', () => cursorRing.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursorRing.classList.remove('hover'));
+    });
+
+    // magnetic buttons
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = e.clientX - r.left - r.width / 2;
+        const y = e.clientY - r.top - r.height / 2;
+        btn.style.transform = `translate(${x * 0.22}px, ${y * 0.22 - 2}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+
+    // tilt + spotlight cards
+    document.querySelectorAll('.tilt-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        card.style.setProperty('--mx', (x / r.width) * 100 + '%');
+        card.style.setProperty('--my', (y / r.height) * 100 + '%');
+        const rx = ((y / r.height) - 0.5) * -5;
+        const ry = ((x / r.width) - 0.5) * 5;
+        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-3px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+  }
+</script>
+
+</body>
+</html>
