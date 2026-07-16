@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>炭火焼肉 太陽｜厳選和牛と炭火が織りなす、上質なひととき。</title>
+<meta name="description" content="炭火焼肉 太陽は、厳選した黒毛和牛と炭火の香りにこだわる、上質な焼肉店です。特別な日にも、何気ない日常にも寄り添う一皿を。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0e0c0b;
+    --bg-alt:#161210;
+    --bg-card:#1b1613;
+    --ink:#f3ece1;
+    --ink-soft:#b7a998;
+    --ink-faint:#8a7c6c;
+    --border:rgba(243,236,225,.12);
+    --gold:#c8a04e;
+    --gold-soft:#e4c887;
+    --red:#8f2c1e;
+    --radius:2px;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Noto Sans JP",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.brand,.serif{font-family:"Shippori Mincho",serif;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  section{padding:140px 0;position:relative;}
+  @media (max-width:640px){section{padding:88px 0;}}
+
+  /* Traditional asanoha pattern texture (subtle) */
+  .asanoha{
+    position:absolute;inset:0;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='145.5' viewBox='0 0 84 145.5'%3E%3Cg fill='none' stroke='%23e4c887' stroke-width='1'%3E%3Cpath d='M42 0L84 24.25V72.75L42 97L0 72.75V24.25Z'/%3E%3Cpath d='M42 97V145.5M42 0V-48.5M84 24.25L126 0M84 24.25L126 48.5M84 72.75L126 48.5M84 72.75L126 97M0 24.25L-42 0M0 24.25L-42 48.5M0 72.75L-42 48.5M0 72.75L-42 97'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:180px 312px;
+  }
+
+  /* Header */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:26px 0;
+    transition:background .4s var(--ease),padding .4s var(--ease),border-color .4s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  header.scrolled{background:rgba(14,12,11,.92);backdrop-filter:blur(10px);padding:16px 0;border-color:var(--border);}
+  .nav-wrap{
+    max-width:1120px;margin:0 auto;padding:0 28px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .brand{font-size:20px;font-weight:600;color:var(--ink);display:flex;align-items:center;gap:10px;letter-spacing:.04em;}
+  .brand .mark{color:var(--gold);font-size:24px;}
+  .brand small{font-family:"Noto Sans JP",sans-serif;font-size:9.5px;font-weight:400;color:var(--ink-faint);letter-spacing:.22em;display:block;margin-top:2px;}
+  nav ul{list-style:none;display:flex;gap:38px;font-size:13.5px;font-weight:500;letter-spacing:.03em;}
+  nav a{position:relative;padding:4px 0;color:var(--ink-soft);transition:color .3s;}
+  nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .35s var(--ease);}
+  nav a:hover{color:var(--ink);}
+  nav a:hover::after{width:100%;}
+  .nav-cta{
+    border:1px solid var(--gold);color:var(--gold-soft);padding:10px 24px;font-size:12.5px;font-weight:500;letter-spacing:.08em;
+    transition:background .3s var(--ease),color .3s var(--ease);
+  }
+  .nav-cta:hover{background:var(--gold);color:#1a1410;}
+  .mobile-nav-toggle{display:none;background:none;border:none;font-size:22px;color:var(--ink);cursor:pointer;}
+  #mobileNav{display:none;position:fixed;inset:0;background:var(--bg);z-index:200;padding:28px;}
+  #mobileNav.open{display:block;}
+  #mobileNav ul{list-style:none;display:flex;flex-direction:column;gap:26px;margin-top:64px;font-size:19px;font-weight:600;text-align:center;font-family:"Shippori Mincho",serif;}
+  #mobileNav .close-btn{position:absolute;top:24px;right:28px;font-size:26px;background:none;border:none;color:var(--ink);}
+  @media (max-width:860px){
+    nav ul{display:none;}
+    .nav-cta{display:none;}
+    .mobile-nav-toggle{display:block;}
+  }
+
+  /* Hero */
+  .hero{
+    position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden;padding:0 0 100px;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(10,8,7,.35) 0%, rgba(10,8,7,.55) 55%, rgba(10,8,7,.96) 100%),
+      url("https://images.pexels.com/photos/34723813/pexels-photo-34723813.jpeg?auto=compress&cs=tinysrgb&w=1920") center 30%/cover no-repeat;
+  }
+  .hero-content{position:relative;z-index:2;max-width:1120px;margin:0 auto;padding:0 28px;width:100%;}
+  .hero-eyebrow{
+    display:flex;align-items:center;gap:14px;
+    font-size:12.5px;font-weight:500;color:var(--gold-soft);letter-spacing:.3em;margin-bottom:28px;
+  }
+  .hero-eyebrow .line{width:40px;height:1px;background:var(--gold);}
+  .hero h1{
+    font-size:clamp(34px,5.2vw,64px);
+    line-height:1.55;
+    font-weight:600;
+    margin-bottom:36px;
+    letter-spacing:.03em;
+  }
+  .hero h1 span{display:block;}
+  .hero h1 .accent{color:var(--gold-soft);}
+  .hero p.lead{font-size:15.5px;color:var(--ink-soft);margin-bottom:44px;max-width:460px;line-height:2;}
+  .hero-btns{display:flex;gap:18px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 34px;font-weight:500;font-size:13.5px;letter-spacing:.08em;
+    transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .35s var(--ease),color .35s var(--ease);
+  }
+  .btn-primary{background:var(--gold);color:#1a1410;box-shadow:0 14px 30px rgba(200,160,78,.18);}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(200,160,78,.28);}
+  .btn-outline{border:1px solid rgba(243,236,225,.35);color:var(--ink);}
+  .btn-outline:hover{transform:translateY(-3px);border-color:var(--gold);color:var(--gold-soft);}
+  .hero-meta{display:flex;gap:28px;margin-top:52px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-faint);letter-spacing:.03em;}
+  .hero-meta span{display:flex;align-items:center;gap:8px;}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none;}
+
+  /* Statement / philosophy */
+  .statement{background:var(--bg);text-align:center;}
+  .statement .wrap{max-width:820px;}
+  .statement h2{
+    font-size:clamp(24px,3.2vw,36px);font-weight:600;margin-bottom:56px;letter-spacing:.05em;color:var(--ink);
+  }
+  .statement p{font-size:15px;color:var(--ink-soft);line-height:2.4;letter-spacing:.02em;}
+  .statement-cta{
+    display:inline-flex;align-items:center;gap:16px;margin-top:52px;font-size:13px;letter-spacing:.1em;color:var(--ink-soft);
+    border:1px solid var(--border);padding:16px 32px;transition:border-color .3s,color .3s;
+  }
+  .statement-cta:hover{border-color:var(--gold);color:var(--gold-soft);}
+  .statement-cta .bar{width:22px;height:1px;background:var(--gold);}
+
+  /* Section head */
+  .section-head{max-width:640px;margin:0 auto 72px;}
+  .section-head.center{text-align:center;}
+  .eyebrow{
+    display:flex;align-items:center;gap:12px;font-size:12px;font-weight:500;color:var(--gold-soft);
+    letter-spacing:.28em;margin-bottom:20px;font-family:"Shippori Mincho",serif;
+  }
+  .section-head.center .eyebrow{justify-content:center;}
+  .eyebrow .line{width:32px;height:1px;background:var(--gold);}
+  .section-head h2{font-size:clamp(24px,3vw,32px);font-weight:600;margin-bottom:16px;letter-spacing:.04em;}
+  .section-head p{color:var(--ink-soft);font-size:14.5px;}
+
+  /* Kodawari — numbered feature rows */
+  .kodawari-bg{background:var(--bg-alt);}
+  .kodawari-row{
+    display:grid;grid-template-columns:.85fr 1.15fr;gap:64px;align-items:center;
+    padding:64px 0;border-bottom:1px solid var(--border);
+  }
+  .kodawari-row:last-child{border-bottom:none;padding-bottom:0;}
+  .kodawari-row:first-child{padding-top:0;}
+  .kodawari-row.reverse{grid-template-columns:1.15fr .85fr;}
+  .kodawari-row.reverse .kodawari-text{order:2;}
+  .kodawari-row.reverse .kodawari-photo{order:1;}
+  @media (max-width:820px){
+    .kodawari-row,.kodawari-row.reverse{grid-template-columns:1fr;gap:32px;}
+    .kodawari-row.reverse .kodawari-text{order:1;}
+    .kodawari-row.reverse .kodawari-photo{order:2;}
+  }
+  .kodawari-num{
+    font-family:"Shippori Mincho",serif;font-size:15px;color:var(--gold);letter-spacing:.1em;margin-bottom:20px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .kodawari-num .n{font-size:44px;font-weight:600;line-height:1;color:var(--gold-soft);}
+  .kodawari-text h3{font-size:clamp(20px,2.4vw,26px);font-weight:600;margin-bottom:20px;letter-spacing:.03em;}
+  .kodawari-text p{font-size:14.5px;color:var(--ink-soft);line-height:2.1;}
+  .kodawari-photo{
+    aspect-ratio:4/3;overflow:hidden;position:relative;background:var(--bg-card);
+  }
+  .kodawari-photo img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
+  .kodawari-photo:hover img{transform:scale(1.06);}
+  .kodawari-photo::after{
+    content:"";position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(243,236,225,.1);pointer-events:none;
+  }
+
+  /* Course / Menu */
+  .menu-bg{background:var(--bg);}
+  .course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+  @media (max-width:900px){.course-grid{grid-template-columns:1fr;}}
+  .course-card{
+    background:var(--bg-card);padding:48px 36px;text-align:center;position:relative;
+    transition:background .35s var(--ease);
+  }
+  .course-card:hover{background:#211a15;}
+  .course-card.loud{background:#221a13;}
+  .course-badge{
+    display:inline-block;font-size:11px;font-weight:500;color:var(--gold-soft);letter-spacing:.2em;
+    border:1px solid var(--gold);padding:5px 16px;margin-bottom:24px;
+  }
+  .course-card h3{font-size:19px;font-weight:600;margin-bottom:6px;letter-spacing:.04em;}
+  .course-card .en{font-size:10.5px;color:var(--ink-faint);letter-spacing:.18em;margin-bottom:28px;text-transform:uppercase;}
+  .course-price{font-family:"Shippori Mincho",serif;font-size:34px;font-weight:600;color:var(--gold-soft);margin-bottom:4px;}
+  .course-price small{font-size:12px;font-family:"Noto Sans JP",sans-serif;font-weight:400;color:var(--ink-faint);}
+  .course-list{list-style:none;text-align:left;margin-top:28px;font-size:13px;color:var(--ink-soft);}
+  .course-list li{padding:11px 0;border-top:1px solid var(--border);}
+  .course-list li:first-child{border-top:none;}
+  .menu-note{text-align:center;margin-top:40px;font-size:13px;color:var(--ink-faint);letter-spacing:.02em;}
+
+  /* Gallery / interior */
+  .gallery-bg{background:var(--bg-alt);}
+  .gallery-strip{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:auto auto;gap:2px;}
+  @media (max-width:820px){.gallery-strip{grid-template-columns:1fr 1fr;}}
+  .gallery-tile{aspect-ratio:1/1;overflow:hidden;position:relative;background:var(--bg-card);}
+  .gallery-tile.tall{grid-row:span 2;aspect-ratio:auto;}
+  .gallery-tile img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease),filter .5s;filter:grayscale(.15) brightness(.88);}
+  .gallery-tile:hover img{transform:scale(1.05);filter:grayscale(0) brightness(1);}
+  .gallery-tile .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:20px;
+    background:linear-gradient(0deg, rgba(10,8,7,.75), transparent);
+    font-size:12px;letter-spacing:.1em;color:var(--ink-soft);
+  }
+
+  /* Info / Access */
+  .info-bg{background:var(--bg);}
+  .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+  @media (max-width:820px){.info-grid{grid-template-columns:1fr;}}
+  .info-table{width:100%;border-collapse:collapse;}
+  .info-table tr{border-bottom:1px solid var(--border);}
+  .info-table tr:last-child{border-bottom:none;}
+  .info-table th,.info-table td{text-align:left;padding:19px 0;font-size:13.5px;vertical-align:top;}
+  .info-table th{width:120px;color:var(--ink-faint);font-weight:500;letter-spacing:.05em;}
+  .info-table td{color:var(--ink-soft);}
+  .map-box{
+    aspect-ratio:4/3;border:1px solid var(--border);
+    background:
+      repeating-linear-gradient(0deg, rgba(200,160,78,.05) 0 1px, transparent 1px 44px),
+      repeating-linear-gradient(90deg, rgba(200,160,78,.05) 0 1px, transparent 1px 44px),
+      var(--bg-card);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--ink-faint);
+  }
+  .map-pin{width:34px;height:34px;border-radius:50% 50% 50% 0;background:var(--gold);transform:rotate(-45deg);position:relative;}
+  .map-pin::after{content:"";position:absolute;inset:8px;background:var(--bg-card);border-radius:50%;}
+
+  /* CTA / Contact */
+  .cta-section{
+    position:relative;overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(14,12,11,.55), rgba(14,12,11,.94)),
+      url("https://images.pexels.com/photos/1857726/pexels-photo-1857726.jpeg?auto=compress&cs=tinysrgb&w=1600") center/cover no-repeat;
+    text-align:center;padding:120px 40px;
+  }
+  .cta-section h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:20px;letter-spacing:.04em;font-weight:600;}
+  .cta-section p{color:var(--ink-soft);margin-bottom:44px;font-size:14.5px;}
+  .cta-btns{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;}
+  .btn-line{background:#06C755;color:#fff;box-shadow:0 12px 26px rgba(6,199,85,.22);}
+  .btn-line:hover{transform:translateY(-3px);}
+  .btn-light{border:1px solid rgba(243,236,225,.35);color:var(--ink);}
+  .btn-light:hover{transform:translateY(-3px);border-color:var(--gold);color:var(--gold-soft);}
+
+  /* Footer */
+  footer{padding:64px 0 36px;text-align:center;background:var(--bg);border-top:1px solid var(--border);}
+  footer .brand{justify-content:center;margin-bottom:18px;}
+  footer .foot-addr{font-size:13px;color:var(--ink-faint);margin-bottom:24px;letter-spacing:.03em;}
+  .demo-badge{
+    display:inline-flex;align-items:center;gap:10px;
+    font-size:12px;color:var(--ink-faint);
+    border:1px solid var(--border);
+    padding:9px 18px;margin-bottom:24px;letter-spacing:.02em;
+  }
+  .demo-badge a{color:var(--gold-soft);font-weight:500;}
+  footer .copyright{font-size:11px;color:#665a4c;letter-spacing:.05em;}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="nav-wrap">
+    <a href="#top" class="brand"><span class="mark">炎</span><span>炭火焼肉 太陽<small>SUMIBI YAKINIKU TAIYO</small></span></a>
+    <nav>
+      <ul>
+        <li><a href="#kodawari">こだわり</a></li>
+        <li><a href="#course">コース</a></li>
+        <li><a href="#gallery">店内</a></li>
+        <li><a href="#access">アクセス</a></li>
+      </ul>
+    </nav>
+    <a href="#contact" class="nav-cta">ご予約</a>
+    <button class="mobile-nav-toggle" id="navToggle" aria-label="メニューを開く">☰</button>
+  </div>
+</header>
+
+<div id="mobileNav">
+  <button class="close-btn" id="navClose" aria-label="閉じる">×</button>
+  <ul>
+    <li><a href="#kodawari">こだわり</a></li>
+    <li><a href="#course">コース</a></li>
+    <li><a href="#gallery">店内</a></li>
+    <li><a href="#access">アクセス</a></li>
+    <li><a href="#contact">ご予約・お問い合わせ</a></li>
+  </ul>
+</div>
+
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow"><span class="line"></span>SUMIBI YAKINIKU</p>
+    <h1><span>厳選和牛と炭火が織りなす、</span><span class="accent">上質なひととき。</span></h1>
+    <p class="lead">目利きが選び抜いた黒毛和牛を、備長炭でじっくりと。特別な日にも、なんでもない日にも、心に残る一皿をお届けします。</p>
+    <div class="hero-btns">
+      <a href="#course" class="btn btn-primary">コースを見る</a>
+      <a href="#contact" class="btn btn-outline">ご予約はこちら</a>
+    </div>
+    <div class="hero-meta">
+      <span><span class="dot"></span>11:30〜15:00（L.O.14:30）</span>
+      <span><span class="dot"></span>17:00〜23:00（L.O.22:30）</span>
+      <span><span class="dot"></span>年中無休</span>
+    </div>
+  </div>
+</section>
+
+<section class="statement">
+  <div class="wrap reveal">
+    <h2>おいしさは、<br class="mbr">記憶に残る。</h2>
+    <p>
+      大切な人と過ごす、特別な夜。<br>
+      仕事終わり、自分をねぎらいたい日。<br>
+      理由なんて、なくてもいい。<br><br>
+      私たちは、素材と炭の力を信じています。<br>
+      一枚一枚、丁寧に見極めた黒毛和牛を、<br>
+      最良の状態でお客様のもとへ。<br><br>
+      炭火焼肉 太陽は、そんな上質なひとときを、<br>
+      静かに、確かにお届けする焼肉店です。
+    </p>
+    <a href="#kodawari" class="statement-cta"><span class="bar"></span>太陽のこだわりを見る</a>
+  </div>
+</section>
+
+<section class="kodawari-bg" id="kodawari">
+  <div class="asanoha"></div>
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow"><span class="line"></span>OUR COMMITMENT<span class="line"></span></p>
+      <h2>太陽の、三つのこだわり</h2>
+      <p>素材、炭、そして空間。すべてに理由があります。</p>
+    </div>
+
+    <div class="kodawari-row reveal">
+      <div class="kodawari-text">
+        <p class="kodawari-num"><span class="n">01</span>SELECTED WAGYU</p>
+        <h3>目利きが選ぶ、黒毛和牛。</h3>
+        <p>信頼できる産地から直接仕入れる、きめ細やかな霜降りの黒毛和牛。仕入れの段階から一枚ごとに状態を見極め、最良の部位だけをお客様の卓上へお届けします。</p>
+      </div>
+      <div class="kodawari-photo">
+        <img src="https://images.pexels.com/photos/20036092/pexels-photo-20036092.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="厳選された黒毛和牛の盛り合わせ" loading="lazy">
+      </div>
+    </div>
+
+    <div class="kodawari-row reverse reveal">
+      <div class="kodawari-text">
+        <p class="kodawari-num"><span class="n">02</span>BINCHOTAN CHARCOAL</p>
+        <h3>備長炭が引き出す、香りと旨み。</h3>
+        <p>高温でじっくりと熱を通す備長炭は、余分な脂を落としながら肉の旨みだけを閉じ込めます。炎ではなく、熾火の遠赤外線でじっくりと焼き上げるのが太陽の流儀です。</p>
+      </div>
+      <div class="kodawari-photo">
+        <img src="https://images.pexels.com/photos/13203938/pexels-photo-13203938.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="備長炭でじっくり焼き上げる肉" loading="lazy">
+      </div>
+    </div>
+
+    <div class="kodawari-row reveal">
+      <div class="kodawari-text">
+        <p class="kodawari-num"><span class="n">03</span>QUIET SPACE</p>
+        <h3>静かに寛げる、大人の空間。</h3>
+        <p>木の温もりを感じる落ち着いた店内で、煙を気にせず会話を楽しめる無煙ロースターを完備。記念日にも、大切な商談にも寄り添う、上質な時間をご用意しています。</p>
+      </div>
+      <div class="kodawari-photo">
+        <img src="https://images.pexels.com/photos/32722834/pexels-photo-32722834.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="落ち着いた雰囲気の店内" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu-bg" id="course">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow"><span class="line"></span>COURSE<span class="line"></span></p>
+      <h2>コースのご案内</h2>
+      <p>目的やお席の人数に合わせて、三つのコースからお選びいただけます。</p>
+    </div>
+    <div class="course-grid">
+      <div class="course-card reveal">
+        <div class="en">Standard</div>
+        <h3>常花コース</h3>
+        <div class="course-price">¥6,800<small>（税込・お一人様）</small></div>
+        <ul class="course-list">
+          <li>黒毛和牛カルビ・ロース</li>
+          <li>厚切り牛タン塩</li>
+          <li>本日の一品・スープ・ご飯</li>
+          <li>お飲み物1杯付き</li>
+        </ul>
+      </div>
+      <div class="course-card loud reveal">
+        <div class="course-badge">一番人気</div>
+        <div class="en">Taiyo Selection</div>
+        <h3>太陽コース</h3>
+        <div class="course-price">¥9,800<small>（税込・お一人様）</small></div>
+        <ul class="course-list">
+          <li>常花コース内容 全て</li>
+          <li>希少部位の食べ比べ5種</li>
+          <li>特製デザート付き</li>
+          <li>飲み放題 120分</li>
+        </ul>
+      </div>
+      <div class="course-card reveal">
+        <div class="en">Premium</div>
+        <h3>特選プレミアムコース</h3>
+        <div class="course-price">¥14,800<small>（税込・お一人様）</small></div>
+        <ul class="course-list">
+          <li>太陽コース内容 全て</li>
+          <li>A5黒毛和牛 極上シャトーブリアン</li>
+          <li>季節の逸品・お造り付き</li>
+          <li>個室確約</li>
+        </ul>
+      </div>
+    </div>
+    <p class="menu-note">※ご接待・ご会食向けのコースも別途ご用意しております。詳しくは店舗までお問い合わせください。</p>
+  </div>
+</section>
+
+<section class="gallery-bg" id="gallery">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow"><span class="line"></span>INTERIOR<span class="line"></span></p>
+      <h2>店内のご紹介</h2>
+      <p>木と炭、灯りが調和する、落ち着いた大人の空間。</p>
+    </div>
+  </div>
+  <div class="gallery-strip reveal">
+    <div class="gallery-tile tall">
+      <img src="https://images.pexels.com/photos/34723813/pexels-photo-34723813.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="落ち着いた照明のテーブル席" loading="lazy">
+      <div class="cap">個室・テーブル席</div>
+    </div>
+    <div class="gallery-tile">
+      <img src="https://images.pexels.com/photos/32722834/pexels-photo-32722834.jpeg?auto=compress&cs=tinysrgb&w=800" alt="木の温もりを感じるカウンター" loading="lazy">
+      <div class="cap">カウンター席</div>
+    </div>
+    <div class="gallery-tile">
+      <img src="https://images.pexels.com/photos/1857726/pexels-photo-1857726.jpeg?auto=compress&cs=tinysrgb&w=800" alt="備長炭の炎" loading="lazy">
+      <div class="cap">備長炭</div>
+    </div>
+    <div class="gallery-tile">
+      <img src="https://images.pexels.com/photos/13203938/pexels-photo-13203938.jpeg?auto=compress&cs=tinysrgb&w=800" alt="炭火で焼き上げる肉" loading="lazy">
+      <div class="cap">炭火焼き</div>
+    </div>
+    <div class="gallery-tile">
+      <img src="https://images.pexels.com/photos/20036092/pexels-photo-20036092.jpeg?auto=compress&cs=tinysrgb&w=800" alt="厳選された黒毛和牛" loading="lazy">
+      <div class="cap">厳選和牛</div>
+    </div>
+  </div>
+</section>
+
+<section class="info-bg" id="access">
+  <div class="wrap">
+    <div class="section-head center reveal">
+      <p class="eyebrow"><span class="line"></span>ACCESS<span class="line"></span></p>
+      <h2>営業時間・アクセス</h2>
+      <p>大切な方との時間に、静かに寄り添う一軒です。</p>
+    </div>
+    <div class="info-grid">
+      <table class="info-table reveal">
+        <tr><th>店名</th><td>炭火焼肉 太陽</td></tr>
+        <tr><th>営業時間</th><td>11:30〜15:00（L.O.14:30）<br>17:00〜23:00（L.O.22:30）</td></tr>
+        <tr><th>定休日</th><td>年中無休</td></tr>
+        <tr><th>住所</th><td>〒000-0000　○○県○○市○○町1-2-3</td></tr>
+        <tr><th>アクセス</th><td>○○駅　徒歩3分</td></tr>
+        <tr><th>電話番号</th><td>000-0000-0000</td></tr>
+        <tr><th>お席</th><td>テーブル30席／個室4室（2〜12名様）</td></tr>
+      </table>
+      <div class="map-box reveal">
+        <div class="map-pin"></div>
+        <span style="font-size:13px;">MAP（地図はダミー表示です）</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="cta-section reveal">
+    <p class="eyebrow" style="justify-content:center;"><span class="line"></span>RESERVATION<span class="line"></span></p>
+    <h2>ご予約・お問い合わせ</h2>
+    <p>公式LINEからは、24時間いつでも簡単にご予約いただけます。</p>
+    <div class="cta-btns">
+      <a href="#" class="btn btn-line">公式LINEで予約する</a>
+      <a href="tel:0000000000" class="btn btn-light">お電話でのご予約</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="brand" style="justify-content:center;"><span class="mark">炎</span><span>炭火焼肉 太陽</span></a>
+    <p class="foot-addr">〒000-0000　○○県○○市○○町1-2-3　TEL：000-0000-0000</p>
+    <div class="demo-badge">
+      <span>炎</span>
+      <span>これは <a href="../index.html">Conectar</a> が制作した架空店舗のデモサイトです</span>
+    </div>
+    <p class="copyright">© Sumibi Yakiniku Taiyo（架空店舗）— Demo site by Conectar</p>
+    <p class="copyright" style="margin-top:10px;font-size:10px;">写真：Pexels（フリー素材）</p>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 40){ header.classList.add('scrolled'); }
+    else{ header.classList.remove('scrolled'); }
+  });
+
+  const navToggle = document.getElementById('navToggle');
+  const navClose = document.getElementById('navClose');
+  const mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', () => mobileNav.classList.add('open'));
+  navClose.addEventListener('click', () => mobileNav.classList.remove('open'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.12});
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
