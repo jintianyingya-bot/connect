@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>整体院 巡-MEGURI- ｜ 作成例（Conectar デモサイト）</title>
+<meta name="description" content="肩こり・腰痛・自律神経の不調に。その不調を「めぐり」から整える整体院 巡-MEGURI- の架空デモサイトです。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#f4f7f5; --bg-alt:#e8f0ea; --bg-card:#ffffff;
+    --ink:#233029; --ink-soft:#586b60; --ink-faint:#8a978f;
+    --accent:#3a8873; --accent-deep:#2b6a58; --accent-soft:#e9f2ec;
+    --line:#dfe8e2; --shadow:0 24px 50px -28px rgba(20,50,38,.28);
+    --serif:'Shippori Mincho',serif; --sans:'Noto Sans JP',sans-serif;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.85;font-weight:400;-webkit-font-smoothing:antialiased}
+  .wrap{width:min(1080px,92%);margin:0 auto}
+  .serif{font-family:var(--serif)}
+  .en{font-family:'Shippori Mincho',serif;letter-spacing:.14em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+  .kicker{font-family:var(--serif);font-size:12.5px;letter-spacing:.32em;color:var(--accent-deep);font-weight:600;display:block;margin-bottom:14px}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:15px 30px;border-radius:100px;font-weight:600;font-size:14.5px;transition:transform .3s,box-shadow .3s;cursor:pointer;border:none}
+  .btn-solid{background:var(--accent);color:#fff;box-shadow:0 16px 30px -14px rgba(58,136,115,.6)}
+  .btn-solid:hover{transform:translateY(-2px);box-shadow:0 20px 38px -14px rgba(58,136,115,.7)}
+  .btn-line{background:#06C755;color:#fff;box-shadow:0 16px 30px -14px rgba(6,199,85,.5)}
+  .btn-line:hover{transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+  .btn-outline:hover{border-color:var(--accent);color:var(--accent-deep)}
+  /* header */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:padding .35s,background .35s,box-shadow .35s}
+  header.scrolled{padding:12px 0;background:rgba(244,247,245,.9);backdrop-filter:blur(12px);box-shadow:0 4px 24px -18px rgba(20,50,38,.4)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:baseline;gap:9px}
+  .brand b{font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:.04em;color:var(--ink)}
+  .brand small{font-size:11px;letter-spacing:.24em;color:var(--ink-soft);font-weight:500}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-size:13.5px;font-weight:500;color:var(--ink-soft);transition:color .3s}
+  .nav-links a:hover{color:var(--accent-deep)}
+  .nav-cta{padding:11px 22px;border-radius:100px;background:var(--accent);color:#fff;font-size:13px;font-weight:600}
+  @media(max-width:860px){.nav-links a:not(.nav-cta){display:none}}
+  /* hero */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background-image:linear-gradient(100deg,rgba(20,45,35,.82),rgba(20,45,35,.42) 60%,rgba(20,45,35,.2)),url('https://images.pexels.com/photos/37719530/pexels-photo-37719530.jpeg?auto=compress&cs=tinysrgb&w=1600');background-size:cover;background-position:center;transform:scale(1.05)}
+  .hero-inner{position:relative;padding:120px 0}
+  .hero-eyebrow{font-family:var(--serif);font-size:14px;letter-spacing:.22em;margin-bottom:22px;color:#cfe6db}
+  .hero h1{font-family:var(--serif);font-size:clamp(34px,5.4vw,60px);font-weight:600;line-height:1.4;letter-spacing:.02em;margin-bottom:26px;text-shadow:0 4px 30px rgba(0,0,0,.35)}
+  .hero h1 em{font-style:normal;color:#a7dcc8}
+  .hero p.lead{font-size:16px;font-weight:300;max-width:520px;line-height:2;color:rgba(255,255,255,.9);margin-bottom:38px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+  .trust-row{display:flex;gap:26px;flex-wrap:wrap}
+  .trust-row span{font-size:13px;font-weight:400;color:rgba(255,255,255,.85);display:flex;align-items:center;gap:7px}
+  .trust-row span::before{content:'';width:6px;height:6px;border-radius:50%;background:#a7dcc8}
+  /* section base */
+  section{padding:96px 0}
+  .sec-head{text-align:center;margin-bottom:60px}
+  .sec-head h2{font-family:var(--serif);font-size:clamp(25px,3.4vw,36px);font-weight:600;line-height:1.5;letter-spacing:.02em}
+  .sec-head p{color:var(--ink-soft);font-size:15px;margin-top:16px;font-weight:300}
+</style>
+</head>
+<body>
+<style>
+  /* statement */
+  .statement{background:var(--bg-alt);text-align:center}
+  .statement .kicker{text-align:center}
+  .statement h2{font-family:var(--serif);font-size:clamp(24px,3.6vw,38px);font-weight:600;line-height:1.7;letter-spacing:.02em;margin-bottom:26px}
+  .statement h2 em{font-style:normal;color:var(--accent-deep);border-bottom:2px solid var(--accent-soft);padding-bottom:2px}
+  .statement p{max-width:640px;margin:0 auto;color:var(--ink-soft);font-size:15.5px;font-weight:300;line-height:2.1}
+  /* symptom grid */
+  .sym-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:820px){.sym-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.sym-grid{grid-template-columns:1fr}}
+  .sym-card{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:30px 26px;transition:transform .4s,box-shadow .4s,border-color .4s}
+  .sym-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:transparent}
+  .sym-ico{width:52px;height:52px;border-radius:14px;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px}
+  .sym-card h3{font-family:var(--serif);font-size:18px;font-weight:600;margin-bottom:10px}
+  .sym-card p{font-size:13.5px;color:var(--ink-soft);font-weight:300;line-height:1.9}
+  /* kodawari / features */
+  .feat{background:var(--bg-alt)}
+  .feat-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:70px}
+  .feat-row:last-child{margin-bottom:0}
+  .feat-row.reverse .feat-media{order:2}
+  @media(max-width:820px){.feat-row{grid-template-columns:1fr;gap:26px}.feat-row.reverse .feat-media{order:0}}
+  .feat-media{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/3;box-shadow:var(--shadow)}
+  .feat-media img{width:100%;height:100%;object-fit:cover}
+  .feat-num{font-family:var(--serif);font-size:15px;letter-spacing:.2em;color:var(--accent);font-weight:600;margin-bottom:14px}
+  .feat-text h3{font-family:var(--serif);font-size:clamp(21px,2.6vw,27px);font-weight:600;line-height:1.55;margin-bottom:18px}
+  .feat-text p{color:var(--ink-soft);font-size:14.5px;font-weight:300;line-height:2.05}
+  /* flow */
+  .flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:820px){.flow-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.flow-grid{grid-template-columns:1fr}}
+  .flow-step{background:var(--bg-card);border:1px solid var(--line);border-radius:16px;padding:30px 24px;position:relative}
+  .flow-step .n{font-family:var(--serif);font-size:13px;letter-spacing:.2em;color:var(--accent);font-weight:600;margin-bottom:14px}
+  .flow-step .n b{font-size:30px;letter-spacing:0;display:block;margin-top:2px}
+  .flow-step h4{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:9px}
+  .flow-step p{font-size:13px;color:var(--ink-soft);font-weight:300;line-height:1.85}
+  /* price */
+  .price{background:var(--bg-alt)}
+  .price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:820px;margin:0 auto}
+  @media(max-width:620px){.price-grid{grid-template-columns:1fr}}
+  .price-card{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:32px 30px;position:relative}
+  .price-card.featured{border-color:var(--accent);box-shadow:var(--shadow)}
+  .price-badge{position:absolute;top:-13px;left:30px;background:var(--accent);color:#fff;font-size:11.5px;font-weight:600;letter-spacing:.08em;padding:6px 15px;border-radius:100px}
+  .price-card h3{font-family:var(--serif);font-size:19px;font-weight:600;margin-bottom:6px}
+  .price-card .sub{font-size:12.5px;color:var(--ink-faint);margin-bottom:16px;font-weight:300}
+  .price-amt{font-family:var(--serif);font-size:34px;font-weight:600;color:var(--accent-deep);line-height:1}
+  .price-amt small{font-size:14px;color:var(--ink-soft);font-weight:400;margin-left:4px}
+  .price-note{text-align:center;color:var(--ink-faint);font-size:12.5px;margin-top:26px;font-weight:300}
+  /* gallery */
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  @media(max-width:820px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+  .gal-grid figure{border-radius:14px;overflow:hidden;aspect-ratio:1;position:relative}
+  .gal-grid figure.tall{grid-row:span 2;aspect-ratio:1/2}
+  @media(max-width:820px){.gal-grid figure.tall{grid-row:span 1;aspect-ratio:1}}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .gal-grid figure:hover img{transform:scale(1.06)}
+  /* access */
+  .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  @media(max-width:820px){.access-grid{grid-template-columns:1fr;gap:26px}}
+  .access-table{width:100%;border-collapse:collapse}
+  .access-table th,.access-table td{text-align:left;padding:16px 4px;border-bottom:1px solid var(--line);font-size:14px;vertical-align:top}
+  .access-table th{width:34%;font-weight:600;color:var(--accent-deep);font-family:var(--serif)}
+  .access-table td{color:var(--ink-soft);font-weight:300}
+  .access-map{border-radius:18px;overflow:hidden;aspect-ratio:4/3;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;color:var(--accent-deep);font-family:var(--serif);position:relative}
+  .access-map .pin{text-align:center}
+  .access-map .pin span{font-size:40px;display:block;margin-bottom:8px}
+  /* cta */
+  .cta{position:relative;color:#fff;text-align:center;overflow:hidden}
+  .cta-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(20,45,35,.86),rgba(20,45,35,.86)),url('https://images.pexels.com/photos/5794039/pexels-photo-5794039.jpeg?auto=compress&cs=tinysrgb&w=1400');background-size:cover;background-position:center}
+  .cta-inner{position:relative}
+  .cta h2{font-family:var(--serif);font-size:clamp(25px,3.6vw,38px);font-weight:600;line-height:1.55;margin-bottom:20px}
+  .cta p{color:rgba(255,255,255,.9);font-weight:300;max-width:520px;margin:0 auto 34px;font-size:15px}
+  .cta-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  /* footer */
+  footer{background:#1c2822;color:rgba(255,255,255,.7);padding:56px 0 30px;text-align:center}
+  .foot-brand{font-family:var(--serif);font-size:20px;color:#fff;font-weight:600;letter-spacing:.05em;margin-bottom:10px}
+  .foot-desc{font-size:13px;font-weight:300;max-width:420px;margin:0 auto 26px;line-height:1.9}
+  .demo-badge{display:inline-block;font-size:12px;letter-spacing:.04em;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.16);border-radius:100px;padding:8px 18px;margin-bottom:14px}
+  .demo-badge a{color:#a7dcc8;font-weight:600}
+  .credit{font-size:11.5px;color:rgba(255,255,255,.4);font-weight:300}
+</style>
+<header id="siteHeader">
+  <div class="wrap nav-inner">
+    <div class="brand"><b>巡-MEGURI-</b><small>整体院</small></div>
+    <nav class="nav-links">
+      <a href="#symptom">お悩み</a>
+      <a href="#feature">当院の特長</a>
+      <a href="#flow">施術の流れ</a>
+      <a href="#price">料金</a>
+      <a href="#access">アクセス</a>
+      <a href="#contact" class="nav-cta">LINEでご予約</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-inner">
+    <p class="hero-eyebrow">肩こり・腰痛・自律神経の不調に</p>
+    <h1>その不調、<em>めぐり</em>から<br>整えていく。</h1>
+    <p class="lead">つらい症状の原因は、痛む場所とは限りません。国家資格をもつ施術者が、お身体全体の"めぐり"を見立て、根本から整えていく整体院です。</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-line">LINEでかんたん予約</a>
+      <a href="#price" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4)">施術メニューを見る</a>
+    </div>
+    <div class="trust-row">
+      <span>国家資格者が施術</span>
+      <span>完全予約制</span>
+      <span>駅から徒歩3分</span>
+    </div>
+  </div>
+</section>
+
+<section class="statement reveal">
+  <div class="wrap">
+    <span class="kicker">CONCEPT</span>
+    <h2>痛む場所に、<em>原因があるとは限りません。</em></h2>
+    <p>肩がこるのは肩のせい、腰が痛むのは腰のせい——とは限りません。日々の姿勢のクセや骨盤のゆがみ、血流や自律神経の乱れが、離れた場所に不調としてあらわれることがあります。巡-MEGURI-では、その場しのぎではなく、不調のもとになっている「めぐり」から整えることを大切にしています。</p>
+  </div>
+</section>
+
+<section class="symptom" id="symptom">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">SYMPTOMS</span>
+      <h2>こんなお悩み、ありませんか？</h2>
+      <p>一つでも当てはまる方は、お気軽にご相談ください。</p>
+    </div>
+    <div class="sym-grid">
+      <div class="sym-card reveal"><div class="sym-ico">💪</div><h3>肩こり・首のこり</h3><p>デスクワークやスマホで固まった肩・首まわりを、筋肉と骨格の両面からゆるめていきます。</p></div>
+      <div class="sym-card reveal"><div class="sym-ico">🦵</div><h3>腰痛・坐骨神経痛</h3><p>骨盤のゆがみや姿勢のクセに着目し、腰に負担のかかりにくいお身体へ整えます。</p></div>
+      <div class="sym-card reveal"><div class="sym-ico">🌀</div><h3>頭痛・眼精疲労</h3><p>首肩の緊張からくる頭の重さや目の疲れを、めぐりを促してやわらげます。</p></div>
+      <div class="sym-card reveal"><div class="sym-ico">🌙</div><h3>自律神経の乱れ</h3><p>眠りが浅い・だるさが抜けない。呼吸と背骨のバランスからコンディションを整えます。</p></div>
+      <div class="sym-card reveal"><div class="sym-ico">🤰</div><h3>骨盤のゆがみ・産後ケア</h3><p>出産や生活習慣で開いた骨盤を、やさしい矯正で本来のバランスへ導きます。</p></div>
+      <div class="sym-card reveal"><div class="sym-ico">🏃</div><h3>姿勢・スポーツのケア</h3><p>猫背や反り腰、運動後の張り。動きやすいコンディションづくりをサポートします。</p></div>
+    </div>
+  </div>
+</section>
+<section class="feat" id="feature">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">OUR FEATURES</span>
+      <h2>巡-MEGURI- が選ばれる3つの理由</h2>
+    </div>
+    <div class="feat-row reveal">
+      <div class="feat-media"><img src="https://images.pexels.com/photos/5794033/pexels-photo-5794033.jpeg?auto=compress&cs=tinysrgb&w=900" alt="施術者による検査の様子"></div>
+      <div class="feat-text">
+        <div class="feat-num">01</div>
+        <h3>まず「検査」で、<br>不調の原因を見立てる。</h3>
+        <p>いきなり施術に入りません。丁寧な問診と姿勢・動きのチェックで、どこがめぐりを止めているのかを見立ててから始めます。納得いただいたうえで施術に進むので、初めての方も安心です。</p>
+      </div>
+    </div>
+    <div class="feat-row reverse reveal">
+      <div class="feat-media"><img src="https://images.pexels.com/photos/5793949/pexels-photo-5793949.jpeg?auto=compress&cs=tinysrgb&w=900" alt="骨格・骨盤の調整"></div>
+      <div class="feat-text">
+        <div class="feat-num">02</div>
+        <h3>骨格・骨盤から、<br>やさしく整える。</h3>
+        <p>ボキボキと強い刺激を加える施術ではありません。骨盤や背骨のバランスにアプローチし、身体が本来のポジションを思い出すよう、ソフトな手技で整えます。お子さまやご年配の方にも対応しています。</p>
+      </div>
+    </div>
+    <div class="feat-row reveal">
+      <div class="feat-media"><img src="https://images.pexels.com/photos/20860584/pexels-photo-20860584.jpeg?auto=compress&cs=tinysrgb&w=900" alt="セルフケアの指導"></div>
+      <div class="feat-text">
+        <div class="feat-num">03</div>
+        <h3>再発させない、<br>セルフケアまで。</h3>
+        <p>整えた状態を保つことが何より大切です。日常でできる簡単なストレッチや姿勢のコツを、お一人おひとりに合わせてお伝えします。通わなくても良い身体づくりを一緒に目指します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="flow" id="flow">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">FLOW</span>
+      <h2>施術の流れ</h2>
+      <p>初回は問診・検査を含めて60分ほどを目安にしています。</p>
+    </div>
+    <div class="flow-grid">
+      <div class="flow-step reveal"><div class="n">STEP<b>01</b></div><h4>ご予約</h4><p>LINEまたはお電話で。ご都合のよい日時をお選びください。当日予約も歓迎です。</p></div>
+      <div class="flow-step reveal"><div class="n">STEP<b>02</b></div><h4>問診・検査</h4><p>お悩みや生活習慣を伺い、姿勢や動きをチェック。原因を一緒に確認します。</p></div>
+      <div class="flow-step reveal"><div class="n">STEP<b>03</b></div><h4>お身体の調整</h4><p>検査をもとに、骨盤・背骨・筋肉のバランスをやさしく整えていきます。</p></div>
+      <div class="flow-step reveal"><div class="n">STEP<b>04</b></div><h4>アフター説明</h4><p>今の状態と、次回までのセルフケアをご説明。通院ペースもご提案します。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="price" id="price">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">PRICE</span>
+      <h2>料金メニュー</h2>
+      <p>表示はすべて税込です。追加費用は一切いただきません。</p>
+    </div>
+    <div class="price-grid">
+      <div class="price-card featured reveal">
+        <span class="price-badge">初回おすすめ</span>
+        <h3>初回限定コース</h3>
+        <p class="sub">問診＋検査＋整体施術（約60分）</p>
+        <div class="price-amt">¥2,980<small>／初回</small></div>
+      </div>
+      <div class="price-card reveal">
+        <h3>整体スタンダード</h3>
+        <p class="sub">全身のバランス調整（約40分）</p>
+        <div class="price-amt">¥4,500<small>／回</small></div>
+      </div>
+      <div class="price-card reveal">
+        <h3>骨盤矯正コース</h3>
+        <p class="sub">骨盤まわり重点ケア（約50分）</p>
+        <div class="price-amt">¥5,500<small>／回</small></div>
+      </div>
+      <div class="price-card reveal">
+        <h3>回数券（5回）</h3>
+        <p class="sub">継続ケアにおすすめ・有効期限3ヶ月</p>
+        <div class="price-amt">¥20,000<small>／5回</small></div>
+      </div>
+    </div>
+    <p class="price-note">※ 効果の感じ方には個人差があります。無理な回数券の勧誘は一切いたしません。</p>
+  </div>
+</section>
+<section class="gallery">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">GALLERY</span>
+      <h2>院内・施術のご紹介</h2>
+      <p>清潔で落ち着いた空間で、ゆったりとお過ごしいただけます。</p>
+    </div>
+    <div class="gal-grid reveal">
+      <figure class="tall"><img src="https://images.pexels.com/photos/5794039/pexels-photo-5794039.jpeg?auto=compress&cs=tinysrgb&w=700" alt="施術風景"></figure>
+      <figure><img src="https://images.pexels.com/photos/37719530/pexels-photo-37719530.jpeg?auto=compress&cs=tinysrgb&w=500" alt="背中の施術"></figure>
+      <figure><img src="https://images.pexels.com/photos/5473186/pexels-photo-5473186.jpeg?auto=compress&cs=tinysrgb&w=500" alt="手技の様子"></figure>
+      <figure><img src="https://images.pexels.com/photos/5794033/pexels-photo-5794033.jpeg?auto=compress&cs=tinysrgb&w=500" alt="検査の様子"></figure>
+      <figure><img src="https://images.pexels.com/photos/5793949/pexels-photo-5793949.jpeg?auto=compress&cs=tinysrgb&w=500" alt="骨格の調整"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="kicker">ACCESS</span>
+      <h2>アクセス・営業時間</h2>
+    </div>
+    <div class="access-grid reveal">
+      <table class="access-table">
+        <tr><th>院名</th><td>整体院 巡-MEGURI-</td></tr>
+        <tr><th>住所</th><td>〒000-0000<br>（架空の住所）みどり市巡町1-2-3 めぐりビル2F</td></tr>
+        <tr><th>アクセス</th><td>各線「みどり中央駅」東口より徒歩3分</td></tr>
+        <tr><th>電話</th><td>000-000-0000（完全予約制）</td></tr>
+        <tr><th>営業時間</th><td>平日 10:00〜20:00 ／ 土日祝 9:00〜18:00</td></tr>
+        <tr><th>定休日</th><td>水曜日</td></tr>
+      </table>
+      <div class="access-map">
+        <div class="pin"><span>📍</span>MAP（デモ）</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="cta-bg"></div>
+  <div class="wrap cta-inner">
+    <div class="reveal">
+      <h2>つらい不調、<br>一人で我慢しないでください。</h2>
+      <p>「これくらいで相談してもいいのかな」——そんな軽い不調こそ、早めのケアが大切です。まずはお気軽にLINEからご相談ください。</p>
+      <div class="cta-ctas">
+        <a href="#" class="btn btn-line">LINEでかんたん予約</a>
+        <a href="#" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.4)">お電話でのご予約</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-brand">整体院 巡-MEGURI-</div>
+    <p class="foot-desc">その不調、めぐりから整える。肩こり・腰痛・自律神経の不調に寄り添う整体院。</p>
+    <div class="demo-badge">Produced as a website example by <a href="../index.html">Conectar</a></div>
+    <p class="credit">写真：Pexels（フリー素材）／これは実在しない架空店舗のデモサイトです。</p>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
