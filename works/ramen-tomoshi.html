@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拉麺 灯-TOMOSHI- ｜ 作成例（Conectar デモサイト）</title>
+<meta name="description" content="国産小麦の自家製麺と無化調スープにこだわる、拉麺 灯-TOMOSHI- の架空デモサイトです。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍜</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#FBF6EE; --bg-alt:#F5E9D8; --bg-card:#ffffff;
+    --ink:#2A1810; --ink-soft:#6B5344;
+    --accent:#C1272D; --accent-deep:#8F1D22; --accent-soft:#F6E1CE;
+    --line:rgba(42,24,16,.1);
+    --shadow:0 24px 48px -24px rgba(42,24,16,.22);
+    --max:1140px;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;overflow-x:hidden;font-weight:300;letter-spacing:.02em}
+  h1,h2,h3,h4{font-family:'Shippori Mincho',serif;font-weight:600;line-height:1.5;letter-spacing:.03em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  .eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.22em;color:var(--accent);font-weight:600;margin-bottom:14px}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* header */
+  #siteHeader{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:.4s;background:transparent}
+  #siteHeader.scrolled{background:rgba(251,246,238,.92);backdrop-filter:blur(10px);box-shadow:0 2px 24px rgba(42,24,16,.08);padding:13px 0}
+  .hnav{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:'Shippori Mincho',serif;font-size:21px;font-weight:700;letter-spacing:.05em;color:var(--ink)}
+  #siteHeader:not(.scrolled) .logo{color:#fff}
+  .logo b{color:var(--accent)}
+  .hlinks{display:flex;align-items:center;gap:34px}
+  .hlinks a{font-size:14px;font-weight:500}
+  #siteHeader:not(.scrolled) .hlinks a{color:#fff}
+  .hcta{background:var(--accent);color:#fff!important;padding:11px 24px;border-radius:100px;font-size:13.5px;font-weight:600}
+  @media(max-width:860px){.hlinks a:not(.hcta){display:none}}
+
+  /* hero */
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(180deg, rgba(20,12,8,.62), rgba(20,12,8,.72)), url('https://images.pexels.com/photos/34692771/pexels-photo-34692771.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover;color:#fff;padding-top:80px}
+  .hero-in{position:relative;z-index:2}
+  .hero .eyebrow{color:var(--accent-soft)}
+  .hero h1{font-size:clamp(34px,5.6vw,64px);color:#fff;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:var(--accent-soft)}
+  .hero p{font-size:16px;max-width:520px;color:rgba(255,255,255,.86);margin-bottom:34px}
+  .hbtns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:100px;font-size:14.5px;font-weight:600;letter-spacing:.03em;transition:.25s}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-deep)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.5);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .hfacts{display:flex;gap:28px;flex-wrap:wrap}
+  .hfacts span{font-size:13px;color:rgba(255,255,255,.78);display:flex;align-items:center;gap:8px}
+  .hfacts span::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent-soft)}
+
+  /* statement */
+  .statement{padding:120px 0 100px;text-align:center}
+  .statement .eyebrow{display:block}
+  .statement h2{font-size:clamp(24px,3.4vw,36px);max-width:760px;margin:0 auto 26px}
+  .statement p{max-width:600px;margin:0 auto;color:var(--ink-soft);font-size:15px}
+
+  /* menu grid */
+  .section{padding:90px 0}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 56px}
+  .section-head h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:16px}
+  .section-head p{color:var(--ink-soft);font-size:15px}
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:860px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+  .menu-card{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:32px 26px;transition:.3s}
+  .menu-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+  .menu-card .tag{font-size:11.5px;letter-spacing:.1em;color:var(--accent);font-weight:600;margin-bottom:10px;display:block}
+  .menu-card h3{font-size:19px;margin-bottom:10px}
+  .menu-card p{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px;min-height:44px}
+  .menu-card .price{font-family:'Shippori Mincho',serif;font-size:26px;font-weight:700;color:var(--ink)}
+  .menu-card .price span{font-size:13px;color:var(--ink-soft);font-weight:400;margin-left:4px}
+  .menu-card.feat{background:linear-gradient(160deg, var(--accent-soft), var(--bg-card))}
+
+  /* feature rows */
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:70px 0}
+  .frow img{border-radius:20px;box-shadow:var(--shadow);aspect-ratio:4/3.1;object-fit:cover}
+  .frow.rev{direction:rtl}
+  .frow.rev>*{direction:ltr}
+  .frow .num{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--accent);font-weight:700;margin-bottom:14px;display:block}
+  .frow h3{font-size:clamp(22px,2.8vw,30px);margin-bottom:18px}
+  .frow p{color:var(--ink-soft);font-size:14.5px;margin-bottom:10px}
+  @media(max-width:800px){.frow,.frow.rev{grid-template-columns:1fr;direction:ltr}}
+
+  /* gallery */
+  .gallery{padding:90px 0;background:var(--bg-alt)}
+  .gal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .gal-grid img{border-radius:12px;aspect-ratio:1/1;object-fit:cover;transition:.3s}
+  .gal-grid img:hover{transform:scale(1.04)}
+  @media(max-width:860px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* access */
+  .access{padding:100px 0}
+  .acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  @media(max-width:800px){.acc-grid{grid-template-columns:1fr}}
+  .acc-table{width:100%;border-collapse:collapse;font-size:14px}
+  .acc-table tr{border-bottom:1px solid var(--line)}
+  .acc-table td{padding:16px 8px}
+  .acc-table td:first-child{color:var(--ink-soft);width:110px;font-weight:500}
+  .map-box{background:var(--bg-alt);border-radius:18px;height:100%;min-height:280px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;border:1px dashed var(--line)}
+
+  /* final cta */
+  .final-cta{padding:130px 0;text-align:center;color:#fff;background:linear-gradient(180deg, rgba(20,12,8,.72), rgba(20,12,8,.8)), url('https://images.pexels.com/photos/16446206/pexels-photo-16446206.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover}
+  .final-cta h2{font-size:clamp(26px,4vw,42px);margin-bottom:20px;color:#fff}
+  .final-cta p{color:rgba(255,255,255,.82);margin-bottom:34px;max-width:520px;margin-left:auto;margin-right:auto}
+
+  /* footer */
+  footer{padding:60px 0 40px;text-align:center;font-size:12.5px;color:var(--ink-soft)}
+  footer .demo-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);color:var(--accent-deep);padding:10px 22px;border-radius:100px;font-weight:600;font-size:13px;margin-bottom:18px}
+  footer .credit{max-width:480px;margin:0 auto;line-height:1.7}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap hnav">
+    <div class="logo">拉麺 <b>灯</b>-TOMOSHI-</div>
+    <nav class="hlinks">
+      <a href="#kodawari">こだわり</a>
+      <a href="#menu">メニュー</a>
+      <a href="#gallery">店内のご紹介</a>
+      <a href="#access">アクセス</a>
+      <a href="#access" class="hcta">混雑状況をLINEで確認</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <span class="eyebrow">RAMEN TOMOSHI</span>
+    <h1>一杯に、<em>灯り</em>をともす。</h1>
+    <p>国産小麦を使った自家製麺と、毎朝仕込む無化調スープ。派手さはなくとも、一杯ずつ丁寧に。灯-TOMOSHI-は、そんな拉麺店です。</p>
+    <div class="hbtns">
+      <a href="#menu" class="btn btn-primary">メニューを見る</a>
+      <a href="#access" class="btn btn-ghost">アクセス・営業時間</a>
+    </div>
+    <div class="hfacts">
+      <span>国産小麦100%の自家製麺</span>
+      <span>化学調味料不使用のスープ</span>
+      <span>カウンター8席・完全禁煙</span>
+    </div>
+  </div>
+</section>
+
+<section class="statement reveal">
+  <div class="wrap">
+    <span class="eyebrow">OUR PHILOSOPHY</span>
+    <h2>一杯のために、仕込みから逃げない。</h2>
+    <p>豚骨・鶏ガラ・煮干し。それぞれの香りが立つ温度と時間を見極め、毎朝一からスープを仕込みます。:n��q�� ��家製麺。毎日仕込む分だけを使い切ります。</p>
+  </div>
+</section>
+<section class="section" id="menu">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">MENU</span>
+      <h2>メニュー・価格</h2>
+      <p>看板の醤油そばから、季節限定のつけ麺まで。</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card feat reveal">
+        <span class="tag">看板</span>
+        <h3>醤油そば</h3>
+        <p>鶏ガラと厚削り節の澄んだスープに、自家製の細麺。</p>
+        <div class="price">¥850<span>／並</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">人気</span>
+        <h3>味噌そば</h3>
+        <p>コクのある自家製味噌だれと、香ばしいラー油。</p>
+        <div class="price">¥900<span>／並</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">こだわり</span>
+        <h3>特製にぼしそば</h3>
+        <p>煮干しを効かせた無化調の和風スープ。</p>
+        <div class="price">¥980<span>／並</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">季節限定</span>
+        <h3>つけ麺</h3>
+        <p>濃厚な魚介豚骨だれに、太めの自家製麺を絡めて。</p>
+        <div class="price">¥950<span>／並</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">トッピング</span>
+        <h3>味玉</h3>
+        <p>とろりと半熟に仕上げた自家製味玉。</p>
+        <div class="price">¥120</div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">トッピング</span>
+        <h3>特製チャーシュー</h3>
+        <p>低温でじっくり火を入れた、やわらかな一枚。</p>
+        <div class="price">¥300</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="kodawari" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="frow">
+      <img class="reveal" src="https://images.pexels.com/photos/31393431/pexels-photo-31393431.jpeg?auto=compress&cs=tinysrgb&w=900" alt="拉麺 灯-TOMOSHI- 看板の一杯（イメージ）">
+      <div class="reveal">
+        <span class="num">01</span>
+        <h3>スープへのこだわり</h3>
+        <p>踚骨・鶏ガラ・煮干し。素材ごとに火加減と時間を変え、毎朝一からじっくり炊き上げます。</p>
+        <p>化学調味料に頼らず、素材そのものの旨みだけで味を組み立てるのが灯-TOMOSHI-流です。</p>
+      </div>
+    </div>
+    <div class="frow rev">
+      <img class="reveal" src="https://images.pexels.com/photos/18848769/pexels-photo-18848769.jpeg?auto=compress&cs=tinysrgb&w=900" alt="自家製麺の仕込み（イメージ）">
+      <div class="reveal">
+        <span class="num">02</span>
+        <h3>自家製麺へのこだわり</h3>
+        <p>国産小麦を使い、スープの個性に合わせて太さと配合を変えた自家製麺。毎日仕込む分だけを使い切ります。</p>
+        <p>茹で加減も一杯ごとに見極め、最も香りき立つ瞬間に提供しています。</p>
+      </div>
+    </div>
+    <div class="frow">
+      <img class="reveal" src="https://images.pexels.com/photos/15646691/pexels-photo-15646691.jpeg?auto=compress&cs=tinysrgb&w=900" alt="厨房での仕込みの様子（イメージ）">
+      <div class="reveal">
+        <span class="num">03</span>
+        <h3>つくり手の想い</h3>
+        <p>派手さより、丁寧さを。日々の仕込みを一つひとつ大切に積み重ねることが、結局は一番の近道だと考えています。</p>
+        <p>常連さんにも、はじめての方にも、同じ気持ちで一杯をお出ししています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">GALLERY</span>
+      <h2>店内のご紹介</h2>
+    </div>
+    <div class="gal-grid">
+      <img class="reveal" src="https://images.pexels.com/photos/15085069/pexels-photo-15085069.jpeg?auto=compress&cs=tinysrgb&w=500" alt="ラーメンのイメージ写真1">
+      <img class="reveal" src="https://images.pexels.com/photos/16266742/pexels-photo-16266742.jpeg?auto=compress&cs=tinysrgb&w=500" alt="ラーメンのイメージ写真2">
+      <img class="reveal" src="https://images.pexels.com/photos/16446206/pexels-photo-16446206.jpeg?auto=compress&cs=tinysrgb&w=500" alt="ラーメンのイメージ写真3">
+      <img class="reveal" src="https://images.pexels.com/photos/1395319/pexels-photo-1395319.jpeg?auto=compress&cs=tinysrgb&w=500" alt="ラーメンのイメージ写真4">
+      <img class="reveal" src="https://images.pexels.com/photos/34692771/pexels-photo-34692771.jpeg?auto=compress&cs=tinysrgb&w=500" alt="ラーメンのイメージ写真5">
+    </div>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">ACCESS</span>
+      <h2>アクセス・営業時間</h2>
+    </div>
+    <div class="acc-grid">
+      <table class="acc-table reveal">
+        <tr><td>営業時間</td><td>11:00〜15:00（L.O.14:30）／ 18:00〜21:00（L.O.20:30）</td></tr>
+        <tr><td>定休日</td><td>水曜日・第3木曜日</td></tr>
+        <tr><td>席数</td><td>カウンター8席</td></tr>
+        <tr><td>アクセス</td><td>最寄り駅から徒歩4分</td></tr>
+        <tr><td>お支払い</td><td>現金・各種キャッシュレス対応</td></tr>
+        <tr><td>ご予約</td><td>混雑状況はLINEで随時ご案内</td></tr>
+      </table>
+      <div class="map-box reveal">地図（デモ用プレースホルダー）</div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap reveal">
+    <h2>今日も、一杯分の灯りを。</h2>
+    <p>混雑状況やスープ切れ情報は、公式LINEで随時お知らせしています。</p>
+    <a href="#access" class="btn btn-primary">LINEで混雑状況を見る</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="demo-badge" href="../index.html">Produced as a website example by Conectar</a>
+    <p class="credit">写真：Pexels（フリー素材）／これは実在しない架空店舗のデモサイトです。メニュー内容・価格は一例であり、実店舗の情報とは関係ありません。</p>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
