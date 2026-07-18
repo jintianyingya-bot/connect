@@ -73,14 +73,16 @@
   .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
   @media(max-width:860px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
-  .menu-card{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:32px 26px;transition:.3s}
+  .menu-card{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:.3s}
+  .menu-card-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+  .menu-card-body{padding:24px 26px 30px}
   .menu-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
   .menu-card .tag{font-size:11.5px;letter-spacing:.1em;color:var(--accent);font-weight:600;margin-bottom:10px;display:block}
   .menu-card h3{font-size:19px;margin-bottom:10px}
   .menu-card p{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px;min-height:44px}
   .menu-card .price{font-family:'Shippori Mincho',serif;font-size:26px;font-weight:700;color:var(--ink)}
   .menu-card .price span{font-size:13px;color:var(--ink-soft);font-weight:400;margin-left:4px}
-  .menu-card.feat{background:linear-gradient(160deg, var(--accent-soft), var(--bg-card))}
+  .menu-card.feat .menu-card-body{background:linear-gradient(160deg, var(--accent-soft), var(--bg-card))}
 
   /* feature rows */
   .frow{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:70px 0}
@@ -169,40 +171,58 @@
     </div>
     <div class="menu-grid">
       <div class="menu-card feat reveal">
+        <img class="menu-card-img" src="https://images.pexels.com/photos/33493350/pexels-photo-33493350.jpeg?auto=compress&cs=tinysrgb&w=700" alt="醤油そば" loading="lazy">
+        <div class="menu-card-body">
         <span class="tag">看板</span>
         <h3>醤油そば</h3>
         <p>鶏ガラと厚削り節の澄んだスープに、自家製の細麺。</p>
         <div class="price">¥850<span>／並</span></div>
+        </div>
       </div>
       <div class="menu-card reveal">
+        <img class="menu-card-img" src="https://images.pexels.com/photos/33493389/pexels-photo-33493389.jpeg?auto=compress&cs=tinysrgb&w=700" alt="味噌そば" loading="lazy">
+        <div class="menu-card-body">
         <span class="tag">人気</span>
         <h3>味噌そば</h3>
         <p>コクのある自家製味噌だれと、香ばしいラー油。</p>
         <div class="price">¥900<span>／並</span></div>
+        </div>
       </div>
       <div class="menu-card reveal">
+        <img class="menu-card-img" src="https://images.pexels.com/photos/24186433/pexels-photo-24186433.jpeg?auto=compress&cs=tinysrgb&w=700" alt="特製にぼしそば" loading="lazy">
+        <div class="menu-card-body">
         <span class="tag">こだわり</span>
         <h3>特製にぼしそば</h3>
         <p>煮干しを効かせた無化調の和風スープ。</p>
         <div class="price">¥980<span>／並</span></div>
+        </div>
       </div>
       <div class="menu-card reveal">
+        <img class="menu-card-img" src="https://images.pexels.com/photos/30682736/pexels-photo-30682736.jpeg?auto=compress&cs=tinysrgb&w=700" alt="つけ麺" loading="lazy">
+        <div class="menu-card-body">
         <span class="tag">季節限定</span>
         <h3>つけ麺</h3>
         <p>濃厚な魚介豚骨だれに、太めの自家製麺を絡めて。</p>
         <div class="price">¥950<span>／並</span></div>
+        </div>
       </div>
       <div class="menu-card reveal">
+        <img class="menu-card-img" src="https://images.pexels.com/photos/28701168/pexels-photo-28701168.jpeg?auto=compress&cs=tinysrgb&w=700" alt="味玉" loading="lazy">
+        <div class="menu-card-body">
         <span class="tag">トッピング</span>
         <h3>味玉</h3>
         <p>とろりと半熟に仕上げた自家製味玉。</p>
         <div class="price">¥120</div>
+        </div>
       </div>
       <div class="menu-card reveal">
+        <img class="menu-card-img" src="https://images.pexels.com/photos/16388408/pexels-photo-16388408.jpeg?auto=compress&cs=tinysrgb&w=700" alt="特製チャーシュー" loading="lazy">
+        <div class="menu-card-body">
         <span class="tag">トッピング</span>
         <h3>特製チャーシュー</h3>
         <p>低温でじっくり火を入れた、やわらかな一枚。</p>
         <div class="price">¥300</div>
+        </div>
       </div>
     </div>
   </div>
