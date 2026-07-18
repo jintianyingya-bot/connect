@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税理士事務所 礎-ISHIZUE- ｜ 作成例（Conectar デモサイト）</title>
+<meta name="description" content="個人事業主・フリーランスの「なんとなく不安」を、数字の見える化で解消する、税理士事務所 礎-ISHIZUE- の架空デモサイトです。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#F6F8FA; --bg-alt:#EBEFF4; --bg-card:#ffffff;
+    --ink:#1B2430; --ink-soft:#5B6472;
+    --accent:#25507F; --accent-deep:#183A60; --accent-soft:#DCE6F3;
+    --line:rgba(27,36,48,.1);
+    --shadow:0 24px 48px -24px rgba(27,36,48,.22);
+    --max:1140px;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;overflow-x:hidden;font-weight:300;letter-spacing:.02em}
+  h1,h2,h3,h4{font-family:'Shippori Mincho',serif;font-weight:600;line-height:1.5;letter-spacing:.03em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  .eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.22em;color:var(--accent);font-weight:600;margin-bottom:14px}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* header */
+  #siteHeader{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:.4s;background:transparent}
+  #siteHeader.scrolled{background:rgba(246,248,250,.92);backdrop-filter:blur(10px);box-shadow:0 2px 24px rgba(27,36,48,.08);padding:13px 0}
+  .hnav{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:'Shippori Mincho',serif;font-size:21px;font-weight:700;letter-spacing:.05em;color:var(--ink)}
+  #siteHeader:not(.scrolled) .logo{color:#fff}
+  .logo b{color:var(--accent)}
+  .hlinks{display:flex;align-items:center;gap:34px}
+  .hlinks a{font-size:14px;font-weight:500}
+  #siteHeader:not(.scrolled) .hlinks a{color:#fff}
+  .hcta{background:var(--accent);color:#fff!important;padding:11px 24px;border-radius:100px;font-size:13.5px;font-weight:600}
+  @media(max-width:860px){.hlinks a:not(.hcta){display:none}}
+
+  /* hero */
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(180deg, rgba(10,16,24,.68), rgba(10,16,24,.78)), url('https://images.pexels.com/photos/6779567/pexels-photo-6779567.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover;color:#fff;padding-top:80px}
+  .hero-in{position:relative;z-index:2}
+  .hero .eyebrow{color:var(--accent-soft)}
+  .hero h1{font-size:clamp(34px,5.6vw,64px);color:#fff;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:var(--accent-soft)}
+  .hero p{font-size:16px;max-width:520px;color:rgba(255,255,255,.86);margin-bottom:34px}
+  .hbtns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:100px;font-size:14.5px;font-weight:600;letter-spacing:.03em;transition:.25s}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-deep)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.5);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .hfacts{display:flex;gap:28px;flex-wrap:wrap}
+  .hfacts span{font-size:13px;color:rgba(255,255,255,.78);display:flex;align-items:center;gap:8px}
+  .hfacts span::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent-soft)}
+
+  /* statement */
+  .statement{padding:120px 0 100px;text-align:center}
+  .statement .eyebrow{display:block}
+  .statement h2{font-size:clamp(24px,3.4vw,36px);max-width:760px;margin:0 auto 26px}
+  .statement p{max-width:600px;margin:0 auto;color:var(--ink-soft);font-size:15px}
+
+  /* service grid */
+  .section{padding:90px 0}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 56px}
+  .section-head h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:16px}
+  .section-head p{color:var(--ink-soft);font-size:15px}
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:860px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+  .menu-card{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:32px 26px;transition:.3s}
+  .menu-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+  .menu-card .tag{font-size:11.5px;letter-spacing:.1em;color:var(--accent);font-weight:600;margin-bottom:10px;display:block}
+  .menu-card h3{font-size:19px;margin-bottom:10px}
+  .menu-card p{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px;min-height:44px}
+  .menu-card .price{font-family:'Shippori Mincho',serif;font-size:26px;font-weight:700;color:var(--ink)}
+  .menu-card .price span{font-size:13px;color:var(--ink-soft);font-weight:400;margin-left:4px}
+  .menu-card.feat{background:linear-gradient(160deg, var(--accent-soft), var(--bg-card))}
+
+  /* feature rows */
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:70px 0}
+  .frow img{border-radius:20px;box-shadow:var(--shadow);aspect-ratio:4/3.1;object-fit:cover}
+  .frow.rev{direction:rtl}
+  .frow.rev>*{direction:ltr}
+  .frow .num{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--accent);font-weight:700;margin-bottom:14px;display:block}
+  .frow h3{font-size:clamp(22px,2.8vw,30px);margin-bottom:18px}
+  .frow p{color:var(--ink-soft);font-size:14.5px;margin-bottom:10px}
+  @media(max-width:800px){.frow,.frow.rev{grid-template-columns:1fr;direction:ltr}}
+
+  /* gallery */
+  .gallery{padding:90px 0;background:var(--bg-alt)}
+  .gal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .gal-grid img{border-radius:12px;aspect-ratio:1/1;object-fit:cover;transition:.3s}
+  .gal-grid img:hover{transform:scale(1.04)}
+  @media(max-width:860px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* access */
+  .access{padding:100px 0}
+  .acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  @media(max-width:800px){.acc-grid{grid-template-columns:1fr}}
+  .acc-table{width:100%;border-collapse:collapse;font-size:14px}
+  .acc-table tr{border-bottom:1px solid var(--line)}
+  .acc-table td{padding:16px 8px}
+  .acc-table td:first-child{color:var(--ink-soft);width:110px;font-weight:500}
+  .map-box{background:var(--bg-alt);border-radius:18px;height:100%;min-height:280px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;border:1px dashed var(--line)}
+
+  /* final cta */
+  .final-cta{padding:130px 0;text-align:center;color:#fff;background:linear-gradient(180deg, rgba(10,16,24,.76), rgba(10,16,24,.84)), url('https://images.pexels.com/photos/7654120/pexels-photo-7654120.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover}
+  .final-cta h2{font-size:clamp(26px,4vw,42px);margin-bottom:20px;color:#fff}
+  .final-cta p{color:rgba(255,255,255,.82);margin-bottom:34px;max-width:520px;margin-left:auto;margin-right:auto}
+
+  /* footer */
+  footer{padding:60px 0 40px;text-align:center;font-size:12.5px;color:var(--ink-soft)}
+  footer .demo-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);color:var(--accent-deep);padding:10px 22px;border-radius:100px;font-weight:600;font-size:13px;margin-bottom:18px}
+  footer .credit{max-width:480px;margin:0 auto;line-height:1.7}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap hnav">
+    <div class="logo">税理士事務所 <b>礎</b>-ISHIZUE-</div>
+    <nav class="hlinks">
+      <a href="#about">事務所の理念</a>
+      <a href="#service">サービス案内</a>
+      <a href="#gallery">オフィスのご紹介</a>
+      <a href="#access">料金・ご相談</a>
+      <a href="#access" class="hcta">無料相談を予約する</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <span class="eyebrow">TAX ACCOUNTANT OFFICE</span>
+    <h1>数字が、<em>安心</em>に変わる。</h1>
+    <p>個人事業主・フリーランスの「なんとなく不安」を、数字の見える化で解消します。税理士事務所 礎-ISHIZUE-は、開業・確定申告・資金繰りをまるごとサポートします。</p>
+    <div class="hbtns">
+      <a href="#service" class="btn btn-primary">サービス・料金を見る</a>
+      <a href="#access" class="btn btn-ghost">無料相談について</a>
+    </div>
+    <div class="hfacts">
+      <span>初回相談無料</span>
+      <span>個人事業主・フリーランス対応実績多数</span>
+      <span>オンライン面談対応</span>
+    </div>
+  </div>
+</section>
+
+<section class="statement reveal">
+  <div class="wrap">
+    <span class="eyebrow">OUR PHILOSOPHY</span>
+    <h2>「わからないから不安」を、なくしたい。</h2>
+    <p>税務や会計は、知らないと不安になるもの。専門用語を並べるのではなく、一つひとつ丁寧にご説明することを大切にしています。数字と向き合う時間を、負担ではなく「未来を考える時間」に変えるお手伝いをします。</p>
+  </div>
+</section>
+
+<section class="section" id="service">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">SERVICE</span>
+      <h2>サービス・料金</h2>
+      <p>開業準備から日々の経理、確定申告まで幅広く対応しています。</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card feat reveal">
+        <span class="tag">人気</span>
+        <h3>記帳代行・月次顧問</h3>
+        <p>日々の記帳から月次の試算表作成まで一括サポートします。</p>
+        <div class="price">¥15,000<span>／月〜</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">確定申告</span>
+        <h3>個人事業主の確定申告</h3>
+        <p>白色・青色申告どちらにも対応。節税のご提案も行います。</p>
+        <div class="price">¥40,000<span>／年〜</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">開業支援</span>
+        <h3>開業・法人設立サポート</h3>
+        <p>開業届の作成から法人化のタイミングまでご相談いただけます。</p>
+        <div class="price">¥30,000<span>／件〜</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">スポット</span>
+        <h3>単発相談（オンライン可）</h3>
+        <p>「今だけ聞きたい」に応える60分の個別相談です。</p>
+        <div class="price">¥8,000<span>／60分</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">資金調達</span>
+        <h3>融資・補助金サポート</h3>
+        <p>事業計画書の作成から金融機関への同行までサポートします。</p>
+        <div class="price">¥50,000<span>／件〜</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">給与</span>
+        <h3>給与計算・年末調整</h3>
+        <p>従業員1〜5名規模の給与計算と年末調整を代行します。</p>
+        <div class="price">¥10,000<span>／月〜</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="frow">
+      <img class="reveal" src="https://images.pexels.com/photos/7654129/pexels-photo-7654129.jpeg?auto=compress&cs=tinysrgb&w=900" alt="資料を確認しながらの相談の様子（イメージ）">
+      <div class="reveal">
+        <span class="num">01</span>
+        <h3>専門用語を使わない、わかりやすい説明</h3>
+        <p>「結局いくら払えばいいのか」「何をすればいいのか」。難しい言葉を並べず、いつも平易な言葉でお伝えすることを心がけています。</p>
+        <p>分からないことをそのままにしない。それを一番大切にしています。</p>
+      </div>
+    </div>
+    <div class="frow rev">
+      <img class="reveal" src="https://images.pexels.com/photos/6779565/pexels-photo-6779565.jpeg?auto=compress&cs=tinysrgb&w=900" alt="書類を確認しながら計算する様子（イメージ）">
+      <div class="reveal">
+        <span class="num">02</span>
+        <h3>個人事業主・フリーランスの伴走者として</h3>
+        <p>開業したばかりの方から、事業を拡大したい方まで。規模やフェーズに合わせたご提案をしています。</p>
+        <p>「まだ相談するほどでは」と思う段階からでも、お気軽にご連絡ください。</p>
+      </div>
+    </div>
+    <div class="frow">
+      <img class="reveal" src="https://images.pexels.com/photos/7654120/pexels-photo-7654120.jpeg?auto=compress&cs=tinysrgb&w=900" alt="オフィスで作業をするスタッフの様子（イメージ）">
+      <div class="reveal">
+        <span class="num">03</span>
+        <h3>オンライン完結、全国対応</h3>
+        <p>訪問だけでなく、オンライン面談・チャットでのやり取りにも対応。全国どこからでもご相談いただけます。</p>
+        <p>忙しい合間を縫って、必要な時にすぐ相談できる体制を整えています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">GALLERY</span>
+      <h2>オフィスのご紹介</h2>
+    </div>
+    <div class="gal-grid">
+      <img class="reveal" src="https://images.pexels.com/photos/6779567/pexels-photo-6779567.jpeg?auto=compress&cs=tinysrgb&w=500" alt="事務所の様子1">
+      <img class="reveal" src="https://images.pexels.com/photos/7654129/pexels-photo-7654129.jpeg?auto=compress&cs=tinysrgb&w=500" alt="事務所の様子2">
+      <img class="reveal" src="https://images.pexels.com/photos/6779565/pexels-photo-6779565.jpeg?auto=compress&cs=tinysrgb&w=500" alt="事務所の様子3">
+      <img class="reveal" src="https://images.pexels.com/photos/7654120/pexels-photo-7654120.jpeg?auto=compress&cs=tinysrgb&w=500" alt="事務所の様子4">
+      <img class="reveal" src="https://images.pexels.com/photos/7654129/pexels-photo-7654129.jpeg?auto=compress&cs=tinysrgb&w=500" alt="事務所の様子5">
+    </div>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">ACCESS</span>
+      <h2>料金・ご相談について</h2>
+    </div>
+    <div class="acc-grid">
+      <table class="acc-table reveal">
+        <tr><td>営業時間</td><td>平日9:00〜18:00（土日はオンラインのみ対応）</td></tr>
+        <tr><td>定休日</td><td>土日祝（オンライン相談は除く）</td></tr>
+        <tr><td>初回相談</td><td>無料・60分</td></tr>
+        <tr><td>対応エリア</td><td>全国対応（訪問は近隣エリアのみ）</td></tr>
+        <tr><td>お支払い</td><td>銀行振込・各種キャッシュレス対応</td></tr>
+        <tr><td>ご予約</td><td>公式LINEまたはお問い合わせフォームより</td></tr>
+      </table>
+      <div class="map-box reveal">地図（デモ用プレースホルダー）</div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap reveal">
+    <h2>まずは、現状を聞かせてください。</h2>
+    <p>「相談するほどでもないかも」と思うことこそ、早めのご相談がおすすめです。</p>
+    <a href="#access" class="btn btn-primary">無料相談を予約する</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="demo-badge" href="../index.html">Produced as a website example by Conectar</a>
+    <p class="credit">写真：Pexels（フリー素材）／これは実在しない架空の事務所のデモサイトです。サービス内容・料金は一例であり、実在の事務所情報とは関係ありません。</p>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
