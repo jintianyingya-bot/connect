@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サッカースクール 駆-KAKERU- ｜ 作成例（Conectar デモサイト）</title>
+<meta name="description" content="「楽しい」からうまくなる。年少〜小学生向けサッカースクール、駆-KAKERU- の架空デモサイトです。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚽</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#F6FBF3; --bg-alt:#E9F4E4; --bg-card:#ffffff;
+    --ink:#17261C; --ink-soft:#526B58;
+    --accent:#2E9E48; --accent-deep:#1F7A35; --accent-soft:#DEF2E1;
+    --line:rgba(23,38,28,.1);
+    --shadow:0 24px 48px -24px rgba(23,38,28,.22);
+    --max:1140px;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--ink);line-height:1.85;overflow-x:hidden;font-weight:300;letter-spacing:.02em}
+  h1,h2,h3,h4{font-family:'Shippori Mincho',serif;font-weight:600;line-height:1.5;letter-spacing:.03em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  .eyebrow{display:inline-block;font-size:12.5px;letter-spacing:.22em;color:var(--accent);font-weight:600;margin-bottom:14px}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+  .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* header */
+  #siteHeader{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:.4s;background:transparent}
+  #siteHeader.scrolled{background:rgba(246,251,243,.92);backdrop-filter:blur(10px);box-shadow:0 2px 24px rgba(23,38,28,.08);padding:13px 0}
+  .hnav{display:flex;align-items:center;justify-content:space-between}
+  .logo{font-family:'Shippori Mincho',serif;font-size:21px;font-weight:700;letter-spacing:.05em;color:var(--ink)}
+  #siteHeader:not(.scrolled) .logo{color:#fff}
+  .logo b{color:var(--accent)}
+  .hlinks{display:flex;align-items:center;gap:34px}
+  .hlinks a{font-size:14px;font-weight:500}
+  #siteHeader:not(.scrolled) .hlinks a{color:#fff}
+  .hcta{background:var(--accent);color:#fff!important;padding:11px 24px;border-radius:100px;font-size:13.5px;font-weight:600}
+  @media(max-width:860px){.hlinks a:not(.hcta){display:none}}
+
+  /* hero */
+  .hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(180deg, rgba(10,20,12,.6), rgba(10,20,12,.72)), url('https://images.pexels.com/photos/38503331/pexels-photo-38503331.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover;color:#fff;padding-top:80px}
+  .hero-in{position:relative;z-index:2}
+  .hero .eyebrow{color:var(--accent-soft)}
+  .hero h1{font-size:clamp(34px,5.6vw,64px);color:#fff;margin-bottom:22px}
+  .hero h1 em{font-style:normal;color:var(--accent-soft)}
+  .hero p{font-size:16px;max-width:520px;color:rgba(255,255,255,.86);margin-bottom:34px}
+  .hbtns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:100px;font-size:14.5px;font-weight:600;letter-spacing:.03em;transition:.25s}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-deep)}
+  .btn-ghost{border:1.5px solid rgba(255,255,255,.5);color:#fff}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .hfacts{display:flex;gap:28px;flex-wrap:wrap}
+  .hfacts span{font-size:13px;color:rgba(255,255,255,.78);display:flex;align-items:center;gap:8px}
+  .hfacts span::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent-soft)}
+
+  /* statement */
+  .statement{padding:120px 0 100px;text-align:center}
+  .statement .eyebrow{display:block}
+  .statement h2{font-size:clamp(24px,3.4vw,36px);max-width:760px;margin:0 auto 26px}
+  .statement p{max-width:600px;margin:0 auto;color:var(--ink-soft);font-size:15px}
+
+  /* course grid */
+  .section{padding:90px 0}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 56px}
+  .section-head h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:16px}
+  .section-head p{color:var(--ink-soft);font-size:15px}
+  .menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:860px){.menu-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.menu-grid{grid-template-columns:1fr}}
+  .menu-card{background:var(--bg-card);border:1px solid var(--line);border-radius:18px;padding:32px 26px;transition:.3s}
+  .menu-card:hover{box-shadow:var(--shadow);transform:translateY(-4px)}
+  .menu-card .tag{font-size:11.5px;letter-spacing:.1em;color:var(--accent);font-weight:600;margin-bottom:10px;display:block}
+  .menu-card h3{font-size:19px;margin-bottom:10px}
+  .menu-card p{font-size:13.5px;color:var(--ink-soft);margin-bottom:18px;min-height:44px}
+  .menu-card .price{font-family:'Shippori Mincho',serif;font-size:26px;font-weight:700;color:var(--ink)}
+  .menu-card .price span{font-size:13px;color:var(--ink-soft);font-weight:400;margin-left:4px}
+  .menu-card.feat{background:linear-gradient(160deg, var(--accent-soft), var(--bg-card))}
+
+  /* feature rows */
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:70px 0}
+  .frow img{border-radius:20px;box-shadow:var(--shadow);aspect-ratio:4/3.1;object-fit:cover}
+  .frow.rev{direction:rtl}
+  .frow.rev>*{direction:ltr}
+  .frow .num{font-family:'Shippori Mincho',serif;font-size:15px;color:var(--accent);font-weight:700;margin-bottom:14px;display:block}
+  .frow h3{font-size:clamp(22px,2.8vw,30px);margin-bottom:18px}
+  .frow p{color:var(--ink-soft);font-size:14.5px;margin-bottom:10px}
+  @media(max-width:800px){.frow,.frow.rev{grid-template-columns:1fr;direction:ltr}}
+
+  /* gallery */
+  .gallery{padding:90px 0;background:var(--bg-alt)}
+  .gal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .gal-grid img{border-radius:12px;aspect-ratio:1/1;object-fit:cover;transition:.3s}
+  .gal-grid img:hover{transform:scale(1.04)}
+  @media(max-width:860px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+
+  /* access */
+  .access{padding:100px 0}
+  .acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+  @media(max-width:800px){.acc-grid{grid-template-columns:1fr}}
+  .acc-table{width:100%;border-collapse:collapse;font-size:14px}
+  .acc-table tr{border-bottom:1px solid var(--line)}
+  .acc-table td{padding:16px 8px}
+  .acc-table td:first-child{color:var(--ink-soft);width:110px;font-weight:500}
+  .map-box{background:var(--bg-alt);border-radius:18px;height:100%;min-height:280px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;border:1px dashed var(--line)}
+
+  /* final cta */
+  .final-cta{padding:130px 0;text-align:center;color:#fff;background:linear-gradient(180deg, rgba(10,20,12,.72), rgba(10,20,12,.82)), url('https://images.pexels.com/photos/8941618/pexels-photo-8941618.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover}
+  .final-cta h2{font-size:clamp(26px,4vw,42px);margin-bottom:20px;color:#fff}
+  .final-cta p{color:rgba(255,255,255,.82);margin-bottom:34px;max-width:520px;margin-left:auto;margin-right:auto}
+
+  /* footer */
+  footer{padding:60px 0 40px;text-align:center;font-size:12.5px;color:var(--ink-soft)}
+  footer .demo-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);color:var(--accent-deep);padding:10px 22px;border-radius:100px;font-weight:600;font-size:13px;margin-bottom:18px}
+  footer .credit{max-width:480px;margin:0 auto;line-height:1.7}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap hnav">
+    <div class="logo">サッカースクール <b>駆</b>-KAKERU-</div>
+    <nav class="hlinks">
+      <a href="#about">スクールの想い</a>
+      <a href="#course">コース案内</a>
+      <a href="#gallery">練習の様子</a>
+      <a href="#access">体験・入会</a>
+      <a href="#access" class="hcta">体験レッスンを申し込む</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <span class="eyebrow">KIDS SOCCER SCHOOL</span>
+    <h1>蹴って、走って、<em>好きになる</em>。</h1>
+    <p>ボールを怖がらない。ミスを気にしない。駆-KAKERU-は、「サッカーを好きになる」ことを何より大切にする、年少〜小学生向けのサッカースクールです。</p>
+    <div class="hbtns">
+      <a href="#course" class="btn btn-primary">コース・料金を見る</a>
+      <a href="#access" class="btn btn-ghost">体験レッスンについて</a>
+    </div>
+    <div class="hfacts">
+      <span>経験豊富なコーチ陣</span>
+      <span>年少〜小学6年生まで</span>
+      <span>見学・体験随時受付</span>
+    </div>
+  </div>
+</section>
+
+<section class="statement reveal">
+  <div class="wrap">
+    <span class="eyebrow">OUR PHILOSOPHY</span>
+    <h2>「うまくなりたい」その気持ちを、大人が消さない。</h2>
+    <p>走る、蹴る、転ぶ、また走る。子どもたちの「もっとやりたい」という気持ちを何より大事に、技術だけでなく、仲間と協力する楽しさや、あきらめない心を育てています。勝ち負けだけにとらわれない指導を心がけています。</p>
+  </div>
+</section>
+
+<section class="section" id="course">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">COURSE</span>
+      <h2>コース・料金</h2>
+      <p>年齢・レベルに合わせた6つのコースをご用意しています。</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card feat reveal">
+        <span class="tag">人気</span>
+        <h3>きっずクラス</h3>
+        <p>年少〜年長対象。ボールに慣れ親しみ、体を動かす楽しさを知る時間。</p>
+        <div class="price">¥5,500<span>／月4回</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">初級</span>
+        <h3>ジュニアクラス</h3>
+        <p>小学1〜3年生対象。基本のボールタッチと簡単な連携プレーを練習。</p>
+        <div class="price">¥6,500<span>／月4回</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">中級</span>
+        <h3>アドバンストクラス</h3>
+        <p>小学4〜6年生対象。試合を想定した戦術理解と実践練習。</p>
+        <div class="price">¥7,500<span>／月4回</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">短期</span>
+        <h3>春・夏休みキャンプ</h3>
+        <p>長期休み期間限定の集中プログラム。県外遠征を行うことも。</p>
+        <div class="price">¥12,000<span>／3日間</span></div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">体験</span>
+        <h3>体験レッスン</h3>
+        <p>まずは1回、雰囲気を体感してください。持ち物のご相談も可能です。</p>
+        <div class="price">¥1,000</div>
+      </div>
+      <div class="menu-card reveal">
+        <span class="tag">オプション</span>
+        <h3>個人技術指導</h3>
+        <p>少人数制でボールタッチやシュート精度を集中的に強化します。</p>
+        <div class="price">¥3,000<span>／回</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about" style="background:var(--bg-alt)">
+  <div class="wrap">
+    <div class="frow">
+      <img class="reveal" src="https://images.pexels.com/photos/26283685/pexels-photo-26283685.jpeg?auto=compress&cs=tinysrgb&w=900" alt="ボール遊びを取り入れた練習の様子（イメージ）">
+      <div class="reveal">
+        <span class="num">01</span>
+        <h3>「楽しい」を一番に考えた練習メニュー</h3>
+        <p>練習の半分は、鬼ごっこやミニゲームのような「遊び」の要素を取り入れています。楽しみながら体の使い方やボール感覚を養います。</p>
+        <p>「やらされる練習」ではなく「もっとやりたくなる練習」を、いつも意識しています。</p>
+      </div>
+    </div>
+    <div class="frow rev">
+      <img class="reveal" src="https://images.pexels.com/photos/8941618/pexels-photo-8941618.jpeg?auto=compress&cs=tinysrgb&w=900" alt="広いグラウンドで練習する様子（イメージ）">
+      <div class="reveal">
+        <span class="num">02</span>
+        <h3>一人ひとりの個性に向き合うコーチ陣</h3>
+        <p>元Jリーグユース出身者から指導歴15年のベテランまで、子どもの個性に合わせて言葉を選べるコーチが揃っています。</p>
+        <p>上手い・下手だけで判断せず、その子なりの成長を見つけて伝えることを大切にしています。</p>
+      </div>
+    </div>
+    <div class="frow">
+      <img class="reveal" src="https://images.pexels.com/photos/8941579/pexels-photo-8941579.jpeg?auto=compress&cs=tinysrgb&w=900" alt="順番を待つ子どもたちの様子（イメージ）">
+      <div class="reveal">
+        <span class="num">03</span>
+        <h3>仲間と支え合うことを覚える場所</h3>
+        <p>サッカーは一人ではできません。パスを出す、声をかける、励まし合う。仲間との関わりの中で、自然と協調性が育まれます。</p>
+        <p>卒業生の多くが「ここでできた友達は今も大切な存在」と話してくれます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">GALLERY</span>
+      <h2>練習の様子</h2>
+    </div>
+    <div class="gal-grid">
+      <img class="reveal" src="https://images.pexels.com/photos/38503331/pexels-photo-38503331.jpeg?auto=compress&cs=tinysrgb&w=500" alt="サッカースクールの練習風景1">
+      <img class="reveal" src="https://images.pexels.com/photos/26283685/pexels-photo-26283685.jpeg?auto=compress&cs=tinysrgb&w=500" alt="サッカースクールの練習風景2">
+      <img class="reveal" src="https://images.pexels.com/photos/8941618/pexels-photo-8941618.jpeg?auto=compress&cs=tinysrgb&w=500" alt="サッカースクールの練習風景3">
+      <img class="reveal" src="https://images.pexels.com/photos/8941649/pexels-photo-8941649.jpeg?auto=compress&cs=tinysrgb&w=500" alt="サッカースクールの練習風景4">
+      <img class="reveal" src="https://images.pexels.com/photos/8941579/pexels-photo-8941579.jpeg?auto=compress&cs=tinysrgb&w=500" alt="サッカースクールの練習風景5">
+    </div>
+  </div>
+</section>
+
+<section class="access" id="access">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">ACCESS</span>
+      <h2>体験・入会について</h2>
+    </div>
+    <div class="acc-grid">
+      <table class="acc-table reveal">
+        <tr><td>練習日</td><td>火曜・木曜・土曜（クラスにより異なります）</td></tr>
+        <tr><td>練習時間</td><td>16:30〜19:00（クラスにより異なります）</td></tr>
+        <tr><td>会場</td><td>市内グラウンド・小学校校庭を利用</td></tr>
+        <tr><td>持ち物</td><td>シューズ・すね当て・飲み物（貸出用ボールあり）</td></tr>
+        <tr><td>体験レッスン</td><td>随時受付・1回¥1,000</td></tr>
+        <tr><td>お問い合わせ</td><td>公式LINEより随時受付</td></tr>
+      </table>
+      <div class="map-box reveal">地図（デモ用プレースホルダー）</div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap reveal">
+    <h2>さあ、一緒にボールを追いかけよう。</h2>
+    <p>体験レッスンは随時受付中です。まずはお気軽にご参加ください。</p>
+    <a href="#access" class="btn btn-primary">体験レッスンに申し込む</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="demo-badge" href="../index.html">Produced as a website example by Conectar</a>
+    <p class="credit">写真：Pexels（フリー素材）／これは実在しない架空スクールのデモサイトです。コース内容・料金は一例であり、実在のスクール情報とは関係ありません。</p>
+  </div>
+</footer>
+
+<script>
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, {threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
