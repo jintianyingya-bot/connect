@@ -1070,6 +1070,7 @@
   (function heroTitleFillAnimation() {
     const title = document.getElementById('heroTitle');
     if (!title || !motionOK || !enhancedUX) return;
+    title.addEventListener('animationend', () => { measure(); paint(); });
 
     const off = document.createElement('canvas');
     const octx = off.getContext('2d');
