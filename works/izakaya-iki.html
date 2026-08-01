@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>隠れ家居酒屋 粋-IKI- ｜ 作成例（Conectar デモサイト）</title>
+<meta name="description" content="一日3組限定、完全個室の隠れ家居酒屋。旬の魚と厳選日本酒でおもてなしする「粋-IKI-」の架空デモサイトです。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏮</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0F0E0C; --bg-alt:#17140F; --bg-card:#1B1712;
+--ink:#F2ECE1; --ink-soft:rgba(242,236,225,.68);
+--accent:#D9A066; --accent-deep:#C68C4E; --accent-soft:#EAC495;
+--line:rgba(217,160,102,.18);
+--shadow:0 30px 60px -28px rgba(0,0,0,.55);
+--max:1140px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--bg);color:var(--ink);line-height:1.9;overflow-x:hidden;font-weight:300;letter-spacing:.03em}
+h1,h2,h3,h4{font-family:'Shippori Mincho',serif;font-weight:700;line-height:1.55;letter-spacing:.04em;color:var(--ink)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.28em;color:var(--accent);font-weight:600;margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--accent-deep)}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* header */
+#siteHeader{position:fixed;top:0;left:0;right:0;z-index:100;padding:26px 0;transition:.4s;background:linear-gradient(180deg,rgba(15,14,12,.75),transparent)}
+#siteHeader.scrolled{background:rgba(15,14,12,.92);backdrop-filter:blur(10px);box-shadow:0 2px 24px rgba(0,0,0,.35);padding:16px 0;border-bottom:1px solid var(--line)}
+.hnav{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:'Shippori Mincho',serif;font-size:20px;font-weight:700;letter-spacing:.08em;color:var(--ink)}
+.logo b{color:var(--accent)}
+.hlinks{display:flex;align-items:center;gap:32px}
+.hlinks a{font-size:13.5px;font-weight:500;color:var(--ink-soft);transition:color .25s}
+.hlinks a:hover{color:var(--accent)}
+.hcta{background:linear-gradient(135deg,var(--accent-soft),var(--accent));color:#1A1206!important;padding:11px 26px;border-radius:100px;font-size:13px;font-weight:700}
+.hcta:hover{color:#1A1206!important}
+@media(max-width:860px){.hlinks a:not(.hcta){display:none}}
+
+/* hero */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;background:linear-gradient(180deg, rgba(10,8,6,.42), rgba(10,8,6,.86) 80%), url('https://images.pexels.com/photos/34269065/pexels-photo-34269065.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover;color:#fff;padding-top:80px}
+@media (max-width:640px){.hero{padding-top:170px;background-position:65% center;}}
+.hero-in{position:relative;z-index:2}
+.hero h1{font-size:clamp(32px,5.4vw,58px);color:#fff;margin-bottom:22px}
+.hero h1 em{font-style:normal;color:var(--accent-soft)}
+.hero p{font-size:15.5px;max-width:500px;color:rgba(242,236,225,.82);margin-bottom:34px}
+.hbtns{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:44px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:15px 30px;border-radius:100px;font-size:14px;font-weight:700;letter-spacing:.04em;transition:.25s}
+.btn-primary{background:linear-gradient(135deg,var(--accent-soft),var(--accent));color:#1A1206}
+.btn-primary:hover{background:linear-gradient(135deg,var(--accent),var(--accent-deep))}
+.btn-ghost{border:1.5px solid rgba(242,236,225,.42);color:#fff}
+.btn-ghost:hover{background:rgba(242,236,225,.1)}
+.hfacts{display:flex;gap:28px;flex-wrap:wrap}
+.hfacts span{font-size:12.5px;color:rgba(242,236,225,.75);display:flex;align-items:center;gap:8px}
+.hfacts span::before{content:'';width:5px;height:5px;transform:rotate(45deg);background:var(--accent)}
+
+/* statement */
+.statement{padding:120px 0 100px;text-align:center;background:var(--bg)}
+.statement h2{font-size:clamp(24px,3.4vw,36px);max-width:760px;margin:0 auto 26px}
+.statement p{max-width:600px;margin:0 auto;color:var(--ink-soft);font-size:14.5px}
+
+/* section */
+.section{padding:96px 0}
+.section-head{text-align:center;max-width:640px;margin:0 auto 52px}
+.section-head h2{font-size:clamp(26px,3.6vw,38px);margin-bottom:16px}
+.section-head p{color:var(--ink-soft);font-size:14.5px}
+
+/* menu */
+.menu-tabs-note{text-align:center;color:var(--ink-soft);font-size:12.5px;margin-bottom:44px;letter-spacing:.02em}
+.menu-block{margin-bottom:56px}
+.menu-block:last-child{margin-bottom:0}
+.menu-block-head{display:flex;align-items:baseline;gap:14px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.menu-block-head h3{font-size:19px;color:var(--accent-soft)}
+.menu-block-head span{font-size:11.5px;color:var(--ink-soft);letter-spacing:.14em}
+.menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 40px}
+@media(max-width:640px){.menu-grid{grid-template-columns:1fr}}
+.menu-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:13px 0;border-bottom:1px dashed var(--line)}
+.menu-row .mname{font-size:14.5px;color:var(--ink);font-weight:500}
+.menu-row .mdesc{display:block;font-size:12px;color:var(--ink-soft);font-weight:300;margin-top:3px}
+.menu-row .mprice{font-family:'Shippori Mincho',serif;font-size:15.5px;color:var(--accent-soft);font-weight:700;white-space:nowrap;flex:none}
+.course-card{background:linear-gradient(160deg,#211B12,#15120C);border:1px solid var(--line);border-radius:20px;padding:44px 40px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;box-shadow:var(--shadow)}
+@media(max-width:760px){.course-card{grid-template-columns:1fr}}
+.course-card .tag{display:inline-block;font-size:11px;letter-spacing:.12em;color:#1A1206;background:linear-gradient(135deg,var(--accent-soft),var(--accent));padding:6px 16px;border-radius:100px;font-weight:700;margin-bottom:18px}
+.course-card h3{font-size:23px;margin-bottom:14px}
+.course-card p{color:var(--ink-soft);font-size:14px;margin-bottom:8px}
+.course-price{text-align:center;padding:28px 20px;border-left:1px solid var(--line)}
+@media(max-width:760px){.course-price{border-left:none;border-top:1px solid var(--line);padding-top:28px}}
+.course-price .amount{font-family:'Shippori Mincho',serif;font-size:38px;font-weight:800;color:var(--accent-soft)}
+.course-price .unit{font-size:12.5px;color:var(--ink-soft);display:block;margin-top:6px}
+
+/* feature rows */
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;padding:64px 0}
+.frow img{border-radius:18px;box-shadow:var(--shadow);aspect-ratio:4/3.1;object-fit:cover}
+.frow.rev{direction:rtl}
+.frow.rev>*{direction:ltr}
+.frow .num{font-family:'Shippori Mincho',serif;font-size:14px;color:var(--accent);font-weight:700;margin-bottom:14px;display:block}
+.frow h3{font-size:clamp(21px,2.6vw,28px);margin-bottom:18px}
+.frow p{color:var(--ink-soft);font-size:14px;margin-bottom:10px}
+@media(max-width:800px){.frow,.frow.rev{grid-template-columns:1fr;direction:ltr}}
+
+/* gallery */
+.gallery{padding:90px 0;background:var(--bg-alt)}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.gal-grid img{border-radius:12px;aspect-ratio:1/1;object-fit:cover;transition:.35s;filter:saturate(1.02)}
+.gal-grid img:hover{transform:scale(1.04)}
+@media(max-width:860px){.gal-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* access */
+.access{padding:100px 0}
+.acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+@media(max-width:800px){.acc-grid{grid-template-columns:1fr}}
+.acc-table{width:100%;border-collapse:collapse;font-size:13.5px}
+.acc-table tr{border-bottom:1px solid var(--line)}
+.acc-table td{padding:16px 8px;color:var(--ink)}
+.acc-table td:first-child{color:var(--accent-soft);width:110px;font-weight:600}
+.map-box{background:var(--bg-alt);border-radius:18px;height:100%;min-height:280px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;border:1px dashed var(--line)}
+
+/* final cta */
+.final-cta{padding:130px 0;text-align:center;color:#fff;background:linear-gradient(180deg, rgba(10,8,6,.55), rgba(10,8,6,.88)), url('https://images.pexels.com/photos/31416782/pexels-photo-31416782.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover}
+.final-cta h2{font-size:clamp(26px,4vw,42px);margin-bottom:20px;color:#fff}
+.final-cta p{color:rgba(242,236,225,.82);margin-bottom:34px;max-width:520px;margin-left:auto;margin-right:auto}
+
+/* footer */
+footer{padding:60px 0 40px;text-align:center;font-size:12.5px;color:var(--ink-soft);background:var(--bg)}
+footer .demo-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(217,160,102,.14);color:var(--accent-soft);padding:10px 22px;border-radius:100px;font-weight:600;font-size:13px;margin-bottom:18px}
+footer .credit{max-width:480px;margin:0 auto;line-height:1.7}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+<div class="wrap hnav">
+<div class="logo">隠れ家居酒屋 <b>粋</b>-IKI-</div>
+<nav class="hlinks">
+<a href="#about">こだわり</a>
+<a href="#menu">お品書き</a>
+<a href="#gallery">店内のご紹介</a>
+<a href="#access">アクセス・ご予約</a>
+<a href="#access" class="hcta">ご予約はこちら</a>
+</nav>
+</div>
+</header>
+
+<section class="hero">
+<div class="wrap hero-in">
+<span class="eyebrow">HIDDEN IZAKAYA</span>
+<h1>一期一会の、<em>肴と酒。</em></h1>
+<p>一日3組限定、完全個室の隠れ家。目利きが選ぶ旬の魚と、全国から取り寄せる厳選日本酒で、特別なひとときをお届けします。</p>
+<div class="hbtns">
+<a href="#menu" class="btn btn-primary">お品書きを見る</a>
+<a href="#access" class="btn btn-ghost">ご予約について</a>
+</div>
+<div class="hfacts">
+<span>一日3組限定</span>
+<span>完全個室あり</span>
+<span>厳選日本酒 常時20種以上</span>
+</div>
+</div>
+</section>
+
+<section class="statement reveal">
+<div class="wrap">
+<span class="eyebrow" style="justify-content:center">OUR PHILOSOPHY</span>
+<h2>「今日はここに来てよかった」を、肴と酒で。</h2>
+<p>大きな看板は出さない、知る人ぞ知る一軒。市場に足を運んで選ぶ旬の魚、蔵元と直接やり取りして仕入れる日本酒。派手さより、確かな一皿と、心地よい間合いを大切にしています。</p>
+</div>
+</section>
+
+<section class="section" id="menu" style="background:var(--bg-alt)">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow" style="justify-content:center">MENU</span>
+<h2>お品書き</h2>
+<p>仕入れによって内容は変わります。旬の魚と厳選日本酒を、少量から色々な組み合わせでお楽しみいただけます。</p>
+</div>
+
+<div class="menu-block reveal">
+<div class="menu-block-head"><h3>本日の逸品（刺身・肴）</h3><span>SASHIMI &amp; APPETIZER</span></div>
+<div class="menu-grid">
+<div class="menu-row"><span class="mname">本日の旬魚 盛り合わせ<span class="mdesc">仕入れ状況により内容が変わります</span></span><span class="mprice">¥2,980</span></div>
+<div class="menu-row"><span class="mname">炙り〆鯖<span class="mdesc">藁で香ばしく炙った自家製〆鯖</span></span><span class="mprice">¥980</span></div>
+<div class="menu-row"><span class="mname">出汁巻き玉子<span class="mdesc">昆布と鰹の合わせ出汁</span></span><span class="mprice">¥780</span></div>
+<div class="menu-row"><span class="mname">白子ポン酢（季節限定）<span class="mdesc">冬季のみのご提供です</span></span><span class="mprice">¥1,280</span></div>
+</div>
+</div>
+
+<div class="menu-block reveal">
+<div class="menu-block-head"><h3>炭火焼き（焼き鳥・炉端）</h3><span>CHARCOAL GRILL</span></div>
+<div class="menu-grid">
+<div class="menu-row"><span class="mname">名物 炭火焼き鳥 盛り合わせ（5本）<span class="mdesc">塩・タレよりお選びいただけます</span></span><span class="mprice">¥1,680</span></div>
+<div class="menu-row"><span class="mname">厳選和牛の炙り串<span class="mdesc">わさびを添えて</span></span><span class="mprice">¥1,280</span></div>
+<div class="menu-row"><span class="mname">季節野菜の炉端焼き<span class="mdesc">農家直送の旬野菜を炭火で</span></span><span class="mprice">¥880</span></div>
+<div class="menu-row"><span class="mname">つくね（卵黄添え）<span class="mdesc">当店自慢の粗挽きつくね</span></span><span class="mprice">¥580</span></div>
+</div>
+</div>
+
+<div class="menu-block reveal">
+<div class="menu-block-head"><h3>揚げ物・〆</h3><span>FRIED &amp; RICE</span></div>
+<div class="menu-grid">
+<div class="menu-row"><span class="mname">自家製唐揚げ<span class="mdesc">秘伝の下味で二度揚げ</span></span><span class="mprice">¥880</span></div>
+<div class="menu-row"><span class="mname">季節の土鍋ご飯（お一人様）<span class="mdesc">炊き上がりまで20分頂戴します</span></span><span class="mprice">¥1,980</span></div>
+<div class="menu-row"><span class="mname">〆の茶漬け<span class="mdesc">出汁茶漬けでさっぱりと</span></span><span class="mprice">¥680</span></div>
+</div>
+</div>
+
+<div class="menu-block reveal">
+<div class="menu-block-head"><h3>日本酒・お酒</h3><span>SAKE &amp; DRINKS</span></div>
+<div class="menu-grid">
+<div class="menu-row"><span class="mname">全国厳選 利き酒セット（3種）<span class="mdesc">その日のおすすめ蔵元から</span></span><span class="mprice">¥1,800</span></div>
+<div class="menu-row"><span class="mname">季節の日本酒（グラス）<span class="mdesc">仕入れにより随時入れ替え</span></span><span class="mprice">¥900〜</span></div>
+<div class="menu-row"><span class="mname">自家製梅酒<span class="mdesc">熟成2年の梅酒</span></span><span class="mprice">¥780</span></div>
+<div class="menu-row"><span class="mname">生ビール<span class="mdesc">プレミアムモルツ</span></span><span class="mprice">¥680</span></div>
+</div>
+</div>
+
+<div class="course-card reveal">
+<div>
+<span class="tag">人気No.1</span>
+<h3>おまかせ全8品コース</h3>
+<p>その日一番の魚と、旬の肴を職人におまかせいただく全8品。日本酒の飲み比べとあわせて、特別な夜をお楽しみください。</p>
+<p style="font-size:12.5px;color:var(--ink-soft);font-style:italic">前日までのご予約制／飲み放題付きプランもご用意しております</p>
+</div>
+<div class="course-price">
+<div class="amount">¥6,980</div>
+<span class="unit">／人〜（税込・お一人様）</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="section" id="about">
+<div class="wrap">
+<div class="frow">
+<img class="reveal" src="https://images.pexels.com/photos/36292349/pexels-photo-36292349.jpeg?auto=compress&cs=tinysrgb&w=900" alt="鮮度にこだわった刺身の盛り合わせ（イメージ）">
+<div class="reveal">
+<span class="num">01</span>
+<h3>目利きが選ぶ、旬の魚</h3>
+<p>その日の市場を見て、状態の良いものだけを仕入れています。「今が旬」を、ありのままの美味しさでお出しすることを大切にしています。</p>
+<p>仕入れ内容は日によって変わるからこそ、何度来ても新しい発見があります。</p>
+</div>
+</div>
+<div class="frow rev">
+<img class="reveal" src="https://images.pexels.com/photos/38804070/pexels-photo-38804070.jpeg?auto=compress&cs=tinysrgb&w=900" alt="全国から取り寄せた日本酒の数々（イメージ）">
+<div class="reveal">
+<span class="num">02</span>
+<h3>全国から取り寄せた、こだわりの日本酒</h3>
+<p>蔵元と直接やり取りし、少量生産の銘柄も含めて常時20種以上をご用意。料理に合わせた一杯を、スタッフがご提案します。</p>
+<p>「いつもと違う一本」に出会える、日本酒好きの方にこそ訪れてほしい店です。</p>
+</div>
+</div>
+<div class="frow">
+<img class="reveal" src="https://images.pexels.com/photos/17250068/pexels-photo-17250068.jpeg?auto=compress&cs=tinysrgb&w=900" alt="落ち着いた雰囲気の個室（イメージ）">
+<div class="reveal">
+<span class="num">03</span>
+<h3>隠れ家という、非日常の空間</h3>
+<p>一日3組限定、完全個室でご案内。大切な方との会食や、静かに語らいたい夜にこそふさわしい、落ち着いた空間をご用意しています。</p>
+<p>「知る人ぞ知る」一軒として、長くお付き合いいただけるお店を目指しています。</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="gallery" id="gallery">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow" style="justify-content:center">GALLERY</span>
+<h2>店内のご紹介</h2>
+</div>
+<div class="gal-grid">
+<img class="reveal" src="https://images.pexels.com/photos/15837551/pexels-photo-15837551.jpeg?auto=compress&cs=tinysrgb&w=500" alt="提灯が灯る夜の店構え1">
+<img class="reveal" src="https://images.pexels.com/photos/34507323/pexels-photo-34507323.jpeg?auto=compress&cs=tinysrgb&w=500" alt="夜の店構え2">
+<img class="reveal" src="https://images.pexels.com/photos/14068194/pexels-photo-14068194.jpeg?auto=compress&cs=tinysrgb&w=500" alt="窓辺の提灯3">
+<img class="reveal" src="https://images.pexels.com/photos/37919989/pexels-photo-37919989.jpeg?auto=compress&cs=tinysrgb&w=500" alt="提灯の灯る店内4">
+</div>
+</div>
+</section>
+
+<section class="access" id="access">
+<div class="wrap">
+<div class="section-head reveal">
+<span class="eyebrow" style="justify-content:center">ACCESS</span>
+<h2>アクセス・ご予約について</h2>
+</div>
+<div class="acc-grid">
+<table class="acc-table reveal">
+<tr><td>営業時間</td><td>18:00〜23:00（L.O. 22:00）</td></tr>
+<tr><td>定休日</td><td>日曜日・祝日</td></tr>
+<tr><td>ご予算</td><td>¥6,000〜（コースは¥6,980〜）</td></tr>
+<tr><td>個室</td><td>完全個室あり（一日3組限定）</td></tr>
+<tr><td>お支払い</td><td>現金・各種キャッシュレス対応</td></tr>
+<tr><td>ご予約</td><td>公式LINEまたはお電話より（前日までを推奨）</td></tr>
+</table>
+<div class="map-box reveal">地図（デモ用プレースホルダー）</div>
+</div>
+</div>
+</section>
+
+<section class="final-cta">
+<div class="wrap reveal">
+<h2>今宵、特別なひとときを。</h2>
+<p>一日3組限定のため、ご予約はお早めに。大切な方とのひとときに、目利きの肴と厳選の日本酒をどうぞ。</p>
+<a href="#access" class="btn btn-primary">ご予約はこちら</a>
+</div>
+</section>
+
+<footer>
+<div class="wrap">
+<a class="demo-badge" href="../index.html">Produced as a website example by Conectar</a>
+<p class="credit">写真：Pexels（フリー素材）／これは実在しない架空の店舗のデモサイトです。メニュー内容・価格は一例であり、実在の店舗情報とは関係ありません。</p>
+</div>
+</footer>
+
+<script>
+const header = document.getElementById('siteHeader');
+window.addEventListener('scroll', () => {
+header.classList.toggle('scrolled', window.scrollY > 40);
+});
+const io = new IntersectionObserver((entries) => {
+entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, {threshold:.15});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
